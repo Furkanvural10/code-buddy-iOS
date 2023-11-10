@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,13 +16,28 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RN4-LB-d5g">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RN4-LB-d5g" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RDe-x1-H4A"/>
+                            <constraint firstAttribute="bottom" secondItem="RN4-LB-d5g" secondAttribute="bottom" id="fby-5a-fen"/>
+                            <constraint firstItem="RN4-LB-d5g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lHx-va-QVi"/>
+                            <constraint firstItem="RN4-LB-d5g" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mJw-Eh-PiS"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="RN4-LB-d5g" id="BN6-LY-rCb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55" y="-34"/>
+            <point key="canvasLocation" x="54.198473282442748" y="-34.507042253521128"/>
         </scene>
     </scenes>
     <resources>
