@@ -79,7 +79,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addImage" destination="G74-2N-Lsy" id="gSN-xf-0hp"/>
                         <outlet property="controlPanelView" destination="g23-fO-kAw" id="cYh-R5-T8A"/>
+                        <outlet property="favImage" destination="atW-Sj-WCg" id="Nur-nD-8x4"/>
+                        <outlet property="locationImage" destination="IiU-b7-KTV" id="tyD-83-HAV"/>
                         <outlet property="mapView" destination="RN4-LB-d5g" id="BN6-LY-rCb"/>
                     </connections>
                 </viewController>
