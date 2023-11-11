@@ -23,9 +23,45 @@
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g23-fO-kAw">
                                 <rect key="frame" x="57" y="743" width="279" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="G74-2N-Lsy">
+                                        <rect key="frame" x="15" y="10" width="40" height="40"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Bu2-pr-C0B"/>
+                                            <constraint firstAttribute="height" constant="40" id="c0Z-zE-fD2"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IiU-b7-KTV">
+                                        <rect key="frame" x="224" y="10" width="40" height="40"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="1p5-qL-8MQ"/>
+                                            <constraint firstAttribute="height" constant="40" id="jT2-fI-IEl"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="atW-Sj-WCg">
+                                        <rect key="frame" x="119" y="10" width="40" height="40"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="pFi-OL-v0i"/>
+                                            <constraint firstAttribute="height" constant="40" id="rra-j8-zEb"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="atW-Sj-WCg" secondAttribute="bottom" constant="10" id="3TL-oW-dqF"/>
+                                    <constraint firstItem="G74-2N-Lsy" firstAttribute="top" secondItem="g23-fO-kAw" secondAttribute="top" constant="10" id="5oR-Jz-1Fk"/>
+                                    <constraint firstItem="IiU-b7-KTV" firstAttribute="leading" secondItem="atW-Sj-WCg" secondAttribute="trailing" constant="65" id="8E1-WR-5H5"/>
+                                    <constraint firstItem="IiU-b7-KTV" firstAttribute="top" secondItem="g23-fO-kAw" secondAttribute="top" constant="10" id="CKP-s9-LTy"/>
                                     <constraint firstAttribute="height" constant="60" id="HPj-ep-Dyi"/>
+                                    <constraint firstItem="atW-Sj-WCg" firstAttribute="top" secondItem="g23-fO-kAw" secondAttribute="top" constant="10" id="JX0-Lq-A3I"/>
+                                    <constraint firstItem="G74-2N-Lsy" firstAttribute="leading" secondItem="g23-fO-kAw" secondAttribute="leading" constant="15" id="KZI-2E-cM7"/>
+                                    <constraint firstAttribute="bottom" secondItem="IiU-b7-KTV" secondAttribute="bottom" constant="10" id="bsH-o8-Esh"/>
+                                    <constraint firstAttribute="trailing" secondItem="IiU-b7-KTV" secondAttribute="trailing" constant="15" id="kLs-Bo-Oir"/>
+                                    <constraint firstAttribute="bottom" secondItem="G74-2N-Lsy" secondAttribute="bottom" constant="10" id="o3U-nB-0YD"/>
+                                    <constraint firstItem="atW-Sj-WCg" firstAttribute="leading" secondItem="G74-2N-Lsy" secondAttribute="trailing" constant="64" id="y6r-RV-4MS"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -53,6 +89,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
+        <image name="location.fill" catalog="system" width="128" height="119"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

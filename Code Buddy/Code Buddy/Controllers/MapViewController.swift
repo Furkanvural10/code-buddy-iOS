@@ -13,6 +13,7 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var controlPanelView: UIView!
     
+    
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
     
@@ -25,8 +26,8 @@ class MapViewController: UIViewController {
     }
     
     private func setupControlPanel() {
-        self.controlPanelView.layer.cornerRadius = 10
-        self.controlPanelView.backgroundColor = .orange
+        self.controlPanelView.layer.cornerRadius = 15
+        self.controlPanelView.backgroundColor = .white.withAlphaComponent(0.2)
     }
     
     
