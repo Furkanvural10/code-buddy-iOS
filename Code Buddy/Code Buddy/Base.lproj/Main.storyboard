@@ -21,10 +21,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g23-fO-kAw">
+                                <rect key="frame" x="57" y="743" width="279" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HPj-ep-Dyi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="g23-fO-kAw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0eb-hS-jnw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="g23-fO-kAw" secondAttribute="bottom" constant="15" id="9LQ-1X-tYr"/>
+                            <constraint firstItem="g23-fO-kAw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="A8C-TW-5XW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="g23-fO-kAw" secondAttribute="trailing" constant="57" id="Lam-Qc-t0b"/>
                             <constraint firstItem="RN4-LB-d5g" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RDe-x1-H4A"/>
                             <constraint firstAttribute="bottom" secondItem="RN4-LB-d5g" secondAttribute="bottom" id="fby-5a-fen"/>
                             <constraint firstItem="RN4-LB-d5g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lHx-va-QVi"/>
@@ -32,6 +43,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="controlPanelView" destination="g23-fO-kAw" id="cYh-R5-T8A"/>
                         <outlet property="mapView" destination="RN4-LB-d5g" id="BN6-LY-rCb"/>
                     </connections>
                 </viewController>

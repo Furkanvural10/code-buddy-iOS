@@ -11,19 +11,26 @@ import CoreLocation
 
 class MapViewController: UIViewController {
     
+    @IBOutlet weak var controlPanelView: UIView!
     
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupMap()
+        setupControlPanel()
         
 
     }
     
+    private func setupControlPanel() {
+        self.controlPanelView.layer.cornerRadius = 10
+        self.controlPanelView.backgroundColor = .orange
+    }
     
-    private func setupUI() {
+    
+    private func setupMap() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -40,7 +47,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Location didudate worked")
         let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
-        let span = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: location, span: span)
         
         self.mapView.setRegion(region, animated: true)
