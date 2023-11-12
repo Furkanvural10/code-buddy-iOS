@@ -78,7 +78,7 @@ class MapViewController: UIViewController {
         
         if tappedImageView == addImage {
             
-            print("Tıklandı: add")
+            SheetPresent.sheetPresentView(vc: self, identifier: "addAnnotationIdentifier")
             
         } else if tappedImageView == favImage {
             
