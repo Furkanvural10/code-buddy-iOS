@@ -39,6 +39,7 @@ class AddAnnotationViewController: UIViewController {
     }
     @IBAction func statusSegmentedChanged(_ sender: Any) {
         
+//        VM
         let index = statusSegmentedControl.selectedSegmentIndex
         switch index {
         case 0:
