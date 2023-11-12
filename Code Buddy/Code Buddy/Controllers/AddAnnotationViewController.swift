@@ -19,6 +19,10 @@ class AddAnnotationViewController: UIViewController {
     // MARK: - Button
     @IBOutlet weak var saveButton: UIButton!
     
+    // MARK: - Profile Image Add
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +30,11 @@ class AddAnnotationViewController: UIViewController {
     }
     
     private func setupUI() {
+        
+        // MARK: - SegmentedControl UI
+        statusSegmentedControl.selectedSegmentTintColor = .systemGreen
+        
+        // MARK: - SaveButton UI
         
     }
     @IBAction func statusSegmentedChanged(_ sender: Any) {
@@ -43,7 +52,7 @@ class AddAnnotationViewController: UIViewController {
     }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
-        
+        self.dismiss(animated: true)
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
