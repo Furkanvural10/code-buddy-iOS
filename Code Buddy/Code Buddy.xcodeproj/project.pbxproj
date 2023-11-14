@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043800362B040635007C5D72 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043800352B040635007C5D72 /* MapViewModel.swift */; };
+		043800392B04067A007C5D72 /* AddAnnotationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043800382B04067A007C5D72 /* AddAnnotationViewModel.swift */; };
+		0438003D2B040809007C5D72 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438003C2B040809007C5D72 /* UserTableViewController.swift */; };
+		0438003F2B04085B007C5D72 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438003E2B04085B007C5D72 /* PlacesTableViewController.swift */; };
 		0438FF712AFECCF6007C5D72 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438FF702AFECCF6007C5D72 /* MapViewController.swift */; };
 		0438FFDA2B0150E0007C5D72 /* SheetPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438FFD92B0150E0007C5D72 /* SheetPresent.swift */; };
 		0438FFDC2B01521D007C5D72 /* AddAnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438FFDB2B01521D007C5D72 /* AddAnnotationViewController.swift */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		043800352B040635007C5D72 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		043800382B04067A007C5D72 /* AddAnnotationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnnotationViewModel.swift; sourceTree = "<group>"; };
+		0438003C2B040809007C5D72 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		0438003E2B04085B007C5D72 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
 		0438FF702AFECCF6007C5D72 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		0438FFD92B0150E0007C5D72 /* SheetPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresent.swift; sourceTree = "<group>"; };
 		0438FFDB2B01521D007C5D72 /* AddAnnotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnnotationViewController.swift; sourceTree = "<group>"; };
@@ -41,13 +49,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0438FF6F2AFECCE1007C5D72 /* Controllers */ = {
+		043800342B04061F007C5D72 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				043800352B040635007C5D72 /* MapViewModel.swift */,
 				0438FF702AFECCF6007C5D72 /* MapViewController.swift */,
-				0438FFDB2B01521D007C5D72 /* AddAnnotationViewController.swift */,
+				043800372B040657007C5D72 /* AnnotationSheet */,
+				0438003A2B040755007C5D72 /* UsersSheet */,
+				0438003B2B040763007C5D72 /* PlaceSheet */,
 			);
-			path = Controllers;
+			path = Map;
+			sourceTree = "<group>";
+		};
+		043800372B040657007C5D72 /* AnnotationSheet */ = {
+			isa = PBXGroup;
+			children = (
+				0438FFDB2B01521D007C5D72 /* AddAnnotationViewController.swift */,
+				043800382B04067A007C5D72 /* AddAnnotationViewModel.swift */,
+			);
+			path = AnnotationSheet;
+			sourceTree = "<group>";
+		};
+		0438003A2B040755007C5D72 /* UsersSheet */ = {
+			isa = PBXGroup;
+			children = (
+				0438003C2B040809007C5D72 /* UserTableViewController.swift */,
+			);
+			path = UsersSheet;
+			sourceTree = "<group>";
+		};
+		0438003B2B040763007C5D72 /* PlaceSheet */ = {
+			isa = PBXGroup;
+			children = (
+				0438003E2B04085B007C5D72 /* PlacesTableViewController.swift */,
+			);
+			path = PlaceSheet;
+			sourceTree = "<group>";
+		};
+		0438FF6F2AFECCE1007C5D72 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				043800342B04061F007C5D72 /* Map */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		0438FFD82B015024007C5D72 /* BottomSheets */ = {
@@ -78,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				0438FFD82B015024007C5D72 /* BottomSheets */,
-				0438FF6F2AFECCE1007C5D72 /* Controllers */,
+				0438FF6F2AFECCE1007C5D72 /* Scene */,
 				0497268E2AFAD82900C43BA4 /* AppDelegate.swift */,
 				049726902AFAD82900C43BA4 /* SceneDelegate.swift */,
 				049726942AFAD82900C43BA4 /* Main.storyboard */,
@@ -162,9 +206,13 @@
 			files = (
 				0438FFDC2B01521D007C5D72 /* AddAnnotationViewController.swift in Sources */,
 				0497268F2AFAD82900C43BA4 /* AppDelegate.swift in Sources */,
+				043800392B04067A007C5D72 /* AddAnnotationViewModel.swift in Sources */,
 				0438FF712AFECCF6007C5D72 /* MapViewController.swift in Sources */,
 				049726912AFAD82900C43BA4 /* SceneDelegate.swift in Sources */,
 				0438FFDA2B0150E0007C5D72 /* SheetPresent.swift in Sources */,
+				0438003D2B040809007C5D72 /* UserTableViewController.swift in Sources */,
+				043800362B040635007C5D72 /* MapViewModel.swift in Sources */,
+				0438003F2B04085B007C5D72 /* PlacesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
