@@ -17,6 +17,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var addImage: UIImageView!
     @IBOutlet weak var favImage: UIImageView!
     @IBOutlet weak var locationImage: UIImageView!
+    @IBOutlet weak var personsImage: UIImageView!
     
     var locationManager = CLLocationManager()
     
@@ -37,6 +38,11 @@ class MapViewController: UIViewController {
         self.addImage.addGestureRecognizer(gestureRecognizerForAddImage)
         self.addImage.isUserInteractionEnabled = true
         
+        // MARK: - Users image clicked
+        let gestureRecognizerForUsersImage = UITapGestureRecognizer(target: self, action: #selector(openAddSheet(_:)))
+        self.personsImage.addGestureRecognizer(gestureRecognizerForUsersImage)
+        self.personsImage.isUserInteractionEnabled = true
+        
         // MARK: - Fav image clicked
         let gestureRecognizerForFavImage = UITapGestureRecognizer(target: self, action: #selector(openAddSheet(_:)))
         
@@ -47,6 +53,8 @@ class MapViewController: UIViewController {
         let gestureRecognizerForLocationImage = UITapGestureRecognizer(target: self, action: #selector(openAddSheet(_:)))
         self.locationImage.addGestureRecognizer(gestureRecognizerForLocationImage)
         self.locationImage.isUserInteractionEnabled = true
+        
+        
         
     }
     
@@ -77,15 +85,16 @@ class MapViewController: UIViewController {
         
         
         if tappedImageView == addImage {
+            let customSheetHeight = view.bounds.height * 0.35
+            SheetPresent.shared.sheetPresentView(vc: self, identifier: "addAnnotationIdentifier", customHeight: customSheetHeight)
             
-            SheetPresent.sheetPresentView(vc: self, identifier: "addAnnotationIdentifier")
+        } else if tappedImageView == personsImage {
+            print("Worked2")
+            SheetPresent.shared.sheetPresentView(vc: self, identifier: "showUserTableViewID", customHeight: nil)
             
         } else if tappedImageView == favImage {
-            
-            print("Tıklandı: fav")
-            
-        } else {
-            print("Tıklandı location")
+            print("Worked3")
+            SheetPresent.shared.sheetPresentView(vc: self, identifier: "showPlacesTableViewID", customHeight: nil)
         }
     }
     

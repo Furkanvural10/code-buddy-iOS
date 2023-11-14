@@ -96,6 +96,7 @@
                         <outlet property="favImage" destination="atW-Sj-WCg" id="Nur-nD-8x4"/>
                         <outlet property="locationImage" destination="IiU-b7-KTV" id="tyD-83-HAV"/>
                         <outlet property="mapView" destination="RN4-LB-d5g" id="BN6-LY-rCb"/>
+                        <outlet property="personsImage" destination="kc5-nR-fyQ" id="C8Z-cH-tgz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -128,7 +129,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPn-ON-6do" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1737" y="-35"/>
+            <point key="canvasLocation" x="2048" y="-35"/>
         </scene>
         <!--Places Table View Controller-->
         <scene sceneID="Bcc-HN-xq1">
@@ -156,7 +157,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CxC-6N-cLS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1737" y="680"/>
+            <point key="canvasLocation" x="2047" y="671"/>
         </scene>
         <!--Add Annotation View Controller-->
         <scene sceneID="hVp-3R-jwo">
@@ -257,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8u-Qb-jcZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1737" y="-704"/>
+            <point key="canvasLocation" x="2048" y="-716"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pni-il-Csq">
