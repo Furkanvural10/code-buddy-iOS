@@ -65,6 +65,7 @@ class MapViewController: UIViewController {
         // Image Setup
         self.addImage.tintColor = .white
         self.favImage.tintColor = .red
+        self.personsImage.tintColor = .systemGreen
         self.locationImage.tintColor = .systemBlue
     }
     
@@ -89,11 +90,11 @@ class MapViewController: UIViewController {
             SheetPresent.shared.sheetPresentView(vc: self, identifier: "addAnnotationIdentifier", customHeight: customSheetHeight)
             
         } else if tappedImageView == personsImage {
-            print("Worked2")
+            
             SheetPresent.shared.sheetPresentView(vc: self, identifier: "showUserTableViewID", customHeight: nil)
             
         } else if tappedImageView == favImage {
-            print("Worked3")
+            
             SheetPresent.shared.sheetPresentView(vc: self, identifier: "showPlacesTableViewID", customHeight: nil)
         }
     }
@@ -103,7 +104,7 @@ class MapViewController: UIViewController {
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Location didudate worked")
+        
         let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: location, span: span)

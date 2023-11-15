@@ -112,13 +112,65 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fjr-M2-W2U">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="usersID" rowHeight="100" id="fjr-M2-W2U" customClass="UsersTableViewCell" customModule="Code_Buddy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fjr-M2-W2U" id="7MW-Pd-fHB">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lnN-mp-Aop">
+                                            <rect key="frame" x="25" y="19.333333333333329" width="50" height="62.000000000000014"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="9PQ-4o-5F0"/>
+                                                <constraint firstAttribute="width" constant="50" id="bgd-Y4-TXu"/>
+                                            </constraints>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Furkan Vural" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-kh-y2b">
+                                            <rect key="frame" x="90" y="15.999999999999998" width="95.333333333333314" height="20.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrW-Ae-Di2">
+                                            <rect key="frame" x="90" y="41.333333333333336" width="92.333333333333314" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cup.and.saucer.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="M0W-La-cjj">
+                                            <rect key="frame" x="322" y="7" width="51" height="48"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" systemColor="systemBrownColor"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Networking" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXK-Qj-8bR">
+                                            <rect key="frame" x="322.66666666666669" y="50" width="55.333333333333314" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5rd-kh-y2b" firstAttribute="top" secondItem="7MW-Pd-fHB" secondAttribute="topMargin" constant="5" id="45r-wh-qTV"/>
+                                        <constraint firstItem="lnN-mp-Aop" firstAttribute="top" secondItem="7MW-Pd-fHB" secondAttribute="topMargin" constant="5" id="AxH-CI-fao"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="lnN-mp-Aop" secondAttribute="bottom" constant="5" id="R2T-0w-ztk"/>
+                                        <constraint firstItem="lrW-Ae-Di2" firstAttribute="top" secondItem="5rd-kh-y2b" secondAttribute="bottom" constant="5" id="ZlD-8Z-eWP"/>
+                                        <constraint firstAttribute="bottom" secondItem="YXK-Qj-8bR" secondAttribute="bottom" constant="20" id="fq5-4O-KOM"/>
+                                        <constraint firstItem="YXK-Qj-8bR" firstAttribute="top" secondItem="7MW-Pd-fHB" secondAttribute="top" constant="50" id="gTO-4f-iEn"/>
+                                        <constraint firstAttribute="trailing" secondItem="YXK-Qj-8bR" secondAttribute="trailing" constant="15" id="i9q-h3-PIe"/>
+                                        <constraint firstItem="lnN-mp-Aop" firstAttribute="leading" secondItem="7MW-Pd-fHB" secondAttribute="leadingMargin" constant="5" id="lx1-Gs-23f"/>
+                                        <constraint firstItem="lrW-Ae-Di2" firstAttribute="leading" secondItem="lnN-mp-Aop" secondAttribute="trailing" constant="15" id="oHe-XK-uTQ"/>
+                                        <constraint firstItem="5rd-kh-y2b" firstAttribute="leading" secondItem="lnN-mp-Aop" secondAttribute="trailing" constant="15" id="tkN-6C-2xc"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="5rd-kh-y2b" id="dUs-hW-iLb"/>
+                                    <outlet property="profileImageView" destination="lnN-mp-Aop" id="W1t-kq-8z2"/>
+                                    <outlet property="statusImageView" destination="M0W-La-cjj" id="RQJ-5i-yto"/>
+                                    <outlet property="statusLabel" destination="YXK-Qj-8bR" id="Tat-6J-9Vy"/>
+                                    <outlet property="titleLabel" destination="lrW-Ae-Di2" id="Zlt-cJ-d7R"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -126,10 +178,13 @@
                             <outlet property="delegate" destination="cPq-Xu-wc8" id="iWZ-TJ-1Wa"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="E0Q-Zh-5Mo">
+                        <barButtonItem key="rightBarButtonItem" title="Filter" image="line.3.horizontal.decrease.circle" catalog="system" id="Ipc-Hg-Db7"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPn-ON-6do" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2048" y="-35"/>
+            <point key="canvasLocation" x="2046.564885496183" y="-35.211267605633807"/>
         </scene>
         <!--Places Table View Controller-->
         <scene sceneID="Bcc-HN-xq1">
@@ -280,13 +335,19 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cup.and.saucer.fill" catalog="system" width="128" height="91"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
+        <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
+        <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

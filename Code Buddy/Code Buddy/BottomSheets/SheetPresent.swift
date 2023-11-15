@@ -32,7 +32,7 @@ struct SheetPresent {
             
             if let userTableVC = vc.storyboard?.instantiateViewController(withIdentifier: identifier) as? UserTableViewController {
                 if let sheet = userTableVC.sheetPresentationController{
-                    sheet.detents = [.medium(), .large()]
+                    sheet.detents = [.medium()]
                     sheet.preferredCornerRadius = 15.0
                 }
                 vc.navigationController?.present(userTableVC, animated: true)
