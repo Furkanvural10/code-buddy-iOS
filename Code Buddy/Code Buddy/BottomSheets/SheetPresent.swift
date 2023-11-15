@@ -39,7 +39,7 @@ struct SheetPresent {
             }
             
         } else {
-            if let showPlacesVC = vc.storyboard?.instantiateViewController(withIdentifier: identifier) as? PlacesTableViewController {
+            if let showPlacesVC = vc.storyboard?.instantiateViewController(withIdentifier: identifier) as? PlacesViewController {
                 if let sheet = showPlacesVC.sheetPresentationController{
                     sheet.detents = [.medium()]
                     sheet.preferredCornerRadius = 15.0

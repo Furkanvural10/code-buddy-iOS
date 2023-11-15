@@ -95,7 +95,7 @@ class MapViewController: UIViewController {
             
         } else if tappedImageView == favImage {
             
-            SheetPresent.shared.sheetPresentView(vc: self, identifier: "showPlacesTableViewID", customHeight: nil)
+            SheetPresent.shared.sheetPresentView(vc: self, identifier: "showPlacesID", customHeight: nil)
         }
     }
     
