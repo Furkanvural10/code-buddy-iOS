@@ -43,10 +43,15 @@ extension PlacesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "XYZ Places"
-        cell.detailTextLabel?.text = "Kadıköy"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "placesID") as! PlacesTableViewCell
+        cell.placeNameLabel.text = "Places XYZ"
+        cell.placeAddressLabel.text = "Kadıköy"
+        cell.favoriteImageView.image = UIImage(systemName: "heart.fill")
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     
     

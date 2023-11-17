@@ -96,6 +96,9 @@ class MapViewController: UIViewController {
         } else if tappedImageView == favImage {
             
             SheetPresent.shared.sheetPresentView(vc: self, identifier: "showPlacesID", customHeight: nil)
+        } else {
+            //Buraya tıklandığında kullanıcıyı anlık konumuna gönder.
+            locationManager.startUpdatingLocation()
         }
     }
     
@@ -110,6 +113,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: location, span: span)
         
         self.mapView.setRegion(region, animated: true)
+        locationManager.stopUpdatingLocation()
     }
     
 }
