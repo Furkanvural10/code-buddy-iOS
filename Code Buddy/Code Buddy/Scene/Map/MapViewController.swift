@@ -9,17 +9,17 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController {
+final class MapViewController: UIViewController {
     
-    @IBOutlet weak var controlPanelView: UIView!
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet private weak var controlPanelView: UIView!
+    @IBOutlet private weak var mapView: MKMapView!
     
-    @IBOutlet weak var addImage: UIImageView!
-    @IBOutlet weak var favImage: UIImageView!
-    @IBOutlet weak var locationImage: UIImageView!
-    @IBOutlet weak var personsImage: UIImageView!
+    @IBOutlet private weak var addImage: UIImageView!
+    @IBOutlet private weak var favImage: UIImageView!
+    @IBOutlet private weak var locationImage: UIImageView!
+    @IBOutlet private weak var personsImage: UIImageView!
     
-    var locationManager = CLLocationManager()
+    private lazy var locationManager = CLLocationManager()
     
     
     override func viewDidLoad() {
@@ -97,7 +97,6 @@ class MapViewController: UIViewController {
             
             SheetPresent.shared.sheetPresentView(vc: self, identifier: "showPlacesID", customHeight: nil)
         } else {
-            //Buraya tıklandığında kullanıcıyı anlık konumuna gönder.
             locationManager.startUpdatingLocation()
         }
     }
