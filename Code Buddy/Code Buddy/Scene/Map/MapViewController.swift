@@ -115,4 +115,20 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
     }
     
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
+        }
+        
+        if let title = annotation.title, title == "Deneme" {
+            annotationView?.image = UIImage(systemName: "car")
+        }
+        
+        
+        return annotationView
+    }
+    
 }
