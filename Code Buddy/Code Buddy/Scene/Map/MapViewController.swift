@@ -24,18 +24,23 @@ final class MapViewController: UIViewController {
     let locations = [
                 CLLocationCoordinate2D(latitude: 41.0791, longitude: 29.0314),
                 CLLocationCoordinate2D(latitude: 41.0807, longitude: 29.0344),
-                CLLocationCoordinate2D(latitude: 41.0844, longitude: 29.0325)
+                CLLocationCoordinate2D(latitude: 41.0844, longitude: 29.0325),
+                CLLocationCoordinate2D(latitude: 41.0844, longitude: 29.0325),
+                CLLocationCoordinate2D(latitude: 41.0508, longitude: 29.0248),
+                CLLocationCoordinate2D(latitude: 41.050867721024225, longitude: 29.032714963905693),
+                CLLocationCoordinate2D(latitude: 41.051320810029004, longitude: 29.02232945069483),
+                CLLocationCoordinate2D(latitude: 41.04209659766404, longitude: 29.009583593572426),
+                CLLocationCoordinate2D(latitude: 41.04297052575788, longitude: 29.010828138554153),
                 // ... Daha fazla konum eklenebilir
             ]
-
     var annotationList = [MKAnnotation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView.delegate = self
-        mapView.register(MapPinView.self, forAnnotationViewWithReuseIdentifier: "pin")
-//        mapView.register(MKClusterAnnotation.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+        mapView.register(MyCustomMapPinView.self, forAnnotationViewWithReuseIdentifier: "pin")
+        mapView.register(MKClusterAnnotation.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
         mapView.register(MyAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         mapView.register(MyClusterAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
 
@@ -99,6 +104,9 @@ final class MapViewController: UIViewController {
             let annotation = MKPointAnnotation()
             annotation.coordinate = location
             annotationList.append(annotation)
+            annotation.title = "Furkan Vural\nWorking"
+            annotation.subtitle = "iOS Developer"
+            
             mapView.addAnnotation(annotation)
         }
 
@@ -123,6 +131,17 @@ final class MapViewController: UIViewController {
             locationManager.startUpdatingLocation()
         }
     }
+    
+    private lazy var imageView: UIImageView = {
+        let imageview = UIImageView()
+        imageview.translatesAutoresizingMaskIntoConstraints = false
+        imageview.image = UIImage(named: "fv")
+        imageview.layer.cornerRadius = 8.0
+//        imageview.backgroundColor = .orange
+        imageview.clipsToBounds = true
+        imageview.contentMode = .scaleAspectFit
+        return imageview
+    }()
 }
 
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
@@ -143,41 +162,86 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
 ////        return annotationView
 //    }
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-           
-          if annotation is MKUserLocation {
-          return nil
-           } else {
-               
-               let identifier = "pin"
-               var marker: MKMarkerAnnotationView
-               
-               if let dequeuedView = mapView.dequeueReusableAnnotationView(
-                withIdentifier: identifier) as? MKMarkerAnnotationView {
-                   dequeuedView.annotation = annotation
-                   marker = dequeuedView
-                   
-               } else {
-                   marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-               }
-               
-               marker.canShowCallout = true // How can I turn this false if callout is a cluster?
-               marker.markerTintColor = .systemBlue
-               marker.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-               marker.glyphImage = UIImage(systemName: "star")
-               marker.clusteringIdentifier = "clusteringIdentifier"
-               
-               
-               return marker
-               
-               
-           }
-       }
     
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        guard let annotation = annotation as? MKPointAnnotation else { return nil }
+        
+        let identifier = "customAnnotation"
+        var annotationView: MKAnnotationView
+        
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
+            annotationView = dequeuedView
+        } else {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView.calloutOffset = CGPoint(x: 25, y: -10)
+            annotationView.canShowCallout = true
+            
+            let circleLayer = CALayer()
+            circleLayer.bounds = CGRect(x: 0, y: 0, width: 40, height: 40)
+            circleLayer.cornerRadius = 20 // Yarıçapı, genellikle boyutun yarısı olarak ayarlanır
+            circleLayer.masksToBounds = true
+            
+            // Pin'in içine image ekleme
+            let circleImage = UIImage(named: "fv") // Pin'in içine yerleştireceğiniz görüntü
+            circleLayer.contents = circleImage?.cgImage
+            let imageView = UIImageView(image: circleImage)
+            imageView.frame = CGRect(x: 0, y: 0, width: 33, height: 33) // Ölçülerinizi belirleyin
+            imageView.layer.cornerRadius = 20
+            imageView.contentMode = .scaleAspectFit
+//            annotationView.addSubview(imageView)
+            annotationView.layer.addSublayer(circleLayer)
+
+        }
+        
+        return annotationView
+    
+        
+        
+        
+//        if annotation is MKUserLocation {
+//            return nil
+//        } else {
+//            let identifier = "id"
+//            var marker = MKMarkerAnnotationView()
+//
+//            if let dequeuedView = mapView.dequeueReusableAnnotationView(
+//                withIdentifier: identifier) as? MKMarkerAnnotationView {
+//                dequeuedView.annotation = annotation
+//                marker = dequeuedView
+//
+//            } else {
+//                marker.annotation = annotation
+//            }
+//
+//            marker.canShowCallout = true
+//            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 45, height: 45))
+//
+//            imageView.contentMode = .scaleAspectFit
+//            imageView.image = UIImage(named: "fv")
+//            imageView.contentMode = .scaleAspectFit
+//
+//            marker.glyphTintColor = .black
+//            marker.glyphImage = UIImage(systemName: "person.fill")
+//            marker.layer.cornerRadius = 60
+//            marker.markerTintColor = .white
+//
+//            marker.leftCalloutAccessoryView = imageView
+//            marker.leftCalloutAccessoryView?.layer.cornerRadius = 20
+////            marker.clusteringIdentifier = "id"
+//            return marker
+//
+//        }
+    }
+    
+    
+    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let span = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
         let region = MKCoordinateRegion(center: location, span: span)
         self.location = location
         self.mapView.setRegion(region, animated: true)
@@ -186,7 +250,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
     
     func mapView(_ mapView: MKMapView, clusterAnnotationForMemberAnnotations memberAnnotations: [MKAnnotation]) -> MKClusterAnnotation {
-        print("Cluster view worked")
+        
         let cluster = MKClusterAnnotation(memberAnnotations: annotationList)
         cluster.title = "More things to see here"
         cluster.subtitle = "Zoom further in"
@@ -195,7 +259,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
 }
 
 
-class MapPinView: MKAnnotationView {
+class MyCustomMapPinView: MKAnnotationView {
     private lazy var containerView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 110, height: 30))
         view.backgroundColor = .white
@@ -292,7 +356,7 @@ private extension MyAnnotationView {
         canShowCallout = true
         markerTintColor = .systemBlue
         rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        glyphImage = UIImage(systemName: "star")
+        glyphImage = UIImage(named: "kenny")
 
         update(for: annotation)
     }
@@ -323,5 +387,20 @@ class MyClusterAnnotationView: MKMarkerAnnotationView {
 private extension MyClusterAnnotationView {
     func update(for annotation: MKAnnotation? = nil) {
         markerTintColor = .systemGray
+    }
+}
+
+
+extension MKMapView {
+    var zoomLevel: Double {
+        let maxZoom: Double = 20 // En büyük zoom seviyesi
+        let region = self.region
+        let span = region.span
+        let longitudeDelta = span.longitudeDelta
+        let mapWidthInPixels = Double(self.bounds.width)
+        let zoomScale = longitudeDelta * 360.0 * (mapWidthInPixels / 256.0)
+        let zoomExponent = log2(zoomScale)
+        let zoom = max(0, min(zoomExponent, maxZoom))
+        return zoom
     }
 }
