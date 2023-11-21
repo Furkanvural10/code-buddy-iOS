@@ -35,9 +35,11 @@ class UserTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "usersID", for: indexPath) as! UsersTableViewCell
         
+
         cell.nameLabel.text = "Furkan Vural"
         cell.statusLabel.text = "Networking"
         cell.titleLabel.text = "iOS Developer"
+        cell.profileImageView.image = UIImage(named: "fv")
         // Configure the cell...
 
         return cell

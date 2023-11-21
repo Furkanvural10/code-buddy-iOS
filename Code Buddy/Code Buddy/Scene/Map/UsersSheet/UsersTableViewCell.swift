@@ -22,6 +22,9 @@ class UsersTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        profileImageView.contentMode = .scaleAspectFit
+        profileImageView.layer.masksToBounds = true
+        profileImageView.layer.cornerRadius = 26
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

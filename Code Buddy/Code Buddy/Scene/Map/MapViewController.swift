@@ -175,19 +175,19 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             annotationView = dequeuedView
         } else {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView.calloutOffset = CGPoint(x: 25, y: -10)
+            annotationView.calloutOffset = CGPoint(x: 0, y: -14)
             annotationView.canShowCallout = true
             
             let circleLayer = CALayer()
-            circleLayer.bounds = CGRect(x: 0, y: 0, width: 40, height: 40)
-            circleLayer.cornerRadius = 20 // Yarıçapı, genellikle boyutun yarısı olarak ayarlanır
+            circleLayer.bounds = CGRect(x: 0, y: 0, width: 38, height: 38)
+            circleLayer.cornerRadius = 20
             circleLayer.masksToBounds = true
             
             // Pin'in içine image ekleme
-            let circleImage = UIImage(named: "fv") // Pin'in içine yerleştireceğiniz görüntü
+            let circleImage = UIImage(named: "fv")
             circleLayer.contents = circleImage?.cgImage
             let imageView = UIImageView(image: circleImage)
-            imageView.frame = CGRect(x: 0, y: 0, width: 33, height: 33) // Ölçülerinizi belirleyin
+            imageView.frame = CGRect(x: 0, y: 0, width: 33, height: 33)
             imageView.layer.cornerRadius = 20
             imageView.contentMode = .scaleAspectFit
 //            annotationView.addSubview(imageView)
