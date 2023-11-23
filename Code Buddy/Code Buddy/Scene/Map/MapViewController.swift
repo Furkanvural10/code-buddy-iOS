@@ -148,14 +148,14 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             circleLayer.masksToBounds = true
             
             let statusCircle = CALayer()
-                    statusCircle.bounds = CGRect(x: 0, y: 0, width: 7, height: 7)
-                    statusCircle.cornerRadius = 2.5
+                    statusCircle.bounds = CGRect(x: 0, y: 0, width: 9, height: 9)
+                    statusCircle.cornerRadius = 5
                     statusCircle.masksToBounds = true
             
-            let isActive = true // Kullanıcının aktif olduğu bir şart ifadesi olmalı
-                   statusCircle.backgroundColor = isActive ? UIColor.green.cgColor : UIColor.red.cgColor
+            let isActive = false //
+            statusCircle.backgroundColor = isActive ? UIColor.systemGreen.cgColor : UIColor.systemRed.cgColor
             
-            let circleOffset = CGPoint(x: -20, y: -20)
+            let circleOffset = CGPoint(x: -17.5, y: -20)
                     statusCircle.position = CGPoint(x: circleOffset.x + 5, y: circleOffset.y + 5)
             
             // Pin'in içine image ekleme
@@ -163,7 +163,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             circleLayer.contents = circleImage?.cgImage
             let imageView = UIImageView(image: circleImage)
             imageView.frame = CGRect(x: 0, y: 0, width: 33, height: 33)
-            imageView.layer.cornerRadius = 20
+            imageView.layer.cornerRadius = 15
             imageView.contentMode = .scaleAspectFit
             annotationView.layer.addSublayer(circleLayer)
             annotationView.layer.addSublayer(statusCircle)
