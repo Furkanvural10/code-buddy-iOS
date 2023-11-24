@@ -142,29 +142,38 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             annotationView.canShowCallout = true
             
             
+            // MARK: - Circle of Annotation Layer
             let circleLayer = CALayer()
             circleLayer.bounds = CGRect(x: 0, y: 0, width: 38, height: 38)
             circleLayer.cornerRadius = 20
             circleLayer.masksToBounds = true
             
+            // MARK: - Circle of Status Layer
             let statusCircle = CALayer()
-                    statusCircle.bounds = CGRect(x: 0, y: 0, width: 9, height: 9)
-                    statusCircle.cornerRadius = 5
-                    statusCircle.masksToBounds = true
+            statusCircle.bounds = CGRect(x: 0, y: 0, width: 9, height: 9)
+            statusCircle.cornerRadius = 5
+            statusCircle.masksToBounds = true
             
+            // Status Circle Position in the annotation
+            let circleOffset = CGPoint(x: -17.5, y: -20)
+            statusCircle.position = CGPoint(x: circleOffset.x + 5, y: circleOffset.y + 5)
+            
+            // status Color Check (If user busy, red, else green)
             let isActive = false //
             statusCircle.backgroundColor = isActive ? UIColor.systemGreen.cgColor : UIColor.systemRed.cgColor
             
-            let circleOffset = CGPoint(x: -17.5, y: -20)
-                    statusCircle.position = CGPoint(x: circleOffset.x + 5, y: circleOffset.y + 5)
             
-            // Pin'in içine image ekleme
+            // Pin'in içine image ekleme (Kullanıcının app'e yüklediği image olacak)
             let circleImage = UIImage(named: "fv")
             circleLayer.contents = circleImage?.cgImage
+            
+            // imageView in the annotations
             let imageView = UIImageView(image: circleImage)
             imageView.frame = CGRect(x: 0, y: 0, width: 33, height: 33)
             imageView.layer.cornerRadius = 15
             imageView.contentMode = .scaleAspectFit
+            
+            // Adding sublayer to annotationView
             annotationView.layer.addSublayer(circleLayer)
             annotationView.layer.addSublayer(statusCircle)
 

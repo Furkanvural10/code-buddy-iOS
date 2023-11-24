@@ -296,7 +296,7 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Bvx-dw-KeX">
                                 <rect key="frame" x="20" y="184" width="353" height="32"/>
                                 <segments>
-                                    <segment title="Colloboration"/>
+                                    <segment title="Working"/>
                                     <segment title="Networking"/>
                                     <segment title="Busy"/>
                                 </segments>
