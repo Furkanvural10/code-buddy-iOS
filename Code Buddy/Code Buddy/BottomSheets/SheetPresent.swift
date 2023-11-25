@@ -22,23 +22,23 @@ struct SheetPresent {
                         customHeight
                         
                     })]
-
+                    
                     sheet.preferredCornerRadius = 15.0
                 }
                 vc.navigationController?.present(addAnnotationVC, animated: true)
             }
             
-        } else if identifier == "showUserTableViewID" {
+        } else if identifier == "showUsersID" {
             
-            if let userTableVC = vc.storyboard?.instantiateViewController(withIdentifier: identifier) as? UserTableViewController {
+            if let userTableVC = vc.storyboard?.instantiateViewController(withIdentifier: identifier) as? UsersViewController {
                 if let sheet = userTableVC.sheetPresentationController{
                     sheet.detents = [.medium()]
                     sheet.preferredCornerRadius = 15.0
                 }
                 vc.navigationController?.present(userTableVC, animated: true)
             }
-            
-        } else {
+        }
+        else {
             if let showPlacesVC = vc.storyboard?.instantiateViewController(withIdentifier: identifier) as? PlacesViewController {
                 if let sheet = showPlacesVC.sheetPresentationController{
                     sheet.detents = [.medium()]

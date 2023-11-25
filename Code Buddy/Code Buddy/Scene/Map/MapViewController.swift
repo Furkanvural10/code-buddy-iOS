@@ -114,7 +114,7 @@ final class MapViewController: UIViewController {
             SheetPresent.shared.sheetPresentView(vc: self, identifier: "addAnnotationIdentifier", customHeight: customSheetHeight)
             
         } else if tappedImageView == personsImage {
-            SheetPresent.shared.sheetPresentView(vc: self, identifier: "showUserTableViewID", customHeight: nil)
+            SheetPresent.shared.sheetPresentView(vc: self, identifier: "showUsersID", customHeight: nil)
             
         } else if tappedImageView == favImage {
             SheetPresent.shared.sheetPresentView(vc: self, identifier: "showPlacesID", customHeight: nil)
