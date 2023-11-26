@@ -47,10 +47,15 @@ extension UsersViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCollectionViewID", for: indexPath) as! UserCollectionViewCell
         
-        cell.userImageView.image = UIImage(named: "fv")
-        
         cell.userNameLabel.text = "Furkan Vural"
         cell.userTitleLabel.text = "Frontend Developers"
+        
+        let originalImage = UIImage(named: "fv")
+        let resizedImage = originalImage?.resized(to: CGSize(width: 30, height: 30))
+        cell.userImageView.image = resizedImage
+        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.height / 2
+        cell.userImageView.clipsToBounds = true
+            
         
         cell.layer.borderColor = UIColor.clear.cgColor
         cell.layer.borderWidth = 0.4
@@ -59,4 +64,11 @@ extension UsersViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
     
+}
+extension UIImage {
+    func resized(to size: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size: size).image { _ in
+            draw(in: CGRect(origin: .zero, size: size))
+        }
+    }
 }

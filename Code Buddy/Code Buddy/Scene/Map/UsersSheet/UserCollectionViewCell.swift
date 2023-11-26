@@ -16,5 +16,4 @@ class UserCollectionViewCell: UICollectionViewCell {
     
     
     
-    
 }
