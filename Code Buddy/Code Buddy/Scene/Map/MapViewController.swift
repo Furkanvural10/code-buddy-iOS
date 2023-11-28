@@ -21,6 +21,8 @@ final class MapViewController: UIViewController {
     
     private lazy var locationManager = CLLocationManager()
     private var location: CLLocationCoordinate2D!
+    
+    // Temporary Location
     let locations = [
                 CLLocationCoordinate2D(latitude: 41.0791, longitude: 29.0314),
                 CLLocationCoordinate2D(latitude: 41.0807, longitude: 29.0344),
@@ -31,17 +33,15 @@ final class MapViewController: UIViewController {
                 CLLocationCoordinate2D(latitude: 41.051320810029004, longitude: 29.02232945069483),
                 CLLocationCoordinate2D(latitude: 41.04209659766404, longitude: 29.009583593572426),
                 CLLocationCoordinate2D(latitude: 41.04297052575788, longitude: 29.010828138554153),
-                // ... Daha fazla konum eklenebilir
+                
             ]
     var annotationList = [MKAnnotation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupMap()
         setupControlPanel()
         setupUI()
- 
     }
     
     private func setupUI() {
@@ -66,9 +66,6 @@ final class MapViewController: UIViewController {
         let gestureRecognizerForLocationImage = UITapGestureRecognizer(target: self, action: #selector(openAddSheet(_:)))
         self.locationImage.addGestureRecognizer(gestureRecognizerForLocationImage)
         self.locationImage.isUserInteractionEnabled = true
-        
-        
-        
     }
     
     private func setupControlPanel() {
@@ -82,7 +79,6 @@ final class MapViewController: UIViewController {
         self.locationImage.tintColor = .systemBlue
     }
     
-    
     private func setupMap() {
         mapView.delegate = self
         mapView.register(MKClusterAnnotation.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
@@ -93,17 +89,15 @@ final class MapViewController: UIViewController {
         mapView.overrideUserInterfaceStyle = .dark
         mapView.showsUserLocation = true
         
-        
+        // Temporary Code
         for location in locations {
             let annotation = MKPointAnnotation()
             annotation.coordinate = location
             annotationList.append(annotation)
             annotation.title = "Furkan Vural\nWorking"
             annotation.subtitle = "iOS Developer"
-            
             mapView.addAnnotation(annotation)
         }
-
     }
     
     @objc private func openAddSheet(_ sender: UITapGestureRecognizer) {
@@ -126,7 +120,6 @@ final class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         guard let annotation = annotation as? MKPointAnnotation else { return nil }
@@ -140,7 +133,6 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView.calloutOffset = CGPoint(x: 0, y: -14)
             annotationView.canShowCallout = true
-            
             
             // MARK: - Circle of Annotation Layer
             let circleLayer = CALayer()
@@ -159,12 +151,10 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             statusCircle.position = CGPoint(x: circleOffset.x + 5, y: circleOffset.y + 5)
             
             // status Color Check (If user busy, red, else green)
-            let isActive = false //
+            let isActive = true //
             statusCircle.backgroundColor = isActive ? UIColor.systemGreen.cgColor : UIColor.systemRed.cgColor
-            
-            
-            // Pin'in içine image ekleme (Kullanıcının app'e yüklediği image olacak)
             let circleImage = UIImage(named: "fv")
+            
             circleLayer.contents = circleImage?.cgImage
             
             // imageView in the annotations
@@ -176,7 +166,6 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             // Adding sublayer to annotationView
             annotationView.layer.addSublayer(circleLayer)
             annotationView.layer.addSublayer(statusCircle)
-
 
         }
         return annotationView
@@ -191,14 +180,5 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         self.mapView.setRegion(region, animated: true)
         locationManager.stopUpdatingLocation()
     }
-    
-    // For ClusterAnnotation
-//    func mapView(_ mapView: MKMapView, clusterAnnotationForMemberAnnotations memberAnnotations: [MKAnnotation]) -> MKClusterAnnotation {
-//
-//        let cluster = MKClusterAnnotation(memberAnnotations: annotationList)
-//        cluster.title = "More things to see here"
-//        cluster.subtitle = "Zoom further in"
-//        return cluster
-//    }
 }
 
