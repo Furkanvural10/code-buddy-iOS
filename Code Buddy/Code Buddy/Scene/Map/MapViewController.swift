@@ -15,7 +15,6 @@ final class MapViewController: UIViewController {
     @IBOutlet private weak var mapView: MKMapView!
     
     @IBOutlet private weak var addImage: UIImageView!
-    @IBOutlet private weak var favImage: UIImageView!
     @IBOutlet private weak var locationImage: UIImageView!
     @IBOutlet private weak var personsImage: UIImageView!
     
@@ -59,9 +58,6 @@ final class MapViewController: UIViewController {
         // MARK: - Fav image clicked
         let gestureRecognizerForFavImage = UITapGestureRecognizer(target: self, action: #selector(openAddSheet(_:)))
         
-        self.favImage.addGestureRecognizer(gestureRecognizerForFavImage)
-        self.favImage.isUserInteractionEnabled = true
-        
         // MARK: - location image clicked
         let gestureRecognizerForLocationImage = UITapGestureRecognizer(target: self, action: #selector(openAddSheet(_:)))
         self.locationImage.addGestureRecognizer(gestureRecognizerForLocationImage)
@@ -74,13 +70,13 @@ final class MapViewController: UIViewController {
         
         // Image Setup
         self.addImage.tintColor = .white
-        self.favImage.tintColor = .red
         self.personsImage.tintColor = .systemGreen
         self.locationImage.tintColor = .systemBlue
     }
     
     private func setupMap() {
         mapView.delegate = self
+        
         mapView.register(MKClusterAnnotation.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -110,8 +106,6 @@ final class MapViewController: UIViewController {
         } else if tappedImageView == personsImage {
             SheetPresent.shared.sheetPresentView(vc: self, identifier: "showUsersID", customHeight: nil)
             
-        } else if tappedImageView == favImage {
-            SheetPresent.shared.sheetPresentView(vc: self, identifier: "showPlacesID", customHeight: nil)
         } else {
             locationManager.startUpdatingLocation()
         }
@@ -153,7 +147,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             // status Color Check (If user busy, red, else green)
             let isActive = true //
             statusCircle.backgroundColor = isActive ? UIColor.systemGreen.cgColor : UIColor.systemRed.cgColor
-            let circleImage = UIImage(named: "fv")
+            let circleImage = UIImage(named: "other")
             
             circleLayer.contents = circleImage?.cgImage
             

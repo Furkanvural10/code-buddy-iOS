@@ -38,16 +38,6 @@ struct SheetPresent {
                 vc.navigationController?.present(userTableVC, animated: true)
             }
         }
-        else {
-            if let showPlacesVC = vc.storyboard?.instantiateViewController(withIdentifier: identifier) as? PlacesViewController {
-                if let sheet = showPlacesVC.sheetPresentationController{
-                    sheet.detents = [.medium()]
-                    sheet.preferredCornerRadius = 15.0
-                }
-                vc.navigationController?.present(showPlacesVC, animated: true)
-            }
-        }
-        
         
     }
 }
