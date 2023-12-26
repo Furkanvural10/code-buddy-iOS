@@ -179,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISL-CJ-ccR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3820.6106870229005" y="-35.211267605633807"/>
+            <point key="canvasLocation" x="2047" y="207"/>
         </scene>
         <!--Add Annotation View Controller-->
         <scene sceneID="hVp-3R-jwo">
@@ -244,7 +244,7 @@
                                 <rect key="frame" x="20" y="75" width="88" height="78.666666666666686"/>
                                 <color key="tintColor" red="0.25072029229999998" green="0.25072029229999998" blue="0.25072029229999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="88" id="QpD-uZ-bxu"/>
+                                    <constraint firstAttribute="width" constant="88" id="QpD-uZ-bxu" userLabel="width = 80"/>
                                     <constraint firstAttribute="height" constant="80" id="dbg-GH-O1Z"/>
                                 </constraints>
                             </imageView>

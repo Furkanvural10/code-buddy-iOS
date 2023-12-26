@@ -130,7 +130,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             
             // MARK: - Circle of Annotation Layer
             let circleLayer = CALayer()
-            circleLayer.bounds = CGRect(x: 0, y: 0, width: 38, height: 38)
+            circleLayer.bounds = CGRect(x: 0, y: 0, width: 37, height: 37)
             circleLayer.cornerRadius = 20
             circleLayer.masksToBounds = true
             
@@ -165,8 +165,8 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         return annotationView
     }
 
+    // Stay
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
         let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
         let region = MKCoordinateRegion(center: location, span: span)

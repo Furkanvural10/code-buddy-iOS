@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddAnnotationViewController: UIViewController {
+final class AddAnnotationViewController: UIViewController {
     
     // MARK: - TextFields
     @IBOutlet weak var usernameTextField: UITextField!
@@ -22,12 +22,17 @@ class AddAnnotationViewController: UIViewController {
     // MARK: - Profile Image Add
     @IBOutlet weak var profileImage: UIImageView!
     
+    // MARK: - Gesture Recognizer
+    let gestureRecognizer = UIGestureRecognizer()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
+        configureImage()
     }
+    
+    
     
     private func setupUI() {
         
@@ -35,8 +40,30 @@ class AddAnnotationViewController: UIViewController {
         statusSegmentedControl.selectedSegmentTintColor = .systemGreen
         
         // MARK: - SaveButton UI
+        saveButton.setTitle("Save", for: .normal)
         
     }
+    
+    private func configureImage() {
+        profileImage.isUserInteractionEnabled = true
+        profileImage.contentMode = .scaleAspectFill
+        profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
+        profileImage.clipsToBounds = true
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
+        profileImage.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    
+    @objc private func chooseImage() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.isEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
+    
     @IBAction func statusSegmentedChanged(_ sender: Any) {
         
 //        VM
@@ -57,7 +84,14 @@ class AddAnnotationViewController: UIViewController {
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
-        
+        print("VM Func called")
     }
     
+}
+
+extension AddAnnotationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        profileImage.image = info[.originalImage] as? UIImage
+        self.dismiss(animated: true)
+    }
 }
