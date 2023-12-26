@@ -101,10 +101,10 @@ final class MapViewController: UIViewController {
         
         if tappedImageView == addImage {
             let customSheetHeight = view.bounds.height * 0.35
-            SheetPresent.shared.sheetPresentView(vc: self, identifier: "addAnnotationIdentifier", customHeight: customSheetHeight)
+            SheetPresent.shared.sheetPresentView(vc: self, identifier: "addAnnotationIdentifier", customHeight: customSheetHeight, latitude: Double(location.latitude), longitude: Double(location.longitude))
             
         } else if tappedImageView == personsImage {
-            SheetPresent.shared.sheetPresentView(vc: self, identifier: "showUsersID", customHeight: nil)
+            SheetPresent.shared.sheetPresentView(vc: self, identifier: "showUsersID", customHeight: nil, latitude: nil, longitude: nil)
             
         } else {
             locationManager.startUpdatingLocation()

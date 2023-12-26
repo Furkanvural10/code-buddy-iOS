@@ -12,15 +12,16 @@ struct SheetPresent {
     
     static let shared = SheetPresent()
     
-    func sheetPresentView(vc: UIViewController, identifier: String, customHeight: CGFloat?) {
+    func sheetPresentView(vc: UIViewController, identifier: String, customHeight: CGFloat?, latitude: Double?, longitude: Double?) {
         
         if identifier == "addAnnotationIdentifier" {
             
             if let addAnnotationVC = vc.storyboard?.instantiateViewController(withIdentifier: identifier) as? AddAnnotationViewController {
+                addAnnotationVC.latitude = latitude
+                addAnnotationVC.longitude = longitude
                 if let sheet = addAnnotationVC.sheetPresentationController{
                     sheet.detents = [.custom(resolver: { context in
                         customHeight
-                        
                     })]
                     
                     sheet.preferredCornerRadius = 15.0

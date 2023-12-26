@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 protocol AddAnnotationViewModelProtocol {
-    func saveUserInfo()
-    func updateUserInfo()
+    func saveUserInfo(user: User)
+    func updateUserInfo(user: User)
     func updateStatus(index: Int)
     var statusChangedClosure: ((UIColor) -> Void)? { get }
 }
@@ -19,11 +19,12 @@ class AddAnnotationViewModel: AddAnnotationViewModelProtocol {
     
     var statusChangedClosure: ((UIColor) -> Void)?
 
-    func saveUserInfo() {
+    func saveUserInfo(user: User) {
         // Verileri db kaydet
+        print("USER: \(user) ")
     }
     
-    func updateUserInfo() {
+    func updateUserInfo(user: User) {
         // Kullanıcının konumunu vs güncelle
     }
     

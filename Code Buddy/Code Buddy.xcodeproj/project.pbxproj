@@ -19,6 +19,8 @@
 		049726962AFAD82900C43BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049726942AFAD82900C43BA4 /* Main.storyboard */; };
 		049726982AFAD82A00C43BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049726972AFAD82A00C43BA4 /* Assets.xcassets */; };
 		0497269B2AFAD82A00C43BA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049726992AFAD82A00C43BA4 /* LaunchScreen.storyboard */; };
+		04B268D22B3AF7290096CB0C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B268D12B3AF7290096CB0C /* User.swift */; };
+		04B268D42B3AF7AB0096CB0C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B268D32B3AF7AB0096CB0C /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		049726972AFAD82A00C43BA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0497269A2AFAD82A00C43BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0497269C2AFAD82A00C43BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04B268D12B3AF7290096CB0C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		04B268D32B3AF7AB0096CB0C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 		0497268D2AFAD82900C43BA4 /* Code Buddy */ = {
 			isa = PBXGroup;
 			children = (
+				04B268D02B3AF7190096CB0C /* Model */,
 				04B268CF2B3A00BF0096CB0C /* Support */,
 				0438FFD82B015024007C5D72 /* BottomSheets */,
 				0438FF6F2AFECCE1007C5D72 /* Scene */,
@@ -131,6 +136,15 @@
 				049726972AFAD82A00C43BA4 /* Assets.xcassets */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		04B268D02B3AF7190096CB0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04B268D12B3AF7290096CB0C /* User.swift */,
+				04B268D32B3AF7AB0096CB0C /* Location.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0438FFDC2B01521D007C5D72 /* AddAnnotationViewController.swift in Sources */,
+				04B268D42B3AF7AB0096CB0C /* Location.swift in Sources */,
 				04540DB42B11456A005DD9BF /* UsersViewController.swift in Sources */,
 				0497268F2AFAD82900C43BA4 /* AppDelegate.swift in Sources */,
 				043800392B04067A007C5D72 /* AddAnnotationViewModel.swift in Sources */,
@@ -212,6 +227,7 @@
 				049726912AFAD82900C43BA4 /* SceneDelegate.swift in Sources */,
 				0438FFDA2B0150E0007C5D72 /* SheetPresent.swift in Sources */,
 				043800362B040635007C5D72 /* MapViewModel.swift in Sources */,
+				04B268D22B3AF7290096CB0C /* User.swift in Sources */,
 				04540DB62B121CF3005DD9BF /* UserCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

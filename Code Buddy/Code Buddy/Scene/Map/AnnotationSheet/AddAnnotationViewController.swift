@@ -26,6 +26,10 @@ final class AddAnnotationViewController: UIViewController {
     let gestureRecognizer = UIGestureRecognizer()
     
     private let viewModel = AddAnnotationViewModel()
+    private var status: String = "Working"
+    var latitude: Double?
+    var longitude: Double?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +80,8 @@ final class AddAnnotationViewController: UIViewController {
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
-        viewModel.saveUserInfo()
+        let user = User(name: usernameTextField.text!, title: userTitleTextField.text!, image: (profileImage.image?.jpegData(compressionQuality: 50))!, status: status, location: Location(latitude: latitude!, longitude: longitude!))
+        viewModel.saveUserInfo(user: user)
     }
     
 }
