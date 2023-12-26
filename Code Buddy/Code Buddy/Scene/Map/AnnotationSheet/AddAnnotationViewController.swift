@@ -25,23 +25,23 @@ final class AddAnnotationViewController: UIViewController {
     // MARK: - Gesture Recognizer
     let gestureRecognizer = UIGestureRecognizer()
     
+    private let viewModel = AddAnnotationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         configureImage()
+        viewModel.statusChangedClosure = { [weak self] color in
+            self?.updateStatusUI(color: color)
+        }
     }
-    
-    
-    
+
     private func setupUI() {
-        
         // MARK: - SegmentedControl UI
         statusSegmentedControl.selectedSegmentTintColor = .systemGreen
         
         // MARK: - SaveButton UI
         saveButton.setTitle("Save", for: .normal)
-        
     }
     
     private func configureImage() {
@@ -54,7 +54,6 @@ final class AddAnnotationViewController: UIViewController {
         profileImage.addGestureRecognizer(gestureRecognizer)
     }
     
-    
     @objc private func chooseImage() {
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
@@ -63,20 +62,13 @@ final class AddAnnotationViewController: UIViewController {
         present(picker, animated: true)
     }
     
-    
+    func updateStatusUI(color: UIColor) {
+        statusSegmentedControl.selectedSegmentTintColor = color
+    }
+
     @IBAction func statusSegmentedChanged(_ sender: Any) {
-        
-//        VM
         let index = statusSegmentedControl.selectedSegmentIndex
-        switch index {
-        case 0:
-            statusSegmentedControl.selectedSegmentTintColor = .systemGreen
-        case 1:
-            statusSegmentedControl.selectedSegmentTintColor = .systemYellow
-        default:
-            statusSegmentedControl.selectedSegmentTintColor = .systemRed
-        }
-        
+        viewModel.updateStatus(index: index)
     }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
@@ -84,12 +76,13 @@ final class AddAnnotationViewController: UIViewController {
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
-        print("VM Func called")
+        viewModel.saveUserInfo()
     }
     
 }
 
 extension AddAnnotationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         profileImage.image = info[.originalImage] as? UIImage
         self.dismiss(animated: true)
