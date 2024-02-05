@@ -54,14 +54,11 @@ final class AddAnnotationViewController: UIViewController {
         statusSegmentedControl.selectedSegmentTintColor = .systemGreen
         statusSegmentedControl.setTitleTextAttributes(statusSegmentedControlTextAttribute, for: .normal)
 
-        
-        
         // MARK: - SaveButton UI
         saveButton.setTitle("Save", for: .normal)
         
-        
         // MARK: - UsernameTextField UI
-        let attributedStringForNameTextField = NSAttributedString(string: "Name: John", attributes: [
+        let attributedStringForNameTextField = NSAttributedString(string: "Name: John Patric", attributes: [
             .foregroundColor: UIColor.white.withAlphaComponent(0.5)
         ])
         
@@ -91,8 +88,6 @@ final class AddAnnotationViewController: UIViewController {
         userTitleTextField.layer.cornerRadius = 5
         userTitleTextField.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
         userTitleTextField.keyboardAppearance = .dark
-        
-        
         
     }
     

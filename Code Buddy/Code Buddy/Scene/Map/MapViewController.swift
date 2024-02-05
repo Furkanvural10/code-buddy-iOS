@@ -132,34 +132,21 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             let circleLayer = CALayer()
             circleLayer.bounds = CGRect(x: 0, y: 0, width: 37, height: 37)
             circleLayer.cornerRadius = 20
+            circleLayer.borderWidth = 1.5
+            circleLayer.borderColor = UIColor.systemRed.cgColor
             circleLayer.masksToBounds = true
             
-            // MARK: - Circle of Status Layer
-            let statusCircle = CALayer()
-            statusCircle.bounds = CGRect(x: 0, y: 0, width: 9, height: 9)
-            statusCircle.cornerRadius = 5
-            statusCircle.masksToBounds = true
-            
-            // Status Circle Position in the annotation
-            let circleOffset = CGPoint(x: -17.5, y: -20)
-            statusCircle.position = CGPoint(x: circleOffset.x + 5, y: circleOffset.y + 5)
-            
-            // status Color Check (If user busy, red, else green)
-            let isActive = true //
-            statusCircle.backgroundColor = isActive ? UIColor.systemGreen.cgColor : UIColor.systemRed.cgColor
-            let circleImage = UIImage(named: "fv")
-            
+            let circleImage = UIImage(named: "fv") //
             circleLayer.contents = circleImage?.cgImage
             
             let imageView = UIImageView(image: circleImage)
-            imageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-            imageView.layer.cornerRadius = 15
+            imageView.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
+            imageView.layer.cornerRadius = imageView.frame.size.height / 2
             imageView.contentMode = .scaleAspectFit
-            
-            
+            imageView.layer.borderWidth = 10
+            imageView.layer.borderColor = UIColor.white.cgColor
+
             annotationView.layer.addSublayer(circleLayer)
-            annotationView.layer.addSublayer(statusCircle)
-            
         }
         return annotationView
     }
