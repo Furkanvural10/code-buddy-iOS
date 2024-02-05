@@ -1,18 +1,12 @@
-//
-//  AddAnnotationViewModel.swift
-//  Code Buddy
-//
-//  Created by furkan vural on 14.11.2023.
-//
-
 import Foundation
 import UIKit
 
 protocol AddAnnotationViewModelProtocol {
+    
     func saveUserInfo(user: User)
     func updateUserInfo(user: User)
     func updateStatus(index: Int)
-    var statusChangedClosure: ((UIColor) -> Void)? { get }
+    var statusChangedClosure: ((UIColor) -> Void)? { get } 
 }
 
 class AddAnnotationViewModel: AddAnnotationViewModelProtocol {

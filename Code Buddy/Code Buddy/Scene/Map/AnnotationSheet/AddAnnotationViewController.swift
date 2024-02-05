@@ -1,9 +1,4 @@
-//
-//  AddAnnotationViewController.swift
-//  Code Buddy
-//
-//  Created by furkan vural on 12.11.2023.
-//
+#warning("Fixed Hard Coded")
 
 import UIKit
 
@@ -15,6 +10,11 @@ final class AddAnnotationViewController: UIViewController {
     
     // MARK: - SegmentedControler
     @IBOutlet weak var statusSegmentedControl: UISegmentedControl!
+    
+    // MARK: - Add Image Label
+    
+    @IBOutlet weak var addImageLabel: UILabel!
+    
     
     // MARK: - Button
     @IBOutlet weak var saveButton: UIButton!
@@ -41,11 +41,59 @@ final class AddAnnotationViewController: UIViewController {
     }
 
     private func setupUI() {
+        view.backgroundColor = .black // Fix later!
+        
         // MARK: - SegmentedControl UI
+        let statusSegmentedControlTextAttribute = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+
+        statusSegmentedControl.backgroundColor = .black
+        statusSegmentedControl.layer.cornerRadius = 5
+        statusSegmentedControl.layer.borderWidth = 0.4
+        statusSegmentedControl.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
         statusSegmentedControl.selectedSegmentTintColor = .systemGreen
+        statusSegmentedControl.setTitleTextAttributes(statusSegmentedControlTextAttribute, for: .normal)
+
+        
         
         // MARK: - SaveButton UI
         saveButton.setTitle("Save", for: .normal)
+        
+        
+        // MARK: - UsernameTextField UI
+        let attributedStringForNameTextField = NSAttributedString(string: "Name: John", attributes: [
+            .foregroundColor: UIColor.white.withAlphaComponent(0.5)
+        ])
+        
+        usernameTextField.borderStyle = .roundedRect
+        usernameTextField.backgroundColor = .black
+        usernameTextField.clearButtonMode = .whileEditing
+
+        usernameTextField.attributedPlaceholder = attributedStringForNameTextField
+        
+        usernameTextField.layer.borderWidth = 0.4
+        usernameTextField.layer.cornerRadius = 5
+        usernameTextField.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
+        usernameTextField.textColor = .white.withAlphaComponent(0.8)
+        usernameTextField.keyboardAppearance = .dark
+        
+        // MARK: - UserTitleTextField
+        let attributedStringForTitleTextField = NSAttributedString(string: "Title: iOS Developer", attributes: [
+            .foregroundColor: UIColor.white.withAlphaComponent(0.5)
+        ])
+        
+        userTitleTextField.borderStyle = .roundedRect
+        userTitleTextField.backgroundColor = .black
+        userTitleTextField.clearButtonMode = .whileEditing
+        userTitleTextField.textColor = .white.withAlphaComponent(0.8)
+        userTitleTextField.attributedPlaceholder = attributedStringForTitleTextField
+        userTitleTextField.layer.borderWidth = 0.4
+        userTitleTextField.layer.cornerRadius = 5
+        userTitleTextField.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
+        userTitleTextField.keyboardAppearance = .dark
+        
+        
+        
     }
     
     private func configureImage() {
@@ -80,6 +128,8 @@ final class AddAnnotationViewController: UIViewController {
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
+        
+        #warning("Please fix shitttt code")
         let user = User(name: usernameTextField.text!, title: userTitleTextField.text!, image: (profileImage.image?.jpegData(compressionQuality: 50))!, status: status, location: Location(latitude: latitude!, longitude: longitude!))
         viewModel.saveUserInfo(user: user)
     }
@@ -89,7 +139,9 @@ final class AddAnnotationViewController: UIViewController {
 extension AddAnnotationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         profileImage.image = info[.originalImage] as? UIImage
+        self.addImageLabel.text = "Update"
         self.dismiss(animated: true)
     }
 }

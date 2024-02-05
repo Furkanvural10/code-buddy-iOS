@@ -21,19 +21,19 @@ final class MapViewController: UIViewController {
     private lazy var locationManager = CLLocationManager()
     private var location: CLLocationCoordinate2D!
     
-    // Temporary Location
+    // Mock Location Data
     let locations = [
-                CLLocationCoordinate2D(latitude: 41.0791, longitude: 29.0314),
-                CLLocationCoordinate2D(latitude: 41.0807, longitude: 29.0344),
-                CLLocationCoordinate2D(latitude: 41.0844, longitude: 29.0325),
-                CLLocationCoordinate2D(latitude: 41.0844, longitude: 29.0325),
-                CLLocationCoordinate2D(latitude: 41.0508, longitude: 29.0248),
-                CLLocationCoordinate2D(latitude: 41.050867721024225, longitude: 29.032714963905693),
-                CLLocationCoordinate2D(latitude: 41.051320810029004, longitude: 29.02232945069483),
-                CLLocationCoordinate2D(latitude: 41.04209659766404, longitude: 29.009583593572426),
-                CLLocationCoordinate2D(latitude: 41.04297052575788, longitude: 29.010828138554153),
-                
-            ]
+        CLLocationCoordinate2D(latitude: 41.0791, longitude: 29.0314),
+        CLLocationCoordinate2D(latitude: 41.0807, longitude: 29.0344),
+        CLLocationCoordinate2D(latitude: 41.0844, longitude: 29.0325),
+        CLLocationCoordinate2D(latitude: 41.0844, longitude: 29.0325),
+        CLLocationCoordinate2D(latitude: 41.0508, longitude: 29.0248),
+        CLLocationCoordinate2D(latitude: 41.050867721024225, longitude: 29.032714963905693),
+        CLLocationCoordinate2D(latitude: 41.051320810029004, longitude: 29.02232945069483),
+        CLLocationCoordinate2D(latitude: 41.04209659766404, longitude: 29.009583593572426),
+        CLLocationCoordinate2D(latitude: 41.04297052575788, longitude: 29.010828138554153),
+        
+    ]
     var annotationList = [MKAnnotation]()
     
     override func viewDidLoad() {
@@ -147,24 +147,23 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             // status Color Check (If user busy, red, else green)
             let isActive = true //
             statusCircle.backgroundColor = isActive ? UIColor.systemGreen.cgColor : UIColor.systemRed.cgColor
-            let circleImage = UIImage(named: "other")
+            let circleImage = UIImage(named: "fv")
             
             circleLayer.contents = circleImage?.cgImage
             
-            // imageView in the annotations
             let imageView = UIImageView(image: circleImage)
-            imageView.frame = CGRect(x: 0, y: 0, width: 33, height: 33)
+            imageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
             imageView.layer.cornerRadius = 15
             imageView.contentMode = .scaleAspectFit
             
-            // Adding sublayer to annotationView
+            
             annotationView.layer.addSublayer(circleLayer)
             annotationView.layer.addSublayer(statusCircle)
-
+            
         }
         return annotationView
     }
-
+    
     // Stay
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)

@@ -1,13 +1,8 @@
-//
-//  UsersViewController.swift
-//  Code Buddy
-//
-//  Created by furkan vural on 24.11.2023.
-//
+#warning("Fixed hard coded")
 
 import UIKit
 
-class UsersViewController: UIViewController {
+final class UsersViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
