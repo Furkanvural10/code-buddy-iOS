@@ -1,28 +1,33 @@
-//
-//  UsersViewController.swift
-//  Code Buddy
-//
-//  Created by furkan vural on 24.11.2023.
-//
-
+#warning("Fixed hard coded")
 import UIKit
 
-class UsersViewController: UIViewController {
-
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var searchBar: UISearchBar!
+final class UsersViewController: UIViewController {
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    // MOCK DATA
+    let mockNames: [String] = ["Ahmet","Mehmet","Ayşe","Fatma","Mustafa","Zeynep","Ali","Şehrazat","Cem","Elif","Ahmet","Mehmet","Ayşe","Fatma","Mustafa","Zeynep","Ali","Şehrazat","Cem","Elif"]
+    
+    let mockSoftwareTitles: [String] = [
+        "CodeMaster","DataForge","ByteGenius","LogicCraft","SwiftNinja","AppWizard","TechSculptor","InnovateHub","BitHarbor","EpicCoder","CodeMaster","DataForge","ByteGenius","LogicCraft","SwiftNinja","AppWizard","TechSculptor","InnovateHub","BitHarbor","EpicCoder"]
+    
+    private let customBlackColor = UIColor(named: "BackgroundColor")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = customBlackColor        
         setupUI()
+        
     }
     
     private func setupUI() {
+        
+        
+        // MARK: - CollectionView Configuration
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+        collectionView.backgroundColor = customBlackColor
+
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionViewLayout.minimumInteritemSpacing = 0
@@ -41,34 +46,21 @@ class UsersViewController: UIViewController {
 extension UsersViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return mockNames.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCollectionViewID", for: indexPath) as! UserCollectionViewCell
-        
-        cell.userNameLabel.text = "Furkan Vural"
-        cell.userTitleLabel.text = "Frontend Developers"
-        
-        let originalImage = UIImage(named: "fv")
-        let resizedImage = originalImage?.resized(to: CGSize(width: 30, height: 30))
-        cell.userImageView.image = resizedImage
-        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.height / 2
-        cell.userImageView.clipsToBounds = true
-            
-        
-        cell.layer.borderColor = UIColor.clear.cgColor
-        cell.layer.borderWidth = 0.4
-        cell.layer.cornerRadius = 10
-        
+
+        let image = UIImage(named: "fv")
+        let name = mockNames[indexPath.row]
+        let title = mockSoftwareTitles[indexPath.row]
+        cell.setCell(image: image!, name: name, title: title)
         return cell
     }
     
-}
-extension UIImage {
-    func resized(to size: CGSize) -> UIImage {
-        return UIGraphicsImageRenderer(size: size).image { _ in
-            draw(in: CGRect(origin: .zero, size: size))
-        }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(mockNames[indexPath.row])
     }
+
 }
