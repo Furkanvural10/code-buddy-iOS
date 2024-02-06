@@ -89,10 +89,10 @@
             </objects>
             <point key="canvasLocation" x="980.91603053435108" y="-34.507042253521128"/>
         </scene>
-        <!--Deneme-->
+        <!--All User-->
         <scene sceneID="XbM-yf-cn5">
             <objects>
-                <viewController storyboardIdentifier="showUsersID" title="Deneme" id="IKb-gk-NLj" customClass="UsersViewController" customModule="Code_Buddy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="showUsersID" id="IKb-gk-NLj" customClass="UsersViewController" customModule="Code_Buddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ZD-ba-yAD">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -169,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISL-CJ-ccR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2047" y="207"/>
+            <point key="canvasLocation" x="2973.2824427480914" y="206.33802816901411"/>
         </scene>
         <!--Deneme-->
         <scene sceneID="hVp-3R-jwo">
@@ -244,8 +244,8 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTN-wO-UzE">
-                                <rect key="frame" x="19.999999999999993" y="14.999999999999998" width="113.33333333333331" height="26.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Your Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTN-wO-UzE">
+                                <rect key="frame" x="20" y="14.999999999999998" width="164.66666666666666" height="26.333333333333329"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -308,6 +308,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yv3-MQ-Wnh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="54.198473282442748" y="-34.507042253521128"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fh5-kz-fuk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CoN-ag-yXU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VFY-hE-uNB">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IKb-gk-NLj" kind="relationship" relationship="rootViewController" id="jdm-n4-Lim"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K4K-mO-1dd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2046.564885496183" y="206.33802816901411"/>
         </scene>
     </scenes>
     <resources>

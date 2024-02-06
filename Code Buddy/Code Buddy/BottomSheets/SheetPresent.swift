@@ -26,7 +26,7 @@ struct SheetPresent {
                     })]
                     
                     sheet.preferredCornerRadius = 15.0
-                    sheet.presentingViewController.title = "Deneme"
+                    
                     
 
                 }

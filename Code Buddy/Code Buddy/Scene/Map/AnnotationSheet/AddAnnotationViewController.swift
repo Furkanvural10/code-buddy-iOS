@@ -27,6 +27,7 @@ final class AddAnnotationViewController: UIViewController {
     private var status: String = "Working"
     var latitude: Double?
     var longitude: Double?
+    private let customBlackColor = UIColor(named: "BackgroundColor")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,15 +39,15 @@ final class AddAnnotationViewController: UIViewController {
     }
 
     private func setupUI() {
-        view.backgroundColor = UIColor(named: "BackgroundColor") // Fix later!
+        view.backgroundColor = customBlackColor
         
         // MARK: - SegmentedControl UI
         
         let statusSegmentedControlTextAttribute = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        statusSegmentedControl.backgroundColor = .black
+        statusSegmentedControl.backgroundColor = customBlackColor
         statusSegmentedControl.layer.cornerRadius = 5
         statusSegmentedControl.layer.borderWidth = 0.4
-        statusSegmentedControl.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
+        statusSegmentedControl.layer.borderColor = customBlackColor?.cgColor
         statusSegmentedControl.selectedSegmentTintColor = .systemGreen
         statusSegmentedControl.setTitleTextAttributes(statusSegmentedControlTextAttribute, for: .normal)
 
@@ -60,11 +61,8 @@ final class AddAnnotationViewController: UIViewController {
         ])
         
         usernameTextField.borderStyle = .roundedRect
-        usernameTextField.backgroundColor = .black
-        usernameTextField.clearButtonMode = .whileEditing
-
+        usernameTextField.backgroundColor = customBlackColor
         usernameTextField.attributedPlaceholder = attributedStringForNameTextField
-        
         usernameTextField.layer.borderWidth = 0.4
         usernameTextField.layer.cornerRadius = 5
         usernameTextField.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
@@ -77,8 +75,7 @@ final class AddAnnotationViewController: UIViewController {
         ])
         
         userTitleTextField.borderStyle = .roundedRect
-        userTitleTextField.backgroundColor = .black
-        userTitleTextField.clearButtonMode = .whileEditing
+        userTitleTextField.backgroundColor = customBlackColor
         userTitleTextField.textColor = .white.withAlphaComponent(0.8)
         userTitleTextField.attributedPlaceholder = attributedStringForTitleTextField
         userTitleTextField.layer.borderWidth = 0.4

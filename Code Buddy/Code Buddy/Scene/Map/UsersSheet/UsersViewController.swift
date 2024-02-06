@@ -6,14 +6,16 @@ final class UsersViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MOCK DATA
-    let mockNames: [String] = ["Ahmet","Mehmet","Ayşe","Fatma","Mustafa","Zeynep","Ali","Şehrazat","Cem","Elif"]
+    let mockNames: [String] = ["Ahmet","Mehmet","Ayşe","Fatma","Mustafa","Zeynep","Ali","Şehrazat","Cem","Elif","Ahmet","Mehmet","Ayşe","Fatma","Mustafa","Zeynep","Ali","Şehrazat","Cem","Elif"]
     
     let mockSoftwareTitles: [String] = [
-        "CodeMaster","DataForge","ByteGenius","LogicCraft","SwiftNinja","AppWizard","TechSculptor","InnovateHub","BitHarbor","EpicCoder" ]
+        "CodeMaster","DataForge","ByteGenius","LogicCraft","SwiftNinja","AppWizard","TechSculptor","InnovateHub","BitHarbor","EpicCoder","CodeMaster","DataForge","ByteGenius","LogicCraft","SwiftNinja","AppWizard","TechSculptor","InnovateHub","BitHarbor","EpicCoder"]
+    
+    private let customBlackColor = UIColor(named: "BackgroundColor")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = customBlackColor        
         setupUI()
         
     }
@@ -24,7 +26,7 @@ final class UsersViewController: UIViewController {
         // MARK: - CollectionView Configuration
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .black
+        collectionView.backgroundColor = customBlackColor
 
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
