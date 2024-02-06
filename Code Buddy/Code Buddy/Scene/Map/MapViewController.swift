@@ -75,9 +75,10 @@ final class MapViewController: UIViewController {
     }
     
     private func setupMap() {
-        mapView.delegate = self
         
+        mapView.delegate = self
         mapView.register(MKClusterAnnotation.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()

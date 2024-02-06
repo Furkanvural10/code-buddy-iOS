@@ -38,7 +38,7 @@ final class AddAnnotationViewController: UIViewController {
     }
 
     private func setupUI() {
-        view.backgroundColor = .black // Fix later!
+        view.backgroundColor = UIColor(named: "BackgroundColor") // Fix later!
         
         // MARK: - SegmentedControl UI
         
@@ -121,8 +121,13 @@ final class AddAnnotationViewController: UIViewController {
     
     @IBAction func saveButtonClicked(_ sender: Any) {
         
-        #warning("Please fix shitttt code")
-        let user = User(name: usernameTextField.text!, title: userTitleTextField.text!, image: (profileImage.image?.jpegData(compressionQuality: 50))!, status: status, location: Location(latitude: latitude!, longitude: longitude!))
+        let name = usernameTextField.text!
+        let title = usernameTextField.text!
+        let image = profileImage.image?.jpegData(compressionQuality: 50)
+        let status = status
+        let location = Location(latitude: latitude!, longitude: longitude!)
+        let user = User(name: name, title: title, image: image!, status: status, location: location)
+        
         viewModel.saveUserInfo(user: user)
     }
     

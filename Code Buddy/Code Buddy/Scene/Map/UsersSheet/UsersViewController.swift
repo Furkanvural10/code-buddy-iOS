@@ -3,12 +3,7 @@ import UIKit
 
 final class UsersViewController: UIViewController {
     
-    enum Section {
-        case main
-    }
-
     @IBOutlet weak var collectionView: UICollectionView!
-    
     
     // MOCK DATA
     let mockNames: [String] = ["Ahmet","Mehmet","Ayşe","Fatma","Mustafa","Zeynep","Ali","Şehrazat","Cem","Elif"]
@@ -60,6 +55,10 @@ extension UsersViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let title = mockSoftwareTitles[indexPath.row]
         cell.setCell(image: image!, name: name, title: title)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(mockNames[indexPath.row])
     }
 
 }
