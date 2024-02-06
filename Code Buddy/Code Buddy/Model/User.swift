@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct User {
-    
-    enum UserStatus: String {
-        case working = "Working"
-        case networking = "Networking"
-        case busy = "Busy"
-    }
-    
+enum UserStatus: String {
+    case working = "Working"
+    case networking = "Networking"
+    case busy = "Busy"
+}
+
+struct User: Hashable, Codable {
+        
     let name: String
     let title: String
     let image: Data

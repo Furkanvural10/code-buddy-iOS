@@ -98,7 +98,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WPv-B4-96Z">
-                                <rect key="frame" x="0.0" y="119.33333333333331" width="393" height="698.66666666666674"/>
+                                <rect key="frame" x="0.0" y="34" width="393" height="784"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tHN-Qk-vRd">
                                     <size key="itemSize" width="160" height="160"/>
@@ -151,31 +151,20 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="BtP-OF-18U">
-                                <rect key="frame" x="0.0" y="64" width="393" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="IKb-gk-NLj" id="lZI-R8-qBo"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KuP-kt-8Pf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="WPv-B4-96Z" firstAttribute="leading" secondItem="KuP-kt-8Pf" secondAttribute="leading" id="Byz-64-rfZ"/>
-                            <constraint firstItem="BtP-OF-18U" firstAttribute="top" secondItem="KuP-kt-8Pf" secondAttribute="top" constant="5" id="Hd6-Io-uHv"/>
-                            <constraint firstItem="WPv-B4-96Z" firstAttribute="height" secondItem="9ZD-ba-yAD" secondAttribute="height" multiplier="0.82" id="Pne-n3-TS0"/>
-                            <constraint firstItem="BtP-OF-18U" firstAttribute="trailing" secondItem="KuP-kt-8Pf" secondAttribute="trailing" id="Tf1-ey-d0b"/>
+                            <constraint firstItem="WPv-B4-96Z" firstAttribute="height" secondItem="9ZD-ba-yAD" secondAttribute="height" multiplier="0.92" id="Pne-n3-TS0"/>
                             <constraint firstItem="WPv-B4-96Z" firstAttribute="width" secondItem="9ZD-ba-yAD" secondAttribute="width" id="c5K-QW-O4i"/>
                             <constraint firstItem="KuP-kt-8Pf" firstAttribute="trailing" secondItem="WPv-B4-96Z" secondAttribute="trailing" id="eQX-KE-utM"/>
-                            <constraint firstItem="BtP-OF-18U" firstAttribute="leading" secondItem="KuP-kt-8Pf" secondAttribute="leading" id="ntK-zr-PQa"/>
                             <constraint firstItem="KuP-kt-8Pf" firstAttribute="bottom" secondItem="WPv-B4-96Z" secondAttribute="bottom" id="wGJ-Ht-OCa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="All User" id="iVq-XM-f1h"/>
                     <connections>
                         <outlet property="collectionView" destination="WPv-B4-96Z" id="8CS-K5-Xro"/>
-                        <outlet property="searchBar" destination="BtP-OF-18U" id="zId-Ow-D7r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISL-CJ-ccR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

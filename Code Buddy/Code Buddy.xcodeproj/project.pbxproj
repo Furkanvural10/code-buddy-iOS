@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		042DCA802B70EE7600B6F57A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DCA7F2B70EE7600B6F57A /* UIImage+Extension.swift */; };
+		042DCA822B70FF6B00B6F57A /* UserSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DCA812B70FF6B00B6F57A /* UserSheetViewModel.swift */; };
+		042DCA872B7212B300B6F57A /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DCA862B7212B300B6F57A /* UIHelper.swift */; };
 		043800362B040635007C5D72 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043800352B040635007C5D72 /* MapViewModel.swift */; };
 		043800392B04067A007C5D72 /* AddAnnotationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043800382B04067A007C5D72 /* AddAnnotationViewModel.swift */; };
 		0438FF712AFECCF6007C5D72 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438FF702AFECCF6007C5D72 /* MapViewController.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		042DCA7F2B70EE7600B6F57A /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		042DCA812B70FF6B00B6F57A /* UserSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetViewModel.swift; sourceTree = "<group>"; };
+		042DCA862B7212B300B6F57A /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		043800352B040635007C5D72 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		043800382B04067A007C5D72 /* AddAnnotationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnnotationViewModel.swift; sourceTree = "<group>"; };
 		0438FF702AFECCF6007C5D72 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		042DCA852B7212A100B6F57A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				042DCA862B7212B300B6F57A /* UIHelper.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		043800342B04061F007C5D72 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +100,7 @@
 			children = (
 				04540DB32B11456A005DD9BF /* UsersViewController.swift */,
 				04540DB52B121CF3005DD9BF /* UserCollectionViewCell.swift */,
+				042DCA812B70FF6B00B6F57A /* UserSheetViewModel.swift */,
 			);
 			path = UsersSheet;
 			sourceTree = "<group>";
@@ -127,6 +140,7 @@
 		0497268D2AFAD82900C43BA4 /* Code Buddy */ = {
 			isa = PBXGroup;
 			children = (
+				042DCA852B7212A100B6F57A /* Utilities */,
 				042DCA7E2B70EE5D00B6F57A /* Extension */,
 				04B268D02B3AF7190096CB0C /* Model */,
 				04B268CF2B3A00BF0096CB0C /* Support */,
@@ -239,8 +253,10 @@
 				049726912AFAD82900C43BA4 /* SceneDelegate.swift in Sources */,
 				0438FFDA2B0150E0007C5D72 /* SheetPresent.swift in Sources */,
 				043800362B040635007C5D72 /* MapViewModel.swift in Sources */,
+				042DCA822B70FF6B00B6F57A /* UserSheetViewModel.swift in Sources */,
 				04B268D22B3AF7290096CB0C /* User.swift in Sources */,
 				04540DB62B121CF3005DD9BF /* UserCollectionViewCell.swift in Sources */,
+				042DCA872B7212B300B6F57A /* UIHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

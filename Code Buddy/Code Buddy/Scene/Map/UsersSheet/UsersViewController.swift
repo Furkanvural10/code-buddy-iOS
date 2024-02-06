@@ -1,5 +1,4 @@
 #warning("Fixed hard coded")
-
 import UIKit
 
 final class UsersViewController: UIViewController {
@@ -9,37 +8,13 @@ final class UsersViewController: UIViewController {
     }
 
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    var dataSource: UICollectionViewDiffableDataSource<Section, String>!
     
     
     // MOCK DATA
-    let mockNames: [String] = [
-        "Ahmet",
-        "Mehmet",
-        "Ayşe",
-        "Fatma",
-        "Mustafa",
-        "Zeynep",
-        "Ali",
-        "Şehrazat",
-        "Cem",
-        "Elif"
-    ]
+    let mockNames: [String] = ["Ahmet","Mehmet","Ayşe","Fatma","Mustafa","Zeynep","Ali","Şehrazat","Cem","Elif"]
     
     let mockSoftwareTitles: [String] = [
-        "CodeMaster",
-        "DataForge",
-        "ByteGenius",
-        "LogicCraft",
-        "SwiftNinja",
-        "AppWizard",
-        "TechSculptor",
-        "InnovateHub",
-        "BitHarbor",
-        "EpicCoder"
-    ]
-    
+        "CodeMaster","DataForge","ByteGenius","LogicCraft","SwiftNinja","AppWizard","TechSculptor","InnovateHub","BitHarbor","EpicCoder" ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +25,6 @@ final class UsersViewController: UIViewController {
     
     private func setupUI() {
         
-        // MARK: - SearchBar Configuration
-        searchBar.searchTextField.keyboardAppearance = .dark
-        searchBar.barStyle = .black
         
         // MARK: - CollectionView Configuration
         collectionView.delegate = self

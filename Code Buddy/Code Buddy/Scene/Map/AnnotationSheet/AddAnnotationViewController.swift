@@ -12,9 +12,7 @@ final class AddAnnotationViewController: UIViewController {
     @IBOutlet weak var statusSegmentedControl: UISegmentedControl!
     
     // MARK: - Add Image Label
-    
     @IBOutlet weak var addImageLabel: UILabel!
-    
     
     // MARK: - Button
     @IBOutlet weak var saveButton: UIButton!
@@ -30,7 +28,6 @@ final class AddAnnotationViewController: UIViewController {
     var latitude: Double?
     var longitude: Double?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -44,9 +41,8 @@ final class AddAnnotationViewController: UIViewController {
         view.backgroundColor = .black // Fix later!
         
         // MARK: - SegmentedControl UI
-        let statusSegmentedControlTextAttribute = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
-
+        let statusSegmentedControlTextAttribute = [NSAttributedString.Key.foregroundColor: UIColor.white]
         statusSegmentedControl.backgroundColor = .black
         statusSegmentedControl.layer.cornerRadius = 5
         statusSegmentedControl.layer.borderWidth = 0.4
@@ -54,6 +50,7 @@ final class AddAnnotationViewController: UIViewController {
         statusSegmentedControl.selectedSegmentTintColor = .systemGreen
         statusSegmentedControl.setTitleTextAttributes(statusSegmentedControlTextAttribute, for: .normal)
 
+        
         // MARK: - SaveButton UI
         saveButton.setTitle("Save", for: .normal)
         
