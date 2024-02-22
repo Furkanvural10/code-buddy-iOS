@@ -24,11 +24,7 @@ struct SheetPresent {
                     sheet.detents = [.custom(resolver: { context in
                         customHeight
                     })]
-                    
                     sheet.preferredCornerRadius = 15.0
-                    
-                    
-
                 }
                 vc.navigationController?.present(addAnnotationVC, animated: true)
             }
