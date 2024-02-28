@@ -50,18 +50,17 @@ final class UsersViewController: UIViewController, UISearchBarDelegate {
     }
     
     private func setupSearchBar() {
-        // UISearchBar nesnesini oluştur
         searchBar = UISearchBar()
         searchBar.delegate = self
         searchBar.placeholder = "Search friends..."
+//        searchBar.barTintColor = UIColor(named: "BackgroundColor")
+        searchBar.tintColor = .gray
         
-        searchBar.barTintColor = UIColor(named: "BackgroundColor")
         
         
-        // SearchBar'ı view'e ekle
         view.addSubview(searchBar)
         
-        // SearchBar'ın yerleşimini ayarla
+        
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -69,7 +68,7 @@ final class UsersViewController: UIViewController, UISearchBarDelegate {
             searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
-        // CollectionView'un yerleşimini SearchBar'ın altına ayarla
+        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
@@ -80,8 +79,7 @@ final class UsersViewController: UIViewController, UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // Burada arama metni değiştiğinde ne yapılacağını belirleyebilirsiniz
-        // Örneğin, kullanıcı adlarını filtreleyebilir ve collectionView'ı güncelleyebilirsiniz
+        // Filtrelemeyi burada yap !!!!
     }
 }
 
