@@ -26,16 +26,13 @@ final class FirstOnboardingViewController: UIViewController {
     private func setupUI() {
         
         // MARK: - Background Image Configuration
-        backgroundImage.image = UIImage(named: "img_onboarding1")
         backgroundImage.layer.zPosition = -1
         backgroundImage.contentMode = .scaleAspectFit
         
         // MARK: - Title Label Configuration
-        titleLabel.text = "DISCOVER NEARBY DEVELOPERS."
         titleLabel.adjustsFontSizeToFitWidth = true
         
         // MARK: - Message Label Configuration
-        messageLabel.text = "Explore the map to see other developers around you."
         messageLabel.adjustsFontSizeToFitWidth = true
         
         
