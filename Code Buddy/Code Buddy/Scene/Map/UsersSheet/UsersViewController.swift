@@ -17,11 +17,8 @@ final class UsersViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = customBlackColor
         setupUI()
-        
-        
     }
     
     
@@ -52,7 +49,7 @@ final class UsersViewController: UIViewController, UISearchBarDelegate {
     private func setupSearchBar() {
         searchBar = UISearchBar()
         searchBar.delegate = self
-        searchBar.placeholder = "Search friends..."
+        searchBar.placeholder = "Search friends..." // Fix hard coded
 //        searchBar.barTintColor = UIColor(named: "BackgroundColor")
         searchBar.tintColor = .gray
         
