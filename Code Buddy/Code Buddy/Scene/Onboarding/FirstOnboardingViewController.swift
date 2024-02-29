@@ -13,14 +13,13 @@ final class FirstOnboardingViewController: UIViewController {
     
     @IBOutlet weak var backgroundImage: UIImageView!
     
+    @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-
-        
     }
     
     private func setupUI() {
@@ -29,12 +28,15 @@ final class FirstOnboardingViewController: UIViewController {
         backgroundImage.layer.zPosition = -1
         backgroundImage.contentMode = .scaleAspectFit
         
+        
         // MARK: - Title Label Configuration
         titleLabel.adjustsFontSizeToFitWidth = true
         
         // MARK: - Message Label Configuration
         messageLabel.adjustsFontSizeToFitWidth = true
         
+        // MARK: - Continue Button Configuration
+        continueButton.layer.cornerRadius = 10
         
         
         

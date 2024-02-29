@@ -1,10 +1,3 @@
-//
-//  SecondOnboardingViewController.swift
-//  Code Buddy
-//
-//  Created by furkan vural on 28.02.2024.
-//
-
 import UIKit
 
 final class SecondOnboardingViewController: UIViewController {
@@ -12,14 +5,11 @@ final class SecondOnboardingViewController: UIViewController {
     @IBOutlet private weak var secondOnboardingImage: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var messageLabel: UILabel!
+    @IBOutlet weak var onboardingFinishedButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         setupUI()
-
-        
     }
     
     private func setupUI() {
@@ -38,7 +28,8 @@ final class SecondOnboardingViewController: UIViewController {
         // MARK: - MessageLabel Configuration
         titleLabel.adjustsFontSizeToFitWidth = true
         
-        
+        // MARK: - OnboardingFinishedButton Configuration
+        onboardingFinishedButton.layer.cornerRadius = 10
         
         
         
@@ -46,6 +37,9 @@ final class SecondOnboardingViewController: UIViewController {
     
     @IBAction func finishedOnboardingButtonClicked(_ sender: Any) {
         
+        // VM
+        UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
+
     }
     
 }

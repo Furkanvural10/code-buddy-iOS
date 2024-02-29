@@ -290,12 +290,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8u-Qb-jcZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2973.2824427480914" y="-716.19718309859161"/>
+            <point key="canvasLocation" x="3062" y="-609"/>
         </scene>
         <!--First Onboarding View Controller-->
         <scene sceneID="KGT-y6-DCd">
             <objects>
-                <viewController id="KnB-tI-Fvk" customClass="FirstOnboardingViewController" customModule="Code_Buddy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstOnboardingViewController" id="KnB-tI-Fvk" customClass="FirstOnboardingViewController" customModule="Code_Buddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LVE-FQ-vm5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,9 +313,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29N-Bm-fNa">
-                                <rect key="frame" x="40" y="743" width="313" height="45"/>
+                                <rect key="frame" x="40" y="738" width="313" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="a4L-th-R9T"/>
+                                    <constraint firstAttribute="width" constant="313" id="EPu-gh-ffk"/>
+                                    <constraint firstAttribute="height" constant="50" id="a4L-th-R9T"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Continue">
@@ -326,7 +327,7 @@
                                     <segue destination="oUE-wf-o7N" kind="show" identifier="" id="BmB-bP-KYM"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_onboarding1" translatesAutoresizingMaskIntoConstraints="NO" id="oRd-RM-0ce">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding1" translatesAutoresizingMaskIntoConstraints="NO" id="oRd-RM-0ce">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                         </subviews>
@@ -355,18 +356,19 @@
                     <navigationItem key="navigationItem" id="vSW-g5-wMv"/>
                     <connections>
                         <outlet property="backgroundImage" destination="oRd-RM-0ce" id="xFj-4G-da6"/>
+                        <outlet property="continueButton" destination="29N-Bm-fNa" id="Jib-mY-6GN"/>
                         <outlet property="messageLabel" destination="AaV-86-eEX" id="j5H-hg-wdS"/>
                         <outlet property="titleLabel" destination="omr-yC-8sC" id="mos-cC-fN4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PB4-s4-d3W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-205" y="-35"/>
+            <point key="canvasLocation" x="-271" y="-35"/>
         </scene>
         <!--Second Onboarding View Controller-->
         <scene sceneID="xvq-tK-nNz">
             <objects>
-                <viewController id="oUE-wf-o7N" customClass="SecondOnboardingViewController" customModule="Code_Buddy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondOnboardingViewController" id="oUE-wf-o7N" customClass="SecondOnboardingViewController" customModule="Code_Buddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ai9-42-Zm8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -390,16 +392,15 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_onboarding2" translatesAutoresizingMaskIntoConstraints="NO" id="dtc-6e-1HK">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="844"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Onboarding2" translatesAutoresizingMaskIntoConstraints="NO" id="dtc-6e-1HK">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="es9-eb-24F">
-                                <rect key="frame" x="40" y="743" width="313" height="45"/>
+                                <rect key="frame" x="40" y="738" width="313" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="XCx-4c-hOo"/>
                                     <constraint firstAttribute="width" constant="313" id="aMX-ug-C4i"/>
-                                    <constraint firstAttribute="height" constant="45" id="gNv-qg-tDQ"/>
+                                    <constraint firstAttribute="height" constant="50" id="gNv-qg-tDQ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Let's Go"/>
@@ -429,13 +430,14 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="messageLabel" destination="4gh-RK-TlI" id="IdA-Yq-1cg"/>
+                        <outlet property="onboardingFinishedButton" destination="es9-eb-24F" id="6OS-28-uo9"/>
                         <outlet property="secondOnboardingImage" destination="dtc-6e-1HK" id="rwz-6X-4Pr"/>
                         <outlet property="titleLabel" destination="gDD-LE-XDM" id="yqJ-LB-SPm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2o-hL-x65" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712.2137404580152" y="-35.211267605633807"/>
+            <point key="canvasLocation" x="616" y="-35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pni-il-Csq">
@@ -453,7 +455,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yv3-MQ-Wnh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1537" y="-35"/>
+            <point key="canvasLocation" x="1444" y="-35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fh5-kz-fuk">
@@ -471,7 +473,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4K-mO-1dd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2973.2824427480914" y="206.33802816901411"/>
+            <point key="canvasLocation" x="3063" y="206"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qeo-q9-E7k">
@@ -489,13 +491,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IeE-h9-L9r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1022.1374045801526" y="-35.211267605633807"/>
+            <point key="canvasLocation" x="-1124" y="-35"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Onboarding1" width="390" height="844"/>
+        <image name="Onboarding2" width="390" height="844"/>
         <image name="fv" width="400" height="400"/>
-        <image name="img_onboarding1" width="390" height="844"/>
-        <image name="img_onboarding2" width="390" height="844"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
         <image name="person.3.fill" catalog="system" width="128" height="66"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
