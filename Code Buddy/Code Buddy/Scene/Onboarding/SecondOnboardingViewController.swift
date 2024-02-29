@@ -38,7 +38,7 @@ final class SecondOnboardingViewController: UIViewController {
     @IBAction func finishedOnboardingButtonClicked(_ sender: Any) {
         
         // VM
-        UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
+        UserDefaults.standard.set(true, forKey: "isSeenOnboarding")
 
     }
     

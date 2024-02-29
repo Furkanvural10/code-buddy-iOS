@@ -39,14 +39,11 @@ final class FirstOnboardingViewController: UIViewController {
         continueButton.layer.cornerRadius = 10
         
         
-        
     }
     
     
     
-    @IBAction func continueButtonClicked(_ sender: Any) {
-        
-    }
+    @IBAction func continueButtonClicked(_ sender: Any) { }
     
 
 
