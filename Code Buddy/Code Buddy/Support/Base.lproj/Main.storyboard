@@ -88,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1395" y="670"/>
+            <point key="canvasLocation" x="723" y="791"/>
         </scene>
         <!--Users View Controller-->
         <scene sceneID="XbM-yf-cn5">
@@ -170,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISL-CJ-ccR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4826.7175572519081" y="206.33802816901411"/>
+            <point key="canvasLocation" x="3134" y="791"/>
         </scene>
         <!--Deneme-->
         <scene sceneID="hVp-3R-jwo">
@@ -290,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8u-Qb-jcZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3988.5496183206105" y="-609.15492957746483"/>
+            <point key="canvasLocation" x="2819" y="-537"/>
         </scene>
         <!--First Onboarding View Controller-->
         <scene sceneID="KGT-y6-DCd">
@@ -364,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PB4-s4-d3W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="584" y="-537"/>
+            <point key="canvasLocation" x="724" y="-537"/>
         </scene>
         <!--Second Onboarding View Controller-->
         <scene sceneID="xvq-tK-nNz">
@@ -456,7 +456,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yv3-MQ-Wnh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-314" y="670"/>
+            <point key="canvasLocation" x="-314" y="791"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fh5-kz-fuk">
@@ -474,7 +474,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4K-mO-1dd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3988.5496183206105" y="205.63380281690141"/>
+            <point key="canvasLocation" x="1992" y="791"/>
         </scene>
         <!--Splash Screen View Controller-->
         <scene sceneID="n03-ZM-TlE">
@@ -483,11 +483,30 @@
                     <view key="view" contentMode="scaleToFill" id="l6s-yc-Byg">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQp-dF-OHd">
+                                <rect key="frame" x="16" y="395" width="361" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wiR-ch-KJN" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="204" width="393" height="183"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.02745098248" green="0.02745098248" blue="0.02745098248" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="animation"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dcC-Gf-aaF"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.028755635176585203" green="0.029040344435759313" blue="0.029040344435759313" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="S3r-oi-0uw"/>
                     <connections>
+                        <outlet property="animationView" destination="wiR-ch-KJN" id="8oW-G0-YmQ"/>
+                        <outlet property="appNameLabel" destination="zQp-dF-OHd" id="dUY-x5-Rtr"/>
                         <segue destination="KnB-tI-Fvk" kind="show" identifier="toFirstOnboardingVC" id="0ib-qM-smN"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toMainVC" id="2jO-iu-zvs"/>
                     </connections>

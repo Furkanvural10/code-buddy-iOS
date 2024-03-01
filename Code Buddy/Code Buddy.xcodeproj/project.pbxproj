@@ -19,6 +19,10 @@
 		04523CA72B8F442900C5D0C9 /* SecondOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04523CA62B8F442900C5D0C9 /* SecondOnboardingViewController.swift */; };
 		04523CAE2B90A03700C5D0C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04523CAD2B90A03700C5D0C9 /* LaunchScreen.storyboard */; };
 		04523CB02B90A20100C5D0C9 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04523CAF2B90A20100C5D0C9 /* SplashScreenViewController.swift */; };
+		04523CB42B90B5EF00C5D0C9 /* animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 04523CB32B90B5EF00C5D0C9 /* animation.json */; };
+		04523CB72B90B66F00C5D0C9 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 04523CB62B90B66F00C5D0C9 /* Lottie */; };
+		04523D292B92594000C5D0C9 /* Anta-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04523D282B92594000C5D0C9 /* Anta-Regular.ttf */; };
+		04523D2C2B925A1100C5D0C9 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04523D2B2B925A1100C5D0C9 /* UIFont+Extension.swift */; };
 		04540DB42B11456A005DD9BF /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04540DB32B11456A005DD9BF /* UsersViewController.swift */; };
 		04540DB62B121CF3005DD9BF /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04540DB52B121CF3005DD9BF /* UserCollectionViewCell.swift */; };
 		0497268F2AFAD82900C43BA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497268E2AFAD82900C43BA4 /* AppDelegate.swift */; };
@@ -42,6 +46,9 @@
 		04523CA62B8F442900C5D0C9 /* SecondOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingViewController.swift; sourceTree = "<group>"; };
 		04523CAD2B90A03700C5D0C9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04523CAF2B90A20100C5D0C9 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		04523CB32B90B5EF00C5D0C9 /* animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation.json; sourceTree = "<group>"; };
+		04523D282B92594000C5D0C9 /* Anta-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Anta-Regular.ttf"; sourceTree = "<group>"; };
+		04523D2B2B925A1100C5D0C9 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		04540DB32B11456A005DD9BF /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		04540DB52B121CF3005DD9BF /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		0497268B2AFAD82900C43BA4 /* Code Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04523CB72B90B66F00C5D0C9 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				042DCA7F2B70EE7600B6F57A /* UIImage+Extension.swift */,
+				04523D2B2B925A1100C5D0C9 /* UIFont+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -138,6 +147,22 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		04523D272B92592600C5D0C9 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				04523D282B92594000C5D0C9 /* Anta-Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		04523D2A2B92595000C5D0C9 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				04523CB32B90B5EF00C5D0C9 /* animation.json */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		049726822AFAD82900C43BA4 = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +182,8 @@
 		0497268D2AFAD82900C43BA4 /* Code Buddy */ = {
 			isa = PBXGroup;
 			children = (
+				04523D2A2B92595000C5D0C9 /* Animation */,
+				04523D272B92592600C5D0C9 /* Font */,
 				042DCA852B7212A100B6F57A /* Utilities */,
 				042DCA7E2B70EE5D00B6F57A /* Extension */,
 				04B268D02B3AF7190096CB0C /* Model */,
@@ -205,6 +232,9 @@
 			dependencies = (
 			);
 			name = "Code Buddy";
+			packageProductDependencies = (
+				04523CB62B90B66F00C5D0C9 /* Lottie */,
+			);
 			productName = "Code Buddy";
 			productReference = 0497268B2AFAD82900C43BA4 /* Code Buddy.app */;
 			productType = "com.apple.product-type.application";
@@ -233,6 +263,9 @@
 				Base,
 			);
 			mainGroup = 049726822AFAD82900C43BA4;
+			packageReferences = (
+				04523CB52B90B66F00C5D0C9 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 0497268C2AFAD82900C43BA4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -248,7 +281,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				04523CAE2B90A03700C5D0C9 /* LaunchScreen.storyboard in Resources */,
+				04523D292B92594000C5D0C9 /* Anta-Regular.ttf in Resources */,
 				049726982AFAD82A00C43BA4 /* Assets.xcassets in Resources */,
+				04523CB42B90B5EF00C5D0C9 /* animation.json in Resources */,
 				049726962AFAD82900C43BA4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +301,7 @@
 				042DCA802B70EE7600B6F57A /* UIImage+Extension.swift in Sources */,
 				04523CB02B90A20100C5D0C9 /* SplashScreenViewController.swift in Sources */,
 				0497268F2AFAD82900C43BA4 /* AppDelegate.swift in Sources */,
+				04523D2C2B925A1100C5D0C9 /* UIFont+Extension.swift in Sources */,
 				043800392B04067A007C5D72 /* AddAnnotationViewModel.swift in Sources */,
 				0438FF712AFECCF6007C5D72 /* MapViewController.swift in Sources */,
 				049726912AFAD82900C43BA4 /* SceneDelegate.swift in Sources */,
@@ -492,6 +528,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		04523CB52B90B66F00C5D0C9 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		04523CB62B90B66F00C5D0C9 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04523CB52B90B66F00C5D0C9 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 049726832AFAD82900C43BA4 /* Project object */;
 }
