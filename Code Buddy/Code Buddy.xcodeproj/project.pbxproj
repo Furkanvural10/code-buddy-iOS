@@ -123,6 +123,7 @@
 		0438FF6F2AFECCE1007C5D72 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				04523D382B93C8E900C5D0C9 /* TabBar */,
 				04523CA32B8F3EAD00C5D0C9 /* Onboarding */,
 				043800342B04061F007C5D72 /* Map */,
 			);
@@ -161,6 +162,13 @@
 				04523CB32B90B5EF00C5D0C9 /* animation.json */,
 			);
 			path = Animation;
+			sourceTree = "<group>";
+		};
+		04523D382B93C8E900C5D0C9 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		049726822AFAD82900C43BA4 = {
