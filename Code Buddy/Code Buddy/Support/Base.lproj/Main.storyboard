@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Map View Controller-->
+        <!--Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="Code_Buddy" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,7 +77,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="g23-fO-kAw" secondAttribute="trailing" constant="90" id="x8I-t5-Tux"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="8BE-xo-GSz"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="location" selectedImage="location" id="8BE-xo-GSz">
+                        <color key="badgeColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="OdQ-uN-bUB"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
@@ -90,9 +92,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-214.50381679389312" y="1616.9014084507044"/>
+            <point key="canvasLocation" x="-958" y="1617"/>
         </scene>
-        <!--Users View Controller-->
+        <!--Notification-->
         <scene sceneID="XbM-yf-cn5">
             <objects>
                 <viewController storyboardIdentifier="showUsersID" id="IKb-gk-NLj" customClass="UsersViewController" customModule="Code_Buddy" customModuleProvider="target" sceneMemberID="viewController">
@@ -165,7 +167,9 @@
                             <constraint firstItem="KuP-kt-8Pf" firstAttribute="bottom" secondItem="WPv-B4-96Z" secondAttribute="bottom" id="wGJ-Ht-OCa"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="A0L-0a-Aps"/>
+                    <tabBarItem key="tabBarItem" title="Notification" image="notification" selectedImage="notification" id="A0L-0a-Aps">
+                        <color key="badgeColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="iVq-XM-f1h"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
@@ -174,23 +178,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISL-CJ-ccR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="1617"/>
+            <point key="canvasLocation" x="1427" y="1617"/>
         </scene>
-        <!--Notification-->
+        <!--Profile-->
         <scene sceneID="9TC-4Q-4P2">
             <objects>
-                <viewController id="hpg-K1-Znw" sceneMemberID="viewController">
+                <viewController id="hpg-K1-Znw" customClass="NotificationViewController" customModule="Code_Buddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="udD-I4-ZZM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="EYJ-DZ-jsK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notification" id="2yl-pp-UjC"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" selectedImage="profile" id="2yl-pp-UjC">
+                        <color key="badgeColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXb-rm-o3S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2601" y="1617"/>
+            <point key="canvasLocation" x="2492" y="1617"/>
         </scene>
         <!--Deneme-->
         <scene sceneID="hVp-3R-jwo">
@@ -298,7 +304,7 @@
                             <constraint firstItem="WTN-wO-UzE" firstAttribute="top" secondItem="BKc-US-Ost" secondAttribute="top" constant="15" id="xd1-iC-fpA"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="4Af-ZQ-gDD"/>
+                    <tabBarItem key="tabBarItem" title="Persons" image="personList" selectedImage="personList" id="4Af-ZQ-gDD"/>
                     <navigationItem key="navigationItem" title="Deneme" prompt="sdasdsad" id="y5g-QD-asn"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
@@ -312,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8u-Qb-jcZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="723" y="1617"/>
+            <point key="canvasLocation" x="160" y="1617"/>
         </scene>
         <!--First Onboarding View Controller-->
         <scene sceneID="KGT-y6-DCd">
@@ -386,7 +392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PB4-s4-d3W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1649.6183206106869" y="-537.32394366197184"/>
+            <point key="canvasLocation" x="1698" y="-35"/>
         </scene>
         <!--Second Onboarding View Controller-->
         <scene sceneID="xvq-tK-nNz">
@@ -460,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2o-hL-x65" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2533.5877862595421" y="-537.32394366197184"/>
+            <point key="canvasLocation" x="2698" y="-35"/>
         </scene>
         <!--Splash Screen View Controller-->
         <scene sceneID="n03-ZM-TlE">
@@ -511,7 +517,10 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BAV-S3-rFL">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <color key="tintColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.02745098248" green="0.02745098248" blue="0.02745098248" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="9Na-OI-ZwG"/>
@@ -522,17 +531,21 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rl-Rs-tsV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="722.90076335877859" y="790.84507042253529"/>
+            <point key="canvasLocation" x="611" y="793"/>
         </scene>
     </scenes>
     <resources>
         <image name="Onboarding1" width="390" height="844"/>
         <image name="Onboarding2" width="390" height="844"/>
         <image name="fv" width="400" height="400"/>
+        <image name="location" width="50" height="50"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
+        <image name="notification" width="50" height="50"/>
         <image name="person.3.fill" catalog="system" width="128" height="66"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
+        <image name="personList" width="50" height="50"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="profile" width="50" height="50"/>
         <namedColor name="BackgroundColor">
             <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
