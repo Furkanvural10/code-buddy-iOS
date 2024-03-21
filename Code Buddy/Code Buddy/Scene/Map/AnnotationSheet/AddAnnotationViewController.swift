@@ -20,8 +20,6 @@ final class AddAnnotationViewController: UIViewController {
     // MARK: - Profile Image Add
     @IBOutlet weak var profileImage: UIImageView!
     
-    // MARK: - Gesture Recognizer
-    let gestureRecognizer = UIGestureRecognizer()
     
     private let viewModel = AddAnnotationViewModel()
     private var status: String = "Working"
@@ -40,7 +38,6 @@ final class AddAnnotationViewController: UIViewController {
 
     private func setupUI() {
         view.backgroundColor = customBlackColor
-        
         // MARK: - SegmentedControl UI
         
         let statusSegmentedControlTextAttribute = [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -50,6 +47,12 @@ final class AddAnnotationViewController: UIViewController {
         statusSegmentedControl.layer.borderColor = customBlackColor?.cgColor
         statusSegmentedControl.selectedSegmentTintColor = .systemGreen
         statusSegmentedControl.setTitleTextAttributes(statusSegmentedControlTextAttribute, for: .normal)
+        
+        // MARK: - Add Image Label
+        let gestureRecognizerForLabel = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
+        addImageLabel.text = "+ Add Image"
+        addImageLabel.isUserInteractionEnabled = true
+        addImageLabel.addGestureRecognizer(gestureRecognizerForLabel)
 
         
         // MARK: - SaveButton UI
@@ -87,9 +90,8 @@ final class AddAnnotationViewController: UIViewController {
     
     private func configureImage() {
         profileImage.isUserInteractionEnabled = true
-        profileImage.contentMode = .scaleAspectFill
-        profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
-        profileImage.clipsToBounds = true
+        profileImage.setRounded()
+        
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
         profileImage.addGestureRecognizer(gestureRecognizer)
@@ -102,7 +104,7 @@ final class AddAnnotationViewController: UIViewController {
         picker.delegate = self
         present(picker, animated: true)
     }
-    
+
     func updateStatusUI(color: UIColor) {
         statusSegmentedControl.selectedSegmentTintColor = color
     }
@@ -135,7 +137,19 @@ extension AddAnnotationViewController: UIImagePickerControllerDelegate, UINaviga
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         profileImage.image = info[.originalImage] as? UIImage
-        self.addImageLabel.text = "Update"
+        profileImage.contentMode = .scaleAspectFill
+        profileImage.setRounded()
+
+        self.addImageLabel.text = "Edit Image"
         self.dismiss(animated: true)
     }
+}
+
+extension UIImageView {
+
+   func setRounded() {
+      let radius = CGRectGetWidth(self.frame) / 2
+      self.layer.cornerRadius = radius
+      self.layer.masksToBounds = true
+   }
 }

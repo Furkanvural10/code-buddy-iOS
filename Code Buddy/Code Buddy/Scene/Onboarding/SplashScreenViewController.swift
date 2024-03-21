@@ -11,13 +11,11 @@ import Lottie
 final class SplashScreenViewController: UIViewController {
     
     // MARK: - UI Component
-    
     @IBOutlet private weak var animationView: LottieAnimationView!
-    
     @IBOutlet private weak var appNameLabel: UILabel!
+    
     private let appNameString = ["<","C","o","d","e","B","u","d","d","y",">"]
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 //        view.backgroundColor = .red
@@ -26,11 +24,8 @@ final class SplashScreenViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
- 
-        
+
         for char in appNameString {
-            
             appNameLabel.text! += "\(char)"
             RunLoop.current.run(until: Date() + 0.14)
         }

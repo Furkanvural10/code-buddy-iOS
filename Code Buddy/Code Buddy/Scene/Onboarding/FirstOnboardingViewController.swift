@@ -5,14 +5,11 @@
 //  Created by furkan vural on 28.02.2024.
 //
 
-#warning("Fix hard coded")
-
 import UIKit
 
 final class FirstOnboardingViewController: UIViewController {
     
     @IBOutlet weak var backgroundImage: UIImageView!
-    
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
@@ -28,7 +25,6 @@ final class FirstOnboardingViewController: UIViewController {
         backgroundImage.layer.zPosition = -1
         backgroundImage.contentMode = .scaleAspectFit
         
-        
         // MARK: - Title Label Configuration
         titleLabel.adjustsFontSizeToFitWidth = true
         
@@ -37,14 +33,10 @@ final class FirstOnboardingViewController: UIViewController {
         
         // MARK: - Continue Button Configuration
         continueButton.layer.cornerRadius = 10
-        
-        
     }
     
-    
-    
-    @IBAction func continueButtonClicked(_ sender: Any) { }
-    
-
+    @IBAction func continueButtonClicked(_ sender: Any) {
+        
+    }
 
 }
