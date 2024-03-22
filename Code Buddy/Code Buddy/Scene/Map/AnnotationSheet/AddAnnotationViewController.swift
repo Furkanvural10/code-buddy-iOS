@@ -4,12 +4,22 @@ import UIKit
 
 final class AddAnnotationViewController: UIViewController {
     
+    
+    // MARK: - Title
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
     // MARK: - TextFields
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var userTitleTextField: UITextField!
     
-    // MARK: - SegmentedControler
-    @IBOutlet weak var statusSegmentedControl: UISegmentedControl!
+    // MARK: - TextFields Labels
+    
+    @IBOutlet weak var usernameTitle: UILabel!
+    @IBOutlet weak var usertitle: UILabel!
+    
+    // MARK: - Toggle Label
+    @IBOutlet weak var toggleLabel: UILabel!
     
     // MARK: - Add Image Label
     @IBOutlet weak var addImageLabel: UILabel!
@@ -20,6 +30,8 @@ final class AddAnnotationViewController: UIViewController {
     // MARK: - Profile Image Add
     @IBOutlet weak var profileImage: UIImageView!
     
+    // MARK: - Location Toggle
+    @IBOutlet weak var locationToggleView: UISwitch!
     
     private let viewModel = AddAnnotationViewModel()
     private var status: String = "Working"
@@ -32,25 +44,17 @@ final class AddAnnotationViewController: UIViewController {
         setupUI()
         configureImage()
         viewModel.statusChangedClosure = { [weak self] color in
-            self?.updateStatusUI(color: color)
+            
         }
     }
 
     private func setupUI() {
         view.backgroundColor = customBlackColor
-        // MARK: - SegmentedControl UI
-        
-        let statusSegmentedControlTextAttribute = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        statusSegmentedControl.backgroundColor = customBlackColor
-        statusSegmentedControl.layer.cornerRadius = 5
-        statusSegmentedControl.layer.borderWidth = 0.4
-        statusSegmentedControl.layer.borderColor = customBlackColor?.cgColor
-        statusSegmentedControl.selectedSegmentTintColor = .systemGreen
-        statusSegmentedControl.setTitleTextAttributes(statusSegmentedControlTextAttribute, for: .normal)
+
         
         // MARK: - Add Image Label
         let gestureRecognizerForLabel = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
-        addImageLabel.text = "+ Add Image"
+        addImageLabel.text = "Add Image"
         addImageLabel.isUserInteractionEnabled = true
         addImageLabel.addGestureRecognizer(gestureRecognizerForLabel)
 
@@ -105,30 +109,40 @@ final class AddAnnotationViewController: UIViewController {
         present(picker, animated: true)
     }
 
-    func updateStatusUI(color: UIColor) {
-        statusSegmentedControl.selectedSegmentTintColor = color
-    }
-
-    @IBAction func statusSegmentedChanged(_ sender: Any) {
-        let index = statusSegmentedControl.selectedSegmentIndex
-        viewModel.updateStatus(index: index)
-    }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
-        self.dismiss(animated: true)
+//        self.dismiss(animated: true)
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
-        
-        let name = usernameTextField.text!
-        let title = usernameTextField.text!
-        let image = profileImage.image?.jpegData(compressionQuality: 50)
-        let status = status
-        let location = Location(latitude: latitude!, longitude: longitude!)
-        let user = User(name: name, title: title, image: image!, status: status, location: location)
-        
-        viewModel.saveUserInfo(user: user)
+        print("Worked")
+//        let name = usernameTextField.text!
+//        let title = usernameTextField.text!
+//        let image = profileImage.image?.jpegData(compressionQuality: 50)
+//        let status = status
+//        let location = Location(latitude: latitude!, longitude: longitude!)
+//        let user = User(name: name, title: title, image: image!, status: status, location: location)
+//        
+//        viewModel.saveUserInfo(user: user)
     }
+    
+    
+    @IBAction func locationToggle(_ sender: Any) {
+        if locationToggleView.isOn {
+            DispatchQueue.main.async {
+                self.toggleLabel.text = "Online"
+                
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.toggleLabel.text = "Offline"
+                self.toggleLabel.textColor = .gray.withAlphaComponent(0.7)
+            }
+        }
+    }
+    
+    
+    
     
 }
 
