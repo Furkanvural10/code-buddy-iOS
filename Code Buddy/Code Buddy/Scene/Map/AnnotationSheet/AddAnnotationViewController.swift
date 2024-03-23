@@ -1,5 +1,3 @@
-#warning("Fixed Hard Coded")
-
 import UIKit
 
 final class AddAnnotationViewController: UIViewController {
@@ -33,8 +31,10 @@ final class AddAnnotationViewController: UIViewController {
     // MARK: - Location Toggle
     @IBOutlet weak var locationToggleView: UISwitch!
     
+    
+    // MARK: - Properties
     private let viewModel = AddAnnotationViewModel()
-    private var status: String = "Working"
+    private lazy var gestureRecognizer = UITapGestureRecognizer()
     var latitude: Double?
     var longitude: Double?
     private let customBlackColor = UIColor(named: "BackgroundColor")
@@ -50,7 +50,9 @@ final class AddAnnotationViewController: UIViewController {
 
     private func setupUI() {
         view.backgroundColor = customBlackColor
-
+        gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
+        view.addGestureRecognizer(gestureRecognizer)
+        
         
         // MARK: - Add Image Label
         let gestureRecognizerForLabel = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
@@ -111,7 +113,11 @@ final class AddAnnotationViewController: UIViewController {
 
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
-//        self.dismiss(animated: true)
+        DispatchQueue.main.async {
+            self.profileImage.image = UIImage(named: "addProfileImage")
+            self.usernameTextField.text = ""
+            self.userTitleTextField.text = ""
+        }
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
@@ -141,9 +147,10 @@ final class AddAnnotationViewController: UIViewController {
         }
     }
     
-    
-    
-    
+    @objc private func closeKeyboard() {
+        self.view.endEditing(true)
+    }
+
 }
 
 extension AddAnnotationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

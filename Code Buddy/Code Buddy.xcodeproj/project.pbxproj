@@ -26,6 +26,7 @@
 		04540DB42B11456A005DD9BF /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04540DB32B11456A005DD9BF /* UsersViewController.swift */; };
 		04540DB62B121CF3005DD9BF /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04540DB52B121CF3005DD9BF /* UserCollectionViewCell.swift */; };
 		04771AD32BAAD834009A5714 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04771AD22BAAD834009A5714 /* NotificationViewController.swift */; };
+		04771AD82BAEE77F009A5714 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04771AD72BAEE77F009A5714 /* Constants.swift */; };
 		0497268F2AFAD82900C43BA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497268E2AFAD82900C43BA4 /* AppDelegate.swift */; };
 		049726912AFAD82900C43BA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049726902AFAD82900C43BA4 /* SceneDelegate.swift */; };
 		049726962AFAD82900C43BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049726942AFAD82900C43BA4 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		04540DB32B11456A005DD9BF /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		04540DB52B121CF3005DD9BF /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		04771AD22BAAD834009A5714 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		04771AD72BAEE77F009A5714 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0497268B2AFAD82900C43BA4 /* Code Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0497268E2AFAD82900C43BA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		049726902AFAD82900C43BA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				042DCA862B7212B300B6F57A /* UIHelper.swift */,
+				04771AD72BAEE77F009A5714 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				04771AD32BAAD834009A5714 /* NotificationViewController.swift in Sources */,
 				042DCA822B70FF6B00B6F57A /* UserSheetViewModel.swift in Sources */,
 				04B268D22B3AF7290096CB0C /* User.swift in Sources */,
+				04771AD82BAEE77F009A5714 /* Constants.swift in Sources */,
 				04523CA52B8F441D00C5D0C9 /* FirstOnboardingViewController.swift in Sources */,
 				04523CA72B8F442900C5D0C9 /* SecondOnboardingViewController.swift in Sources */,
 				04540DB62B121CF3005DD9BF /* UserCollectionViewCell.swift in Sources */,
