@@ -63,6 +63,8 @@ extension NotificationViewController: NotificationViewControllerDelegate {
     
     private func showAlertMessage() {
         let alertController = UIAlertController(title: "Ali Kaşıkçı will be notified", message: "Are you sure?", preferredStyle: .actionSheet)
+        
+        
         let waveButton = UIAlertAction(title: "Wave", style: .default) { _ in
             print("Notification")
         }
@@ -73,6 +75,8 @@ extension NotificationViewController: NotificationViewControllerDelegate {
         
         alertController.addAction(waveButton)
         alertController.addAction(cancel)
+        
+        
         self.present(alertController, animated: true)
     }
     
