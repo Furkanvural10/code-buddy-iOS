@@ -28,6 +28,8 @@
 		04771AD32BAAD834009A5714 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04771AD22BAAD834009A5714 /* NotificationViewController.swift */; };
 		04771AD82BAEE77F009A5714 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04771AD72BAEE77F009A5714 /* Constants.swift */; };
 		04771ADA2BAEEDF0009A5714 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04771AD92BAEEDF0009A5714 /* UIImageView+Extension.swift */; };
+		04771ADE2BAEFBF9009A5714 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04771ADD2BAEFBF9009A5714 /* NotificationTableViewCell.swift */; };
+		04771AE22BAF270D009A5714 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04771AE12BAF270D009A5714 /* NotificationViewModel.swift */; };
 		0497268F2AFAD82900C43BA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497268E2AFAD82900C43BA4 /* AppDelegate.swift */; };
 		049726912AFAD82900C43BA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049726902AFAD82900C43BA4 /* SceneDelegate.swift */; };
 		049726962AFAD82900C43BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049726942AFAD82900C43BA4 /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 		04771AD22BAAD834009A5714 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		04771AD72BAEE77F009A5714 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04771AD92BAEEDF0009A5714 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		04771ADD2BAEFBF9009A5714 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		04771AE12BAF270D009A5714 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		0497268B2AFAD82900C43BA4 /* Code Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0497268E2AFAD82900C43BA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		049726902AFAD82900C43BA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,9 +187,35 @@
 		04771ADB2BAEF126009A5714 /* NotificationVC */ = {
 			isa = PBXGroup;
 			children = (
-				04771AD22BAAD834009A5714 /* NotificationViewController.swift */,
+				04771AE02BAF26FA009A5714 /* ViewModel */,
+				04771ADF2BAF26F4009A5714 /* View */,
+				04771ADC2BAEFBD3009A5714 /* TableViewCell */,
 			);
 			path = NotificationVC;
+			sourceTree = "<group>";
+		};
+		04771ADC2BAEFBD3009A5714 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				04771ADD2BAEFBF9009A5714 /* NotificationTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		04771ADF2BAF26F4009A5714 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04771AD22BAAD834009A5714 /* NotificationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04771AE02BAF26FA009A5714 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04771AE12BAF270D009A5714 /* NotificationViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		049726822AFAD82900C43BA4 = {
@@ -330,6 +360,8 @@
 				043800392B04067A007C5D72 /* AddAnnotationViewModel.swift in Sources */,
 				0438FF712AFECCF6007C5D72 /* MapViewController.swift in Sources */,
 				04771ADA2BAEEDF0009A5714 /* UIImageView+Extension.swift in Sources */,
+				04771ADE2BAEFBF9009A5714 /* NotificationTableViewCell.swift in Sources */,
+				04771AE22BAF270D009A5714 /* NotificationViewModel.swift in Sources */,
 				049726912AFAD82900C43BA4 /* SceneDelegate.swift in Sources */,
 				0438FFDA2B0150E0007C5D72 /* SheetPresent.swift in Sources */,
 				043800362B040635007C5D72 /* MapViewModel.swift in Sources */,
