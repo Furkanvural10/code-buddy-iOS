@@ -158,7 +158,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KuP-kt-8Pf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="WPv-B4-96Z" firstAttribute="leading" secondItem="KuP-kt-8Pf" secondAttribute="leading" id="Byz-64-rfZ"/>
                             <constraint firstItem="WPv-B4-96Z" firstAttribute="height" secondItem="9ZD-ba-yAD" secondAttribute="height" multiplier="0.85" id="Pne-n3-TS0"/>
@@ -187,16 +187,41 @@
                     <view key="view" contentMode="scaleToFill" id="udD-I4-ZZM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mW-nd-jol">
+                                <rect key="frame" x="40" y="89" width="164.33333333333334" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vLD-XG-Q14">
+                                <rect key="frame" x="20" y="135" width="373" height="634"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="EYJ-DZ-jsK"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EYJ-DZ-jsK" firstAttribute="bottom" secondItem="vLD-XG-Q14" secondAttribute="bottom" id="EDR-VC-aiJ"/>
+                            <constraint firstItem="vLD-XG-Q14" firstAttribute="leading" secondItem="EYJ-DZ-jsK" secondAttribute="leading" constant="20" id="n3R-HT-8wD"/>
+                            <constraint firstItem="3mW-nd-jol" firstAttribute="leading" secondItem="EYJ-DZ-jsK" secondAttribute="leading" constant="40" id="q2O-X1-Qci"/>
+                            <constraint firstItem="EYJ-DZ-jsK" firstAttribute="trailing" secondItem="vLD-XG-Q14" secondAttribute="trailing" id="tRH-Kq-Twc"/>
+                            <constraint firstItem="3mW-nd-jol" firstAttribute="top" secondItem="EYJ-DZ-jsK" secondAttribute="top" constant="30" id="ubE-7e-OEc"/>
+                            <constraint firstItem="vLD-XG-Q14" firstAttribute="top" secondItem="3mW-nd-jol" secondAttribute="bottom" constant="10" id="vrf-ec-b89"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Notification" image="notification" selectedImage="notification" id="2yl-pp-UjC">
                         <color key="badgeColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="notificationTableView" destination="vLD-XG-Q14" id="gZR-RE-MSJ"/>
+                        <outlet property="notificationTitle" destination="3mW-nd-jol" id="dfV-BP-7fc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXb-rm-o3S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1431" y="1617"/>
+            <point key="canvasLocation" x="1251.145038167939" y="1616.9014084507044"/>
         </scene>
         <!--View Controller Title-->
         <scene sceneID="hVp-3R-jwo">
@@ -349,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8u-Qb-jcZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2632.8244274809158" y="1616.9014084507044"/>
+            <point key="canvasLocation" x="2282" y="1617"/>
         </scene>
         <!--First Onboarding View Controller-->
         <scene sceneID="KGT-y6-DCd">
@@ -530,6 +555,7 @@
                         <color key="backgroundColor" red="0.028755635176585203" green="0.029040344435759313" blue="0.029040344435759313" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="S3r-oi-0uw"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="animationView" destination="wiR-ch-KJN" id="8oW-G0-YmQ"/>
                         <outlet property="appNameLabel" destination="zQp-dF-OHd" id="dUY-x5-Rtr"/>
@@ -569,10 +595,10 @@
         <!--Navigation Controller-->
         <scene sceneID="eCT-Rk-qeT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xbb-WX-Us0" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Xbb-WX-Us0" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="duk-P3-muH">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

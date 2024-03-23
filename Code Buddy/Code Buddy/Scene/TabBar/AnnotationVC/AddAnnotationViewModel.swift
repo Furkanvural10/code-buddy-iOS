@@ -5,9 +5,6 @@ protocol AddAnnotationViewModelProtocol {
     
     func saveUserInfo(user: User)
     func updateUserInfo(user: User)
-    func updateStatus(index: Int)
-    
-    var statusChangedClosure: ((UIColor) -> Void)? { get }
     
     // If user added annotation addAnnotationSheetView change update new location
     var isUserAddAnnotation: Bool { get }
@@ -19,12 +16,8 @@ protocol AddAnnotationViewModelProtocol {
 
 final class AddAnnotationViewModel: AddAnnotationViewModelProtocol {
     
-    var statusChangedClosure: ((UIColor) -> Void)?
     var isUserAddAnnotation: Bool = false
     var allUser: [User] = []
-    
-    
-
 
     func saveUserInfo(user: User) {
         
@@ -43,18 +36,4 @@ final class AddAnnotationViewModel: AddAnnotationViewModelProtocol {
         
     }
     
-    func updateStatus(index: Int) {
-        var color: UIColor = .systemRed
-        
-        switch index {
-        case 0:
-            color = .systemGreen
-        case 1:
-            color = .systemOrange
-        default:
-            color = .systemRed
-        }
-        
-        statusChangedClosure?(color)
-    }
 }

@@ -27,6 +27,7 @@
 		04540DB62B121CF3005DD9BF /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04540DB52B121CF3005DD9BF /* UserCollectionViewCell.swift */; };
 		04771AD32BAAD834009A5714 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04771AD22BAAD834009A5714 /* NotificationViewController.swift */; };
 		04771AD82BAEE77F009A5714 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04771AD72BAEE77F009A5714 /* Constants.swift */; };
+		04771ADA2BAEEDF0009A5714 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04771AD92BAEEDF0009A5714 /* UIImageView+Extension.swift */; };
 		0497268F2AFAD82900C43BA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497268E2AFAD82900C43BA4 /* AppDelegate.swift */; };
 		049726912AFAD82900C43BA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049726902AFAD82900C43BA4 /* SceneDelegate.swift */; };
 		049726962AFAD82900C43BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049726942AFAD82900C43BA4 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		04540DB52B121CF3005DD9BF /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		04771AD22BAAD834009A5714 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		04771AD72BAEE77F009A5714 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		04771AD92BAEEDF0009A5714 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		0497268B2AFAD82900C43BA4 /* Code Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0497268E2AFAD82900C43BA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		049726902AFAD82900C43BA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				042DCA7F2B70EE7600B6F57A /* UIImage+Extension.swift */,
 				04523D2B2B925A1100C5D0C9 /* UIFont+Extension.swift */,
+				04771AD92BAEEDF0009A5714 /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -100,19 +103,18 @@
 			children = (
 				043800352B040635007C5D72 /* MapViewModel.swift */,
 				0438FF702AFECCF6007C5D72 /* MapViewController.swift */,
-				043800372B040657007C5D72 /* AnnotationSheet */,
 				0438003A2B040755007C5D72 /* UsersSheet */,
 			);
 			path = Map;
 			sourceTree = "<group>";
 		};
-		043800372B040657007C5D72 /* AnnotationSheet */ = {
+		043800372B040657007C5D72 /* AnnotationVC */ = {
 			isa = PBXGroup;
 			children = (
 				0438FFDB2B01521D007C5D72 /* AddAnnotationViewController.swift */,
 				043800382B04067A007C5D72 /* AddAnnotationViewModel.swift */,
 			);
-			path = AnnotationSheet;
+			path = AnnotationVC;
 			sourceTree = "<group>";
 		};
 		0438003A2B040755007C5D72 /* UsersSheet */ = {
@@ -172,8 +174,18 @@
 		04523D382B93C8E900C5D0C9 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				04771ADB2BAEF126009A5714 /* NotificationVC */,
+				043800372B040657007C5D72 /* AnnotationVC */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		04771ADB2BAEF126009A5714 /* NotificationVC */ = {
+			isa = PBXGroup;
+			children = (
+				04771AD22BAAD834009A5714 /* NotificationViewController.swift */,
+			);
+			path = NotificationVC;
 			sourceTree = "<group>";
 		};
 		049726822AFAD82900C43BA4 = {
@@ -204,7 +216,6 @@
 				0438FFD82B015024007C5D72 /* BottomSheets */,
 				0438FF6F2AFECCE1007C5D72 /* Scene */,
 				0497269C2AFAD82A00C43BA4 /* Info.plist */,
-				04771AD22BAAD834009A5714 /* NotificationViewController.swift */,
 			);
 			path = "Code Buddy";
 			sourceTree = "<group>";
@@ -318,6 +329,7 @@
 				04523D2C2B925A1100C5D0C9 /* UIFont+Extension.swift in Sources */,
 				043800392B04067A007C5D72 /* AddAnnotationViewModel.swift in Sources */,
 				0438FF712AFECCF6007C5D72 /* MapViewController.swift in Sources */,
+				04771ADA2BAEEDF0009A5714 /* UIImageView+Extension.swift in Sources */,
 				049726912AFAD82900C43BA4 /* SceneDelegate.swift in Sources */,
 				0438FFDA2B0150E0007C5D72 /* SheetPresent.swift in Sources */,
 				043800362B040635007C5D72 /* MapViewModel.swift in Sources */,
