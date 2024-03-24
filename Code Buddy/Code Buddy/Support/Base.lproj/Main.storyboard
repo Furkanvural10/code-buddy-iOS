@@ -146,19 +146,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Furkan Vural waves you. 1h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNG-aZ-cDb">
-                                                    <rect key="frame" x="71" y="15" width="196" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <rect key="frame" x="70.999999999999986" y="15" width="184.66666666666663" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wave back." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkR-Vt-Drv">
-                                                    <rect key="frame" x="71" y="43" width="74" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="71" y="41" width="69.333333333333314" height="15.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0w-OG-nlg">
-                                                    <rect key="frame" x="333" y="14" width="50" height="50"/>
+                                                    <rect key="frame" x="333" y="10" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="Xtl-xG-NEc"/>
                                                         <constraint firstAttribute="width" constant="50" id="fZY-Kn-vqa"/>
@@ -183,9 +183,10 @@
                                                 <constraint firstItem="nNG-aZ-cDb" firstAttribute="leading" secondItem="cMP-1b-Hxh" secondAttribute="trailing" constant="6" id="9TB-vv-FUm"/>
                                                 <constraint firstItem="KkR-Vt-Drv" firstAttribute="top" secondItem="nNG-aZ-cDb" secondAttribute="bottom" constant="8" symbolic="YES" id="9ZW-dW-P0w"/>
                                                 <constraint firstItem="KkR-Vt-Drv" firstAttribute="leading" secondItem="cMP-1b-Hxh" secondAttribute="trailing" constant="6" id="Hrg-0M-cYI"/>
+                                                <constraint firstItem="P0w-OG-nlg" firstAttribute="centerY" secondItem="cMP-1b-Hxh" secondAttribute="centerY" id="Qfc-cY-vs1"/>
                                                 <constraint firstItem="cMP-1b-Hxh" firstAttribute="top" secondItem="RU9-xa-YoP" secondAttribute="topMargin" constant="3" id="Sxv-Od-uz7"/>
                                                 <constraint firstItem="KkR-Vt-Drv" firstAttribute="leading" secondItem="nNG-aZ-cDb" secondAttribute="leading" id="TUO-xl-LG7"/>
-                                                <constraint firstItem="P0w-OG-nlg" firstAttribute="top" secondItem="RU9-xa-YoP" secondAttribute="top" constant="14" id="ffJ-Vy-dB3"/>
+                                                <constraint firstItem="P0w-OG-nlg" firstAttribute="top" secondItem="RU9-xa-YoP" secondAttribute="top" constant="10" id="ffJ-Vy-dB3"/>
                                                 <constraint firstAttribute="trailing" secondItem="P0w-OG-nlg" secondAttribute="trailing" constant="10" id="nI1-tQ-uRS"/>
                                             </constraints>
                                         </tableViewCellContentView>
