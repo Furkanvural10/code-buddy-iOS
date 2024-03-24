@@ -11,10 +11,9 @@
 		042DCA822B70FF6B00B6F57A /* UserSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DCA812B70FF6B00B6F57A /* UserSheetViewModel.swift */; };
 		042DCA872B7212B300B6F57A /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DCA862B7212B300B6F57A /* UIHelper.swift */; };
 		043800362B040635007C5D72 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043800352B040635007C5D72 /* MapViewModel.swift */; };
-		043800392B04067A007C5D72 /* AddAnnotationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043800382B04067A007C5D72 /* AddAnnotationViewModel.swift */; };
+		043800392B04067A007C5D72 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043800382B04067A007C5D72 /* ProfileViewModel.swift */; };
 		0438FF712AFECCF6007C5D72 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438FF702AFECCF6007C5D72 /* MapViewController.swift */; };
-		0438FFDA2B0150E0007C5D72 /* SheetPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438FFD92B0150E0007C5D72 /* SheetPresent.swift */; };
-		0438FFDC2B01521D007C5D72 /* AddAnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438FFDB2B01521D007C5D72 /* AddAnnotationViewController.swift */; };
+		0438FFDC2B01521D007C5D72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438FFDB2B01521D007C5D72 /* ProfileViewController.swift */; };
 		04523CA52B8F441D00C5D0C9 /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04523CA42B8F441D00C5D0C9 /* FirstOnboardingViewController.swift */; };
 		04523CA72B8F442900C5D0C9 /* SecondOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04523CA62B8F442900C5D0C9 /* SecondOnboardingViewController.swift */; };
 		04523CAE2B90A03700C5D0C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04523CAD2B90A03700C5D0C9 /* LaunchScreen.storyboard */; };
@@ -43,10 +42,9 @@
 		042DCA812B70FF6B00B6F57A /* UserSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheetViewModel.swift; sourceTree = "<group>"; };
 		042DCA862B7212B300B6F57A /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		043800352B040635007C5D72 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		043800382B04067A007C5D72 /* AddAnnotationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnnotationViewModel.swift; sourceTree = "<group>"; };
+		043800382B04067A007C5D72 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		0438FF702AFECCF6007C5D72 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		0438FFD92B0150E0007C5D72 /* SheetPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresent.swift; sourceTree = "<group>"; };
-		0438FFDB2B01521D007C5D72 /* AddAnnotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnnotationViewController.swift; sourceTree = "<group>"; };
+		0438FFDB2B01521D007C5D72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		04523CA42B8F441D00C5D0C9 /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
 		04523CA62B8F442900C5D0C9 /* SecondOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingViewController.swift; sourceTree = "<group>"; };
 		04523CAD2B90A03700C5D0C9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -111,13 +109,13 @@
 			path = MapVC;
 			sourceTree = "<group>";
 		};
-		043800372B040657007C5D72 /* AnnotationVC */ = {
+		043800372B040657007C5D72 /* ProfileVC */ = {
 			isa = PBXGroup;
 			children = (
-				0438FFDB2B01521D007C5D72 /* AddAnnotationViewController.swift */,
-				043800382B04067A007C5D72 /* AddAnnotationViewModel.swift */,
+				0438FFDB2B01521D007C5D72 /* ProfileViewController.swift */,
+				043800382B04067A007C5D72 /* ProfileViewModel.swift */,
 			);
-			path = AnnotationVC;
+			path = ProfileVC;
 			sourceTree = "<group>";
 		};
 		0438003A2B040755007C5D72 /* UsersSheet */ = {
@@ -137,14 +135,6 @@
 				04523D382B93C8E900C5D0C9 /* TabBar */,
 			);
 			path = Scene;
-			sourceTree = "<group>";
-		};
-		0438FFD82B015024007C5D72 /* BottomSheets */ = {
-			isa = PBXGroup;
-			children = (
-				0438FFD92B0150E0007C5D72 /* SheetPresent.swift */,
-			);
-			path = BottomSheets;
 			sourceTree = "<group>";
 		};
 		04523CA32B8F3EAD00C5D0C9 /* Onboarding */ = {
@@ -179,7 +169,7 @@
 				04771AE32BB03229009A5714 /* UserListVC */,
 				043800342B04061F007C5D72 /* MapVC */,
 				04771ADB2BAEF126009A5714 /* NotificationVC */,
-				043800372B040657007C5D72 /* AnnotationVC */,
+				043800372B040657007C5D72 /* ProfileVC */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -251,7 +241,6 @@
 				042DCA7E2B70EE5D00B6F57A /* Extension */,
 				04B268D02B3AF7190096CB0C /* Model */,
 				04B268CF2B3A00BF0096CB0C /* Support */,
-				0438FFD82B015024007C5D72 /* BottomSheets */,
 				0438FF6F2AFECCE1007C5D72 /* Scene */,
 				0497269C2AFAD82A00C43BA4 /* Info.plist */,
 			);
@@ -358,20 +347,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0438FFDC2B01521D007C5D72 /* AddAnnotationViewController.swift in Sources */,
+				0438FFDC2B01521D007C5D72 /* ProfileViewController.swift in Sources */,
 				04B268D42B3AF7AB0096CB0C /* Location.swift in Sources */,
 				04540DB42B11456A005DD9BF /* UsersViewController.swift in Sources */,
 				042DCA802B70EE7600B6F57A /* UIImage+Extension.swift in Sources */,
 				04523CB02B90A20100C5D0C9 /* SplashScreenViewController.swift in Sources */,
 				0497268F2AFAD82900C43BA4 /* AppDelegate.swift in Sources */,
 				04523D2C2B925A1100C5D0C9 /* UIFont+Extension.swift in Sources */,
-				043800392B04067A007C5D72 /* AddAnnotationViewModel.swift in Sources */,
+				043800392B04067A007C5D72 /* ProfileViewModel.swift in Sources */,
 				0438FF712AFECCF6007C5D72 /* MapViewController.swift in Sources */,
 				04771ADA2BAEEDF0009A5714 /* UIImageView+Extension.swift in Sources */,
 				04771ADE2BAEFBF9009A5714 /* NotificationTableViewCell.swift in Sources */,
 				04771AE22BAF270D009A5714 /* NotificationViewModel.swift in Sources */,
 				049726912AFAD82900C43BA4 /* SceneDelegate.swift in Sources */,
-				0438FFDA2B0150E0007C5D72 /* SheetPresent.swift in Sources */,
 				043800362B040635007C5D72 /* MapViewModel.swift in Sources */,
 				04771AD32BAAD834009A5714 /* NotificationViewController.swift in Sources */,
 				042DCA822B70FF6B00B6F57A /* UserSheetViewModel.swift in Sources */,

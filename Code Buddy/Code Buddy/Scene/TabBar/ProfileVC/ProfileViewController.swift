@@ -1,6 +1,6 @@
 import UIKit
 
-final class AddAnnotationViewController: UIViewController {
+final class ProfileViewController: UIViewController {
 
     
     // MARK: - TextFields
@@ -27,7 +27,7 @@ final class AddAnnotationViewController: UIViewController {
     @IBOutlet weak var locationToggleView: UISwitch!
     
     // MARK: - Properties
-    private let viewModel = AddAnnotationViewModel()
+    private let viewModel = ProfileViewModel()
     private lazy var gestureRecognizer = UITapGestureRecognizer()
     var latitude: Double?
     var longitude: Double?
@@ -141,7 +141,7 @@ final class AddAnnotationViewController: UIViewController {
     }
 }
 
-extension AddAnnotationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         profileImage.image = info[.originalImage] as? UIImage

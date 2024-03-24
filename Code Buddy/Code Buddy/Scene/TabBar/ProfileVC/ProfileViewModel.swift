@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-protocol AddAnnotationViewModelProtocol {
+protocol ProfileViewModelProtocol {
     
     func saveUserInfo(user: User)
     func updateUserInfo(user: User)
@@ -14,7 +14,7 @@ protocol AddAnnotationViewModelProtocol {
     
 }
 
-final class AddAnnotationViewModel: AddAnnotationViewModelProtocol {
+final class ProfileViewModel: ProfileViewModelProtocol {
     
     var isUserAddAnnotation: Bool = false
     var allUser: [User] = []
