@@ -17,11 +17,12 @@ final class NotificationViewController: UIViewController {
     
     // MARK: - Properties
     private let cellIdentifier = "CustomCell"
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Notification"
         createUI()
-        
     }
     
     private func createUI() {
@@ -30,11 +31,16 @@ final class NotificationViewController: UIViewController {
         notificationTableView.dataSource = self
         notificationTableView.backgroundColor = UIColor(named: "BackgroundColor")
     }
+    
+    private func sendNotification() {
+        
+    }
 }
 
 extension NotificationViewController: UITableViewDelegate { }
 
 extension NotificationViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
@@ -48,11 +54,8 @@ extension NotificationViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
-    }
-    
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 90 }
+
 }
 
 extension NotificationViewController: NotificationViewControllerDelegate {
@@ -62,22 +65,19 @@ extension NotificationViewController: NotificationViewControllerDelegate {
     }
     
     private func showAlertMessage() {
+        
         let alertController = UIAlertController(title: "Ali Kaşıkçı will be notified", message: "Are you sure?", preferredStyle: .actionSheet)
-        
-        
         let waveButton = UIAlertAction(title: "Wave", style: .default) { _ in
-            print("Notification")
+            self.sendNotification()
         }
-        
-        let cancel = UIAlertAction(title: "Cancel", style: .destructive) { _ in
-            print("Cancel")
-        }
-        
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive)
         alertController.addAction(waveButton)
         alertController.addAction(cancel)
-        
-        
         self.present(alertController, animated: true)
     }
     
+    @objc private func dismissActionSheet() {
+        self.dismiss(animated: true)
+    }
+
 }

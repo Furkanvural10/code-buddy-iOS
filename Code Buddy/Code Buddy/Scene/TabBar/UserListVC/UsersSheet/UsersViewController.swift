@@ -1,10 +1,10 @@
-#warning("Fixed hard coded")
 import UIKit
 
 final class UsersViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var searchBar: UISearchBar!
+    let searchController = UISearchController()
+    
     
     
     // MOCK DATA
@@ -18,6 +18,9 @@ final class UsersViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = customBlackColor
+        title = "All User"
+        navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
         setupUI()
     }
     
@@ -47,37 +50,15 @@ final class UsersViewController: UIViewController, UISearchBarDelegate {
     }
     
     private func setupSearchBar() {
-        searchBar = UISearchBar()
-        searchBar.delegate = self
-        searchBar.placeholder = "Search friends..." // Fix hard coded
-//        searchBar.barTintColor = UIColor(named: "BackgroundColor")
-        searchBar.tintColor = .gray
-        
-        
-        
-        view.addSubview(searchBar)
-        
-        
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-        
-        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // Filtrelemeyi burada yap !!!!
-    }
 }
 
 extension UsersViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -100,4 +81,11 @@ extension UsersViewController: UICollectionViewDelegate, UICollectionViewDataSou
         print(mockNames[indexPath.row])
     }
     
+}
+
+extension UsersViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        print(text)
+    }
 }

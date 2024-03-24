@@ -2,8 +2,6 @@ import UIKit
 
 final class AddAnnotationViewController: UIViewController {
 
-    // MARK: - Title
-    @IBOutlet weak var titleLabel: UILabel!
     
     // MARK: - TextFields
     @IBOutlet weak var usernameTextField: UITextField!
@@ -42,6 +40,7 @@ final class AddAnnotationViewController: UIViewController {
     }
 
     private func setupUI() {
+        title = "Profile"
         view.backgroundColor = customBlackColor
         gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
         view.addGestureRecognizer(gestureRecognizer)

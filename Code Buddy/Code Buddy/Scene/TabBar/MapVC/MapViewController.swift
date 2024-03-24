@@ -11,12 +11,8 @@ import CoreLocation
 
 final class MapViewController: UIViewController {
     
-    @IBOutlet private weak var controlPanelView: UIView!
     @IBOutlet private weak var mapView: MKMapView!
     
-    @IBOutlet private weak var addImage: UIImageView!
-    @IBOutlet private weak var locationImage: UIImageView!
-    @IBOutlet private weak var personsImage: UIImageView!
     
     private lazy var locationManager = CLLocationManager()
     private var location: CLLocationCoordinate2D!
@@ -39,40 +35,9 @@ final class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
-        setupControlPanel()
-        setupUI()
+        
     }
     
-    private func setupUI() {
-        
-        // MARK: - Add image clicked
-        let gestureRecognizerForAddImage = UITapGestureRecognizer(target: self, action: #selector(openAddSheet(_:)))
-        self.addImage.addGestureRecognizer(gestureRecognizerForAddImage)
-        self.addImage.isUserInteractionEnabled = true
-        
-        // MARK: - Users image clicked
-        let gestureRecognizerForUsersImage = UITapGestureRecognizer(target: self, action: #selector(openAddSheet(_:)))
-        self.personsImage.addGestureRecognizer(gestureRecognizerForUsersImage)
-        self.personsImage.isUserInteractionEnabled = true
-        
-        // MARK: - Fav image clicked
-        let gestureRecognizerForFavImage = UITapGestureRecognizer(target: self, action: #selector(openAddSheet(_:)))
-        
-        // MARK: - location image clicked
-        let gestureRecognizerForLocationImage = UITapGestureRecognizer(target: self, action: #selector(openAddSheet(_:)))
-        self.locationImage.addGestureRecognizer(gestureRecognizerForLocationImage)
-        self.locationImage.isUserInteractionEnabled = true
-    }
-    
-    private func setupControlPanel() {
-        self.controlPanelView.layer.cornerRadius = 15
-        self.controlPanelView.backgroundColor = .black.withAlphaComponent(0.5)
-        
-        // Image Setup
-        self.addImage.tintColor = .white
-        self.personsImage.tintColor = .systemGreen
-        self.locationImage.tintColor = .systemBlue
-    }
     
     private func setupMap() {
         
@@ -97,20 +62,7 @@ final class MapViewController: UIViewController {
         }
     }
     
-    @objc private func openAddSheet(_ sender: UITapGestureRecognizer) {
-        guard let tappedImageView = sender.view as? UIImageView else { return }
-        
-        if tappedImageView == addImage {
-            let customSheetHeight = view.bounds.height * 0.35
-            SheetPresent.shared.sheetPresentView(vc: self, identifier: "addAnnotationIdentifier", customHeight: customSheetHeight, latitude: Double(location.latitude), longitude: Double(location.longitude))
-            
-        } else if tappedImageView == personsImage {
-            SheetPresent.shared.sheetPresentView(vc: self, identifier: "showUsersID", customHeight: nil, latitude: nil, longitude: nil)
-            
-        } else {
-            locationManager.startUpdatingLocation()
-        }
-    }
+
 }
 
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
