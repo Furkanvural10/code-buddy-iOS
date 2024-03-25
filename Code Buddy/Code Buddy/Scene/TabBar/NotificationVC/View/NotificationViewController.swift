@@ -9,8 +9,6 @@ import UIKit
 
 final class NotificationViewController: UIViewController {
     
-    // MARK: - Notification Title
-    @IBOutlet weak var notificationTitle: UILabel!
     
     // MARK: - TableView
     @IBOutlet weak var notificationTableView: UITableView!
@@ -48,7 +46,7 @@ extension NotificationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! NotificationTableViewCell
         let image = UIImage(named: "fv")
-        cell.configure(with: image, title: "Furkan Vural wave you. 1h", detail: "Wave Back")
+        cell.configure(with: image, title: "Furkan Vural wave you. 1h")
         cell.delegate = self
         cell.indexPath = indexPath
         return cell

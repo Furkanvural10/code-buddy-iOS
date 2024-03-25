@@ -15,18 +15,16 @@ final class NotificationTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var profileImage: UIImageView!
     @IBOutlet private weak var notificationTitle: UILabel!
-    @IBOutlet private weak var notificationDetail: UILabel!
     
     weak var delegate: NotificationViewControllerDelegate?
     var indexPath: IndexPath!
     
-    func configure(with image: UIImage?, title: String, detail: String) {
+    func configure(with image: UIImage?, title: String) {
         
         contentView.backgroundColor = UIColor(named: "BackgroundColor")
         
         profileImage.image = image
         notificationTitle.text = title
-        notificationDetail.text = detail
         
         profileImage.setRounded()
     }

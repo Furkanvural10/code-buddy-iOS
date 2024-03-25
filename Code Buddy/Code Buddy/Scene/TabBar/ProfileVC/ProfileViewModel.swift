@@ -32,8 +32,7 @@ final class ProfileViewModel: ProfileViewModelProtocol {
     
     func updateUserInfo(user: User) {
         // Kullanıcının konumunu vs güncelle
-        
-        
+
     }
     
 }
