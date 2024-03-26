@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        createUser()
 //        window = UIWindow()
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        let initialViewController = storyboard.instantiateViewController(withIdentifier: "SecondOnboardingViewController")
@@ -22,6 +23,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.makeKeyAndVisible()
 //        Thread.sleep(forTimeInterval: 3)
         return true
+    }
+    
+    private func createUser() {
+        guard let user = Auth.auth().currentUser else {
+            print("Kullanıcı oluşturulma basladı")
+            Auth.auth().signInAnonymously { result, error in
+                guard error != nil else {
+                    print("Kullanıcı oluşturulma bitti ✅")
+                    return
+                }
+                print("Hata aldı tekrar deniyor.... ")
+                self.createUser()
+            }
+            return
+        }
+        print("Kullanıcı var o yüzden oluşturulmadı ❌")
     }
 
     // MARK: UISceneSession Lifecycle
