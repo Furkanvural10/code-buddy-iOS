@@ -26,11 +26,14 @@ final class ProfileViewController: UIViewController {
     // MARK: - Location Toggle
     @IBOutlet weak var locationToggleView: UISwitch!
     
+    // MARK: - Loading View
+    private var loadingView: UIActivityIndicatorView!
+    
     // MARK: - Properties
     private let viewModel = ProfileViewModel()
     private lazy var gestureRecognizer = UITapGestureRecognizer()
-    var latitude: Double?
-    var longitude: Double?
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
     private let customBlackColor = UIColor(named: "BackgroundColor")
     
     override func viewDidLoad() {
@@ -110,15 +113,17 @@ final class ProfileViewController: UIViewController {
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
-        print("Worked")
-//        let name = usernameTextField.text!
-//        let title = usernameTextField.text!
-//        let image = profileImage.image?.jpegData(compressionQuality: 50)
-//        let status = status
-//        let location = Location(latitude: latitude!, longitude: longitude!)
-//        let user = User(name: name, title: title, image: image!, status: status, location: location)
-//        
-//        viewModel.saveUserInfo(user: user)
+        
+        guard let name = usernameTextField.text,
+              let title = usernameTextField.text else { return }
+        
+        
+        let image = profileImage.image?.jpegData(compressionQuality: 50)
+        let location = LocationModel(latitude: latitude, longitude: longitude)
+        let status = locationToggleView.isOn ? UserStatus.online.rawValue : UserStatus.offline.rawValue
+        let user = User(name: name, title: title, image: image!, status: status, location: location)
+
+        viewModel.saveUserInfo(user: user)
     }
     
     
@@ -126,7 +131,6 @@ final class ProfileViewController: UIViewController {
         if locationToggleView.isOn {
             DispatchQueue.main.async {
                 self.toggleLabel.text = Constants.online.rawValue
-                
             }
         } else {
             DispatchQueue.main.async {

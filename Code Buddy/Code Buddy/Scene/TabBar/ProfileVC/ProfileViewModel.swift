@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import CoreLocation
 
 protocol ProfileViewModelProtocol {
     
@@ -16,23 +17,33 @@ protocol ProfileViewModelProtocol {
 
 final class ProfileViewModel: ProfileViewModelProtocol {
     
+    
+    
     var isUserAddAnnotation: Bool = false
     var allUser: [User] = []
-
+    let locationManager = LocationProvider.shared
+    
     func saveUserInfo(user: User) {
         
-        // Fixed validation class!
-        guard user.name.count > 3,
-              user.title.count > 2 else { return }
         
-        print("User Info: \(user.image) ")
+        print("locationManager.longitude: \(locationManager.longitude)")
+        print("locationManager.longitude: \(locationManager.latitude)")
+//        print(locationManager.latitude)
+//        print(locationManager.longitude)
+        print(user.status)
+        print(user.name)
+        print(user.title)
+        print(user.location.latitude)
         
         
     }
     
     func updateUserInfo(user: User) {
         // Kullanıcının konumunu vs güncelle
-
+        
     }
     
+    
 }
+
+

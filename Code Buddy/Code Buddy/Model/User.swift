@@ -8,9 +8,9 @@
 import Foundation
 
 enum UserStatus: String {
-    case working = "Working"
-    case networking = "Networking"
-    case busy = "Busy"
+    case offline = "Offline"
+    case online = "Online"
+    
 }
 
 struct User: Hashable, Codable {
@@ -19,5 +19,5 @@ struct User: Hashable, Codable {
     let title: String
     let image: Data
     let status: UserStatus.RawValue
-    let location: Location
+    let location: LocationModel
 }
