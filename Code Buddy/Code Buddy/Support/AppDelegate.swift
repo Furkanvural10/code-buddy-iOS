@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("Kullanıcı oluşturulma bitti ✅")
                     return
                 }
-                print("Hata aldı tekrar deniyor.... ")
+                print("Hata aldı tekrar deniyor.... 🔄")
                 self.createUser()
             }
             return

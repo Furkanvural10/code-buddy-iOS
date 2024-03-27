@@ -1,4 +1,6 @@
 import UIKit
+import FirebaseAuth
+import SnapKit
 
 final class ProfileViewController: UIViewController {
 
@@ -32,17 +34,27 @@ final class ProfileViewController: UIViewController {
     // MARK: - Properties
     private let viewModel = ProfileViewModel()
     private lazy var gestureRecognizer = UITapGestureRecognizer()
-    var latitude: Double = 0.0
-    var longitude: Double = 0.0
     private let customBlackColor = UIColor(named: "BackgroundColor")
+    private let locationManager = LocationProvider.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         setupUI()
         configureImage()
     }
+    
 
     private func setupUI() {
+        
+        loadingView = UIActivityIndicatorView(style: .large)
+        
+        view.addSubview(loadingView)
+        loadingView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        
         title = "Profile"
         view.backgroundColor = customBlackColor
         gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
@@ -115,15 +127,24 @@ final class ProfileViewController: UIViewController {
     @IBAction func saveButtonClicked(_ sender: Any) {
         
         guard let name = usernameTextField.text,
-              let title = usernameTextField.text else { return }
+              let title = userTitleTextField.text else { return }
         
-        
+        let latitude = locationManager.latitude
+        let longitude = locationManager.longitude
         let image = profileImage.image?.jpegData(compressionQuality: 50)
         let location = LocationModel(latitude: latitude, longitude: longitude)
         let status = locationToggleView.isOn ? UserStatus.online.rawValue : UserStatus.offline.rawValue
-        let user = User(name: name, title: title, image: image!, status: status, location: location)
-
-        viewModel.saveUserInfo(user: user)
+        let id = Auth.auth().currentUser?.uid
+        
+        
+        let user = User(name: name, title: title, status: status, location: location, id: id!)
+        DispatchQueue.main.async {
+            self.loadingView.startAnimating()
+            self.view.backgroundColor = UIColor(named: "BackgroundColor")?.withAlphaComponent(0.9)
+            self.view.isUserInteractionEnabled = false
+        }
+        
+        viewModel.saveUserInfo(user: user, imageData: image!)
     }
     
     
@@ -153,5 +174,20 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         profileImage.setRounded()
         self.addImageLabel.text = Constants.editImage.rawValue
         self.dismiss(animated: true)
+    }
+}
+
+extension ProfileViewController: ProfileViewControllerDelegate {
+    
+    func showSuccessMessage() {
+        DispatchQueue.main.async {
+            self.loadingView.stopAnimating()
+            self.view.backgroundColor = UIColor(named: "BackgroundColor")
+            self.view.isUserInteractionEnabled = true
+        }
+    }
+    
+    func showErrorMessage() {
+        print("VC 🔴")
     }
 }

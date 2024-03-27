@@ -2,9 +2,14 @@ import Foundation
 import UIKit
 import CoreLocation
 
+protocol ProfileViewControllerDelegate: AnyObject {
+    func showSuccessMessage()
+    func showErrorMessage()
+}
+
 protocol ProfileViewModelProtocol {
     
-    func saveUserInfo(user: User)
+    func saveUserInfo(user: User, imageData: Data)
     func updateUserInfo(user: User)
     
     // If user added annotation addAnnotationSheetView change update new location
@@ -17,23 +22,21 @@ protocol ProfileViewModelProtocol {
 
 final class ProfileViewModel: ProfileViewModelProtocol {
     
-    
-    
     var isUserAddAnnotation: Bool = false
     var allUser: [User] = []
-    let locationManager = LocationProvider.shared
     
-    func saveUserInfo(user: User) {
+    weak var delegate: ProfileViewControllerDelegate?
+    
+    func saveUserInfo(user: User, imageData: Data) {
         
-        
-        print("locationManager.longitude: \(locationManager.longitude)")
-        print("locationManager.longitude: \(locationManager.latitude)")
-//        print(locationManager.latitude)
-//        print(locationManager.longitude)
-        print(user.status)
-        print(user.name)
-        print(user.title)
-        print(user.location.latitude)
+        FirebaseManager.shared.uploadImage(imageData: imageData, user: user) { error in
+            switch error {
+            case .success(let success):
+                self.delegate?.showSuccessMessage()
+            case .failure(let failure):
+                self.delegate?.showErrorMessage()
+            }
+        }
         
         
     }
