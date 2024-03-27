@@ -179,15 +179,27 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
 extension ProfileViewController: ProfileViewControllerDelegate {
     
-    func showSuccessMessage() {
+    func showSuccessMessage() { updateUI(isSuccess: true) }
+    
+    func showErrorMessage() { updateUI(isSuccess: false) }
+    
+    private func updateUI(isSuccess: Bool) {
         DispatchQueue.main.async {
             self.loadingView.stopAnimating()
             self.view.backgroundColor = UIColor(named: "BackgroundColor")
             self.view.isUserInteractionEnabled = true
+            
+            !isSuccess ?
+            self.showSheetMessage(title: "Success", message: "Success Message", iconName: "checkmark.circle", color: .systemGreen) :
+            self.showSheetMessage(title: "Error", message: "Error Message", iconName: "multiply.circle", color: .systemRed)
         }
     }
     
-    func showErrorMessage() {
-        print("VC 🔴")
+    private func showSheetMessage(title: String, message: String, iconName: String, color: UIColor) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let sheetPresentationController = self.storyboard?.instantiateViewController(withIdentifier: "MessageSheetViewController") as! MessageSheetViewController
+        sheetPresentationController.configure(title: title, message: message, color: color, iconName: iconName)
+        self.present(sheetPresentationController, animated: true)
     }
 }
+

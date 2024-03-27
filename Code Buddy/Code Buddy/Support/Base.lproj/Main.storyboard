@@ -342,6 +342,21 @@
             </objects>
             <point key="canvasLocation" x="5060.3053435114498" y="1616.9014084507044"/>
         </scene>
+        <!--Message Sheet View Controller-->
+        <scene sceneID="FXx-PU-UiX">
+            <objects>
+                <viewController storyboardIdentifier="MessageSheetViewController" id="JCJ-X9-Yow" customClass="MessageSheetViewController" customModule="Code_Buddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AOJ-NE-0Kj">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="JA2-kp-HSe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nMJ-wZ-jlU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6044" y="1602"/>
+        </scene>
         <!--First Onboarding View Controller-->
         <scene sceneID="KGT-y6-DCd">
             <objects>
