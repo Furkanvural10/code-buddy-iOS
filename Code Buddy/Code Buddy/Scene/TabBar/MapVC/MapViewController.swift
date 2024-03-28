@@ -86,7 +86,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             circleLayer.bounds = CGRect(x: 0, y: 0, width: 37, height: 37)
             circleLayer.cornerRadius = 20
             circleLayer.borderWidth = 1.5
-            circleLayer.borderColor = UIColor.systemRed.cgColor
+            circleLayer.borderColor = UIColor.systemBlue.cgColor
             circleLayer.masksToBounds = true
             
             let circleImage = UIImage(named: "fv") //
