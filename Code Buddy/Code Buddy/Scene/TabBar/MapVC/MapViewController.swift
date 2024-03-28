@@ -13,7 +13,9 @@ final class MapViewController: UIViewController {
     
     @IBOutlet private weak var mapView: MKMapView!
     
-    
+    var tabBarCounter = [Int](repeating: 0, count: 4)
+
+
     private lazy var locationManager = CLLocationManager()
     private var location: CLLocationCoordinate2D!
     
@@ -28,16 +30,18 @@ final class MapViewController: UIViewController {
         CLLocationCoordinate2D(latitude: 41.051320810029004, longitude: 29.02232945069483),
         CLLocationCoordinate2D(latitude: 41.04209659766404, longitude: 29.009583593572426),
         CLLocationCoordinate2D(latitude: 41.04297052575788, longitude: 29.010828138554153),
-        
     ]
     var annotationList = [MKAnnotation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTabbar()
         setupMap()
-        
     }
     
+    private func setupTabbar() {
+        self.tabBarController?.delegate = self
+    }
     
     private func setupMap() {
         
@@ -61,8 +65,6 @@ final class MapViewController: UIViewController {
             mapView.addAnnotation(annotation)
         }
     }
-    
-
 }
 
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
@@ -106,7 +108,12 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
     // Stay
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
+        
+        let location = CLLocationCoordinate2D(
+            latitude: locations[0].coordinate.latitude,
+            longitude: locations[0].coordinate.longitude
+        )
+        
         let span = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
         let region = MKCoordinateRegion(center: location, span: span)
         self.location = location
@@ -115,3 +122,22 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     }
 }
 
+extension MapViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
+        let selectedIndex = tabBarController.selectedIndex
+        
+        tabBarCounter[selectedIndex] += 1
+        
+        if tabBarCounter[selectedIndex] >= 2 && tabBarController.selectedIndex == 0 {
+            locationManager.startUpdatingLocation()
+            print("Çok tıklama yapıldı")
+            tabBarCounter[selectedIndex] = 0
+        } else {
+            
+            print("Tek tıklama yapıldı!")
+        }
+        locationManager.stopUpdatingLocation()
+    }
+}

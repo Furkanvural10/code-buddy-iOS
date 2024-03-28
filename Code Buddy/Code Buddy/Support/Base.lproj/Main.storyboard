@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="-958" y="1617"/>
         </scene>
-        <!--Title-->
+        <!--AllUser-->
         <scene sceneID="XbM-yf-cn5">
             <objects>
-                <viewController storyboardIdentifier="showUsersID" id="IKb-gk-NLj" customClass="UsersViewController" customModule="Code_Buddy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="showUsersID" title="AllUser" id="IKb-gk-NLj" customClass="UsersViewController" customModule="Code_Buddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ZD-ba-yAD">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -617,6 +617,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F5R-Az-LBk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Notification" image="notification" badgeValue="2" selectedImage="notification" id="2yl-pp-UjC">
                         <color key="badgeColor" systemColor="systemPinkColor"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="joM-6c-dct">
