@@ -45,6 +45,7 @@ final class FirebaseManager {
                 imageReference.downloadURL { [self] url, error in
                     if error == nil {
                         let imageUrl = url?.absoluteString
+                        UserDefaults.standard.set(imageUrl!, forKey: "userImageURL")
                         let newUser = User(name: user.name, title: user.title, status: user.status, location: user.location, id: user.id, imageURL: imageUrl!)
                         self.addDataToFirestore(collection: "Users", document: id!, data: newUser) { error in
                             guard error == nil else {
@@ -52,7 +53,7 @@ final class FirebaseManager {
                                 return
                             }
                         }
-                        print("✅")
+                        
                         completion(.success("Success"))
                         return
                     }
@@ -83,6 +84,7 @@ final class FirebaseManager {
                     return
                 }
             }
+            
         } catch {
             print("Veri dönüştürülürken hata oluştu: ❌ \(error.localizedDescription)")
             completion(error)

@@ -5,48 +5,41 @@ import CoreLocation
 protocol ProfileViewControllerDelegate: AnyObject {
     func showSuccessMessage()
     func showErrorMessage()
+    func showSavedUserData(user: User)
 }
 
 protocol ProfileViewModelProtocol {
     
-    func saveUserInfo(user: User, imageData: Data)
-    func updateUserInfo(user: User)
-    
-    // If user added annotation addAnnotationSheetView change update new location
-    var isUserAddAnnotation: Bool { get }
-    
-    var allUser: [User] { get }
-    
-    
+    func saveUserInformationToCloud(user: User, imageData: Data)
+    func saveUserInformationToLocal(user: User)
+
 }
 
 final class ProfileViewModel: ProfileViewModelProtocol {
     
-    var isUserAddAnnotation: Bool = false
-    var allUser: [User] = []
-    
     weak var delegate: ProfileViewControllerDelegate?
     
-    func saveUserInfo(user: User, imageData: Data) {
+    func saveUserInformationToCloud(user: User, imageData: Data) {
         
         FirebaseManager.shared.uploadImage(imageData: imageData, user: user) { error in
             switch error {
-            case .success(let success):
+            case .success(_):
                 self.delegate?.showSuccessMessage()
-            case .failure(let failure):
+            case .failure(_):
                 self.delegate?.showErrorMessage()
             }
         }
-        
-        
     }
     
-    func updateUserInfo(user: User) {
-        // Kullanıcının konumunu vs güncelle
-        
+    func saveUserInformationToLocal(user: User) {
+        UserDefaultProvider.shared.saveUserInformation(user: user)
     }
     
-    
+    func getUserInformation() {
+        let user = UserDefaultProvider.shared.getUserInformation()
+        guard let user else { return }
+        delegate?.showSavedUserData(user: user)
+    }
 }
 
 

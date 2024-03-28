@@ -1,6 +1,7 @@
 import UIKit
 import FirebaseAuth
 import SnapKit
+import Kingfisher
 
 final class ProfileViewController: UIViewController {
 
@@ -36,24 +37,24 @@ final class ProfileViewController: UIViewController {
     private lazy var gestureRecognizer = UITapGestureRecognizer()
     private let customBlackColor = UIColor(named: "BackgroundColor")
     private let locationManager = LocationProvider.shared
+    private var isProfileUpdated = false
+    private var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
+        viewModel.getUserInformation()
         setupUI()
         configureImage()
     }
     
 
     private func setupUI() {
-        
         loadingView = UIActivityIndicatorView(style: .large)
-        
         view.addSubview(loadingView)
         loadingView.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
-        
         
         title = "Profile"
         view.backgroundColor = customBlackColor
@@ -137,14 +138,14 @@ final class ProfileViewController: UIViewController {
         let id = Auth.auth().currentUser?.uid
         
         
-        let user = User(name: name, title: title, status: status, location: location, id: id!)
+        user = User(name: name, title: title, status: status, location: location, id: id!)
         DispatchQueue.main.async {
             self.loadingView.startAnimating()
             self.view.backgroundColor = UIColor(named: "BackgroundColor")?.withAlphaComponent(0.9)
             self.view.isUserInteractionEnabled = false
         }
         
-        viewModel.saveUserInfo(user: user, imageData: image!)
+        viewModel.saveUserInformationToCloud(user: user!, imageData: image!)
     }
     
     
@@ -168,6 +169,7 @@ final class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // MARK: - ImagePicker Controller
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         profileImage.image = info[.originalImage] as? UIImage
         profileImage.contentMode = .scaleAspectFill
@@ -179,27 +181,63 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
 extension ProfileViewController: ProfileViewControllerDelegate {
     
-    func showSuccessMessage() { updateUI(isSuccess: true) }
+    func showSavedUserData(user: User) {
+        DispatchQueue.main.async {
+            self.usernameTextField.text = user.name
+            self.userTitleTextField.text = user.title
+            self.locationToggleView.isOn = user.status == "Online" ? true : false
+            self.profileImage.contentMode = .scaleAspectFill
+            self.profileImage.setRounded()
+            self.profileImage.kf.setImage(with: URL(string: user.imageURL), placeholder: UIImage(named: "addProfileImage"))
+        }
+    }
     
-    func showErrorMessage() { updateUI(isSuccess: false) }
     
+    // MARK: - Success Message
+    func showSuccessMessage() {
+        isProfileUpdated = true
+        updateUI(isSuccess: true)
+        viewModel.saveUserInformationToLocal(user: user!)
+    }
+    
+    // MARK: - Error Message
+    func showErrorMessage() {
+        isProfileUpdated = false
+        updateUI(isSuccess: false)
+    }
+    
+    // MARK: - UIUpadte Function
     private func updateUI(isSuccess: Bool) {
         DispatchQueue.main.async {
             self.loadingView.stopAnimating()
             self.view.backgroundColor = UIColor(named: "BackgroundColor")
             self.view.isUserInteractionEnabled = true
-            
-            !isSuccess ?
+            self.saveButton.setTitle("Update", for: .normal)
+            isSuccess ?
             self.showSheetMessage(title: "Success", message: "Success Message", iconName: "checkmark.circle", color: .systemGreen) :
             self.showSheetMessage(title: "Error", message: "Error Message", iconName: "multiply.circle", color: .systemRed)
+            self.tabBarController(self.tabBarController!, didSelect: self)
         }
     }
     
+    // MARK: - ShowSheetMessage
     private func showSheetMessage(title: String, message: String, iconName: String, color: UIColor) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let sheetPresentationController = self.storyboard?.instantiateViewController(withIdentifier: "MessageSheetViewController") as! MessageSheetViewController
         sheetPresentationController.configure(title: title, message: message, color: color, iconName: iconName)
         self.present(sheetPresentationController, animated: true)
+        
     }
 }
 
+
+extension ProfileViewController: UITabBarControllerDelegate {
+    
+    // MARK: - Change Tabbar View
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if tabBarController.selectedIndex == 3 && isProfileUpdated {
+            tabBarController.selectedIndex = 0
+        }
+    }
+    
+}
