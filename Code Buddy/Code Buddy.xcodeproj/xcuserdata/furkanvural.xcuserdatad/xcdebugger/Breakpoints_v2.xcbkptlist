@@ -164,5 +164,53 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "99C7AE54-4432-45CA-AE9A-A2CF793E6D80"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Code Buddy/Scene/TabBar/MapVC/MapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "showWaveMessage()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "99C7AE54-4432-45CA-AE9A-A2CF793E6D80 - 79d4ca5d5c9f9697"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Code_Buddy.MapViewController.showWaveMessage() -&gt; ()"
+                  moduleName = "Code Buddy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/furkanvural/Desktop/Code%20Buddy%20iOS/code-buddy-iOS/Code%20Buddy/Code%20Buddy/Scene/TabBar/MapVC/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "452">
+               </Location>
+               <Location
+                  uuid = "99C7AE54-4432-45CA-AE9A-A2CF793E6D80 - 79d4ca5d5c9f96e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Code_Buddy.MapViewController.showWaveMessage() -&gt; ()"
+                  moduleName = "Code Buddy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/furkanvural/Desktop/Code%20Buddy%20iOS/code-buddy-iOS/Code%20Buddy/Code%20Buddy/Scene/TabBar/MapVC/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "852">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

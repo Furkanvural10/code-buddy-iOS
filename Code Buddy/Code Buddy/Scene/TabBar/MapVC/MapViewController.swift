@@ -104,22 +104,23 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             annotationView.layer.addSublayer(circleLayer)
             
             // Right Callout Accessory View (Buton)
-            let shakeButton = UIButton(type: .custom)
-            shakeButton.frame = CGRectMake(0,0,50,50)
-            shakeButton.setImage(UIImage(named: "shakeHand"), for: .normal)
-            annotationView.rightCalloutAccessoryView = shakeButton
+            let shakeImage = UIImageView()
+            shakeImage.isUserInteractionEnabled = true
+            shakeImage.image = UIImage(named: "shakeHand")
+            shakeImage.frame = CGRectMake(0,0,50,50)
+            annotationView.rightCalloutAccessoryView = shakeImage
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handShakeClicked))
+            shakeImage.addGestureRecognizer(tapGestureRecognizer)
+            
             
         }
         return annotationView
     }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        
-        if control == view.rightCalloutAccessoryView {
-            self.showWaveMessage()
-        }
+    @objc private func handShakeClicked() {
+        self.makeBackgroundBlur()
+        self.showWaveMessage()
     }
-
     
     // Stay
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -136,12 +137,24 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
     }
     
+    private func makeBackgroundBlur() {
+        DispatchQueue.main.async {
+            self.view.addBlurView()
+        }
+    }
+    
     @objc private func showWaveMessage() {
+        DispatchQueue.main.async {
+            self.view.removeBlurViewFromView()
+        }
         let alertController = UIAlertController(title: "The person will be notified", message: "Are you sure?", preferredStyle: .actionSheet)
         let waveButton = UIAlertAction(title: "Wave", style: .default) { _ in
             print("Send notification with viewModel")
+            
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            
+        }
         cancel.setValue(UIColor.systemRed, forKeyPath: "titleTextColor")
 
         alertController.addAction(waveButton)
