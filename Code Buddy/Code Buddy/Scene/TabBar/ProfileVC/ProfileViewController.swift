@@ -2,6 +2,7 @@ import UIKit
 import FirebaseAuth
 import SnapKit
 import Kingfisher
+import CoreLocation
 
 final class ProfileViewController: UIViewController {
 
@@ -236,6 +237,7 @@ extension ProfileViewController: UITabBarControllerDelegate {
     // MARK: - Change Tabbar View
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.selectedIndex == 3 && isProfileUpdated {
+            
             tabBarController.selectedIndex = 0
         }
     }

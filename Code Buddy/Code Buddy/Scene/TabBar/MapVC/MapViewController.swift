@@ -35,11 +35,11 @@ final class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTabbar()
+        setupTabBar()
         setupMap()
     }
     
-    private func setupTabbar() {
+    private func setupTabBar() {
         self.tabBarController?.delegate = self
     }
     
@@ -91,7 +91,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             circleLayer.borderColor = UIColor.systemBlue.cgColor
             circleLayer.masksToBounds = true
             
-            let circleImage = UIImage(named: "fv") //
+            let circleImage = UIImage(named: "fv")
             circleLayer.contents = circleImage?.cgImage
             
             let imageView = UIImageView(image: circleImage)
@@ -102,9 +102,16 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             imageView.layer.borderColor = UIColor.white.cgColor
 
             annotationView.layer.addSublayer(circleLayer)
+            
+            // Right Callout Accessory View (Buton)
+            let shakeButton = UIButton()
+            shakeButton.frame = CGRectMake(0,0,50,50)
+            shakeButton.setImage(UIImage(named: "shakeHand"), for: .normal)
+            annotationView.rightCalloutAccessoryView = shakeButton
         }
         return annotationView
     }
+
     
     // Stay
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -124,6 +131,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
 
 extension MapViewController: UITabBarControllerDelegate {
     
+    // MOVE VM
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
         let selectedIndex = tabBarController.selectedIndex
@@ -132,12 +140,8 @@ extension MapViewController: UITabBarControllerDelegate {
         
         if tabBarCounter[selectedIndex] >= 2 && tabBarController.selectedIndex == 0 {
             locationManager.startUpdatingLocation()
-            print("Çok tıklama yapıldı")
             tabBarCounter[selectedIndex] = 0
-        } else {
-            
-            print("Tek tıklama yapıldı!")
+            locationManager.stopUpdatingLocation()
         }
-        locationManager.stopUpdatingLocation()
     }
 }

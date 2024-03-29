@@ -163,7 +163,7 @@
                                                     <rect key="frame" x="323" y="19" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="Frame 123"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="shakeHand"/>
                                                     <connections>
                                                         <action selector="waveButtonClicked:" destination="WUT-Is-93p" eventType="touchUpInside" id="PXE-zp-MXI"/>
                                                     </connections>
@@ -654,7 +654,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Frame 123" width="50" height="50"/>
         <image name="Onboarding1" width="390" height="844"/>
         <image name="Onboarding2" width="390" height="844"/>
         <image name="addProfileImage" width="111" height="111"/>
@@ -663,6 +662,7 @@
         <image name="notification" width="50" height="50"/>
         <image name="personList" width="50" height="50"/>
         <image name="profile" width="50" height="50"/>
+        <image name="shakeHand" width="50" height="50"/>
         <namedColor name="BackgroundColor">
             <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
