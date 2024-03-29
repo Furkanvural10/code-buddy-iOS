@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import AudioToolbox
 
 final class MapViewController: UIViewController {
     
@@ -118,6 +119,8 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     }
     
     @objc private func handShakeClicked() {
+        AudioServicesPlaySystemSoundWithCompletion(1519) { }
+        
         self.makeBackgroundBlur()
         self.showWaveMessage()
     }
