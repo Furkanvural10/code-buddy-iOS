@@ -104,12 +104,20 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             annotationView.layer.addSublayer(circleLayer)
             
             // Right Callout Accessory View (Buton)
-            let shakeButton = UIButton()
+            let shakeButton = UIButton(type: .custom)
             shakeButton.frame = CGRectMake(0,0,50,50)
             shakeButton.setImage(UIImage(named: "shakeHand"), for: .normal)
             annotationView.rightCalloutAccessoryView = shakeButton
+            
         }
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        if control == view.rightCalloutAccessoryView {
+            self.showWaveMessage()
+        }
     }
 
     
@@ -126,6 +134,19 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         self.location = location
         self.mapView.setRegion(region, animated: true)
         locationManager.stopUpdatingLocation()
+    }
+    
+    @objc private func showWaveMessage() {
+        let alertController = UIAlertController(title: "The person will be notified", message: "Are you sure?", preferredStyle: .actionSheet)
+        let waveButton = UIAlertAction(title: "Wave", style: .default) { _ in
+            print("Send notification with viewModel")
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        cancel.setValue(UIColor.systemRed, forKeyPath: "titleTextColor")
+
+        alertController.addAction(waveButton)
+        alertController.addAction(cancel)
+        self.present(alertController, animated: true)
     }
 }
 
