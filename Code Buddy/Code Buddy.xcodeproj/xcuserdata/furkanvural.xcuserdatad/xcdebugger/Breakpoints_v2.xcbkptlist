@@ -78,8 +78,8 @@
             filePath = "Code Buddy/Utilities/UserDefaultProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "getUserInformation()"
             landmarkType = "7">
             <Locations>
@@ -113,6 +113,21 @@
                   endingLineNumber = "35"
                   offsetFromSymbolStart = "2480">
                </Location>
+               <Location
+                  uuid = "33F17E18-2201-41C5-AD67-19A0B18DB1E8 - 15667fbf5fc85ab4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Code_Buddy.UserDefaultProvider.getUserInformation() -&gt; Swift.Optional&lt;Code_Buddy.User&gt;"
+                  moduleName = "Code Buddy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/furkanvural/Desktop/Code%20Buddy%20iOS/code-buddy-iOS/Code%20Buddy/Code%20Buddy/Utilities/UserDefaultProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "2480">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -126,8 +141,8 @@
             filePath = "Code Buddy/Utilities/UserDefaultProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "getUserInformation()"
             landmarkType = "7">
             <Locations>
@@ -167,49 +182,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "99C7AE54-4432-45CA-AE9A-A2CF793E6D80"
+            uuid = "41B88B74-97D8-49F8-8087-F14F9F891FAA"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Code Buddy/Scene/TabBar/MapVC/MapViewController.swift"
+            filePath = "Code Buddy/Service/FirebaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "showWaveMessage()"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "addDataToDB(collection:secondCollection:document:data:completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "99C7AE54-4432-45CA-AE9A-A2CF793E6D80 - 79d4ca5d5c9f9697"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Code_Buddy.MapViewController.showWaveMessage() -&gt; ()"
-                  moduleName = "Code Buddy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/furkanvural/Desktop/Code%20Buddy%20iOS/code-buddy-iOS/Code%20Buddy/Code%20Buddy/Scene/TabBar/MapVC/MapViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "160"
-                  endingLineNumber = "160"
-                  offsetFromSymbolStart = "452">
-               </Location>
-               <Location
-                  uuid = "99C7AE54-4432-45CA-AE9A-A2CF793E6D80 - 79d4ca5d5c9f96e8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Code_Buddy.MapViewController.showWaveMessage() -&gt; ()"
-                  moduleName = "Code Buddy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/furkanvural/Desktop/Code%20Buddy%20iOS/code-buddy-iOS/Code%20Buddy/Code%20Buddy/Scene/TabBar/MapVC/MapViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "161"
-                  endingLineNumber = "161"
-                  offsetFromSymbolStart = "852">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

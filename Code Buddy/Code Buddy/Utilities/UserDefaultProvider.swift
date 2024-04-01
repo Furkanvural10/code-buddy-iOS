@@ -24,6 +24,7 @@ extension UserDefaultProvider: UserDefaultsProvidable {
         userDefaults.set(user.name, forKey: "userName")
         userDefaults.set(user.title, forKey: "userTitle")
         userDefaults.set(user.status, forKey: "status")
+        userDefaults.set(user.id, forKey: "userID")
     }
     
     func getUserInformation() -> User? {

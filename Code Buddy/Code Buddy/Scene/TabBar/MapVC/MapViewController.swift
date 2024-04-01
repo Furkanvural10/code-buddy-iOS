@@ -9,16 +9,18 @@ import UIKit
 import MapKit
 import CoreLocation
 import AudioToolbox
+import FirebaseAuth
 
 final class MapViewController: UIViewController {
     
     @IBOutlet private weak var mapView: MKMapView!
     
-    var tabBarCounter = [Int](repeating: 0, count: 4)
-
+    private var tabBarCounter = [Int](repeating: 0, count: 4)
+    private let viewModel = MapViewModel()
 
     private lazy var locationManager = CLLocationManager()
     private var location: CLLocationCoordinate2D!
+    private var userID: String = Auth.auth().currentUser!.uid
     
     // Mock Location Data
     let locations = [
@@ -36,6 +38,7 @@ final class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         setupTabBar()
         setupMap()
     }
@@ -104,7 +107,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
 
             annotationView.layer.addSublayer(circleLayer)
             
-            // Right Callout Accessory View (Buton)
+            // Right Callout Accessory View (Button)
             let shakeImage = UIImageView()
             shakeImage.isUserInteractionEnabled = true
             shakeImage.image = UIImage(named: "shakeHand")
@@ -112,14 +115,11 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             annotationView.rightCalloutAccessoryView = shakeImage
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handShakeClicked))
             shakeImage.addGestureRecognizer(tapGestureRecognizer)
-            
-            
         }
         return annotationView
     }
     
     @objc private func handShakeClicked() {
-        AudioServicesPlaySystemSoundWithCompletion(1519) { }
         
         self.makeBackgroundBlur()
         self.showWaveMessage()
@@ -152,12 +152,13 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         }
         let alertController = UIAlertController(title: "The person will be notified", message: "Are you sure?", preferredStyle: .actionSheet)
         let waveButton = UIAlertAction(title: "Wave", style: .default) { _ in
+            AudioServicesPlaySystemSoundWithCompletion(1519) { }
             print("Send notification with viewModel")
+            let notificationModel = NotificationModel(receiverID: "Deneme", senderID: self.userID, senderImageURL: "imageURL" , senderName: "Furkan Vural", isWaitingResponse: false)
+            self.viewModel.saveNotificationToDatabase(data: notificationModel)
             
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            
-        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
         cancel.setValue(UIColor.systemRed, forKeyPath: "titleTextColor")
 
         alertController.addAction(waveButton)
@@ -172,7 +173,6 @@ extension MapViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
         let selectedIndex = tabBarController.selectedIndex
-        
         tabBarCounter[selectedIndex] += 1
         
         if tabBarCounter[selectedIndex] >= 2 && tabBarController.selectedIndex == 0 {
@@ -181,4 +181,23 @@ extension MapViewController: UITabBarControllerDelegate {
             locationManager.stopUpdatingLocation()
         }
     }
+}
+
+extension MapViewController: MapViewControllerDelegate {
+    
+    func showSuccessAlertMessage() {
+        showSheetMessage(title: "Success", message: "Success Messsage", color: .systemGreen, iconName: "car")
+    }
+    
+    func showErrorAlertMessage() {
+        showSheetMessage(title: "Error", message: "Error Messsage", color: .systemRed, iconName: "car")
+    }
+    
+    func showSheetMessage(title: String, message: String, color: UIColor, iconName: String) {
+        let sheetPresentationController = self.storyboard?.instantiateViewController(withIdentifier: "MessageSheetViewController") as! MessageSheetViewController
+        sheetPresentationController.configure(title: title, message: message, color: color, iconName: iconName)
+        self.present(sheetPresentationController, animated: true)
+    }
+    
+    
 }

@@ -49,6 +49,7 @@
 		04771B0D2BB55421009A5714 /* UserDefaultProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04771B0C2BB55421009A5714 /* UserDefaultProvider.swift */; };
 		04771B102BB56427009A5714 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 04771B0F2BB56427009A5714 /* Kingfisher */; };
 		04771B122BB6AD0A009A5714 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04771B112BB6AD0A009A5714 /* UIView+Extension.swift */; };
+		04771B142BB6E3A2009A5714 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04771B132BB6E3A2009A5714 /* NotificationModel.swift */; };
 		0497268F2AFAD82900C43BA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497268E2AFAD82900C43BA4 /* AppDelegate.swift */; };
 		049726912AFAD82900C43BA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049726902AFAD82900C43BA4 /* SceneDelegate.swift */; };
 		049726962AFAD82900C43BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049726942AFAD82900C43BA4 /* Main.storyboard */; };
@@ -85,6 +86,7 @@
 		04771B082BB4229A009A5714 /* MessageSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSheetViewController.swift; sourceTree = "<group>"; };
 		04771B0C2BB55421009A5714 /* UserDefaultProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultProvider.swift; sourceTree = "<group>"; };
 		04771B112BB6AD0A009A5714 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		04771B132BB6E3A2009A5714 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		0497268B2AFAD82900C43BA4 /* Code Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0497268E2AFAD82900C43BA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		049726902AFAD82900C43BA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			children = (
 				04B268D12B3AF7290096CB0C /* User.swift */,
 				04B268D32B3AF7AB0096CB0C /* LocationModel.swift */,
+				04771B132BB6E3A2009A5714 /* NotificationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				04771AD82BAEE77F009A5714 /* Constants.swift in Sources */,
 				04523CA52B8F441D00C5D0C9 /* FirstOnboardingViewController.swift in Sources */,
 				04523CA72B8F442900C5D0C9 /* SecondOnboardingViewController.swift in Sources */,
+				04771B142BB6E3A2009A5714 /* NotificationModel.swift in Sources */,
 				04771B092BB4229A009A5714 /* MessageSheetViewController.swift in Sources */,
 				04540DB62B121CF3005DD9BF /* UserCollectionViewCell.swift in Sources */,
 				042DCA872B7212B300B6F57A /* UIHelper.swift in Sources */,
