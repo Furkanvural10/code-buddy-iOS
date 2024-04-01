@@ -67,7 +67,7 @@ final class MessageSheetViewController: UIViewController {
             0.25 * context.maximumDetentValue
         })]
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             self.dismiss(animated: true)
         }
    

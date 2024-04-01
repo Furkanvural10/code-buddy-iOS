@@ -27,12 +27,25 @@ extension UserDefaultProvider: UserDefaultsProvidable {
         userDefaults.set(user.id, forKey: "userID")
     }
     
+    
+    /**
+     Fetches user information from UserDefaults and returns a User object if all required fields are present.
+
+     - Returns: An optional User object containing user information if all required fields are found in UserDefaults. If any required field is missing, returns nil.
+
+     - Note: The function retrieves user information from UserDefaults using the following keys:
+        - "userName": User's name as a String.
+        - "userTitle": User's title as a String.
+        - "userImageURL": URL string for the user's profile image.
+        - "status": User's status message as a String.
+
+     - Important: Ensure that all required fields are set in UserDefaults before calling this function, otherwise it will return nil.
+    */
     func getUserInformation() -> User? {
-        
         guard let name = userDefaults.object(forKey: "userName") as? String,
-           let title = userDefaults.object(forKey: "userTitle") as? String,
-           let imageURL = userDefaults.object(forKey: "userImageURL") as? String,
-           let status = userDefaults.object(forKey: "status") as? String else {
+              let title = userDefaults.object(forKey: "userTitle") as? String,
+              let imageURL = userDefaults.object(forKey: "userImageURL") as? String,
+              let status = userDefaults.object(forKey: "status") as? String else {
             return nil
         }
         

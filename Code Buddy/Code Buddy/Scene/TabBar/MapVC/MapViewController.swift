@@ -141,29 +141,44 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     }
     
     private func makeBackgroundBlur() {
-        DispatchQueue.main.async {
-            self.view.addBlurView()
-        }
+        DispatchQueue.main.async { self.view.addBlurView() }
+        showAlertController(title: "XX", message: "YY", preferredStyle: .actionSheet)
     }
     
     @objc private func showWaveMessage() {
         DispatchQueue.main.async {
             self.view.removeBlurViewFromView()
         }
-        let alertController = UIAlertController(title: "The person will be notified", message: "Are you sure?", preferredStyle: .actionSheet)
-        let waveButton = UIAlertAction(title: "Wave", style: .default) { _ in
+        
+    }
+    
+    private func showAlertController(title: String, message: String, preferredStyle: UIAlertController.Style) {
+        let alertController = UIAlertController(title: title,  message: message, preferredStyle: preferredStyle)
+        let mainButton = UIAlertAction(title: "Say Hi", style: .default) { _ in
             AudioServicesPlaySystemSoundWithCompletion(1519) { }
-            print("Send notification with viewModel")
-            let notificationModel = NotificationModel(receiverID: "Deneme", senderID: self.userID, senderImageURL: "imageURL" , senderName: "Furkan Vural", isWaitingResponse: false)
-            self.viewModel.saveNotificationToDatabase(data: notificationModel)
+            self.checkUserProfil()
             
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
         cancel.setValue(UIColor.systemRed, forKeyPath: "titleTextColor")
 
-        alertController.addAction(waveButton)
+        alertController.addAction(mainButton)
         alertController.addAction(cancel)
         self.present(alertController, animated: true)
+    }
+    
+    private func checkUserProfil() {
+        viewModel.checkUserProfileCrated(receiverID: "Tıklanan kullanıcının ID'si")
+    }
+    
+    private func showSheetMessage(title: String, message: String, color: UIColor, iconName: String) {
+        let sheetPresentationController = self.storyboard?.instantiateViewController(withIdentifier: "MessageSheetViewController") as! MessageSheetViewController
+        sheetPresentationController.configure(title: title, message: message, color: color, iconName: iconName)
+        self.present(sheetPresentationController, animated: true)
+    }
+    
+    private func showBasicAlert() {
+        
     }
 }
 
@@ -184,20 +199,13 @@ extension MapViewController: UITabBarControllerDelegate {
 }
 
 extension MapViewController: MapViewControllerDelegate {
-    
-    func showSuccessAlertMessage() {
-        showSheetMessage(title: "Success", message: "Success Messsage", color: .systemGreen, iconName: "car")
-    }
-    
-    func showErrorAlertMessage() {
-        showSheetMessage(title: "Error", message: "Error Messsage", color: .systemRed, iconName: "car")
-    }
-    
-    func showSheetMessage(title: String, message: String, color: UIColor, iconName: String) {
-        let sheetPresentationController = self.storyboard?.instantiateViewController(withIdentifier: "MessageSheetViewController") as! MessageSheetViewController
-        sheetPresentationController.configure(title: title, message: message, color: color, iconName: iconName)
-        self.present(sheetPresentationController, animated: true)
+    func showErrorAlertMessage(title: String, message: String) {
+        showSheetMessage(title: title, message: message, color: .systemRed, iconName: "car")
     }
     
     
+    func showSuccessAlertMessage(title: String, message: String) {
+        showSheetMessage(title: title, message: message, color: .systemGreen, iconName: "car")
+    }
+
 }
