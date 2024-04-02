@@ -14,13 +14,16 @@ import FirebaseAuth
 final class MapViewController: UIViewController {
     
     @IBOutlet private weak var mapView: MKMapView!
-    
+    private var shakeImage: UIImageView!
+    private var loadingView: UIActivityIndicatorView!
+
     private var tabBarCounter = [Int](repeating: 0, count: 4)
     private let viewModel = MapViewModel()
-
+    
     private lazy var locationManager = CLLocationManager()
     private var location: CLLocationCoordinate2D!
     private var userID: String = Auth.auth().currentUser!.uid
+    private var allUser = [User]()
     
     // Mock Location Data
     let locations = [
@@ -38,9 +41,22 @@ final class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLoadingView()
+        getUser()
         viewModel.delegate = self
         setupTabBar()
         setupMap()
+        
+        
+    }
+    
+    private func setupLoadingView() {
+        loadingView = UIActivityIndicatorView(style: .large)
+        loadingView.startAnimating()
+        view.addSubview(loadingView)
+        loadingView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
     }
     
     private func setupTabBar() {
@@ -56,18 +72,34 @@ final class MapViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        mapView.overrideUserInterfaceStyle = .dark
-        mapView.showsUserLocation = true
-        
-        // Temporary Code !
-        for location in locations {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = location
-            annotationList.append(annotation)
-            annotation.title = "Furkan Vural\nWorking"
-            annotation.subtitle = "iOS Developer"
-            mapView.addAnnotation(annotation)
+        DispatchQueue.main.async {
+            self.mapView.overrideUserInterfaceStyle = .dark
         }
+    
+    }
+    
+    func showUser(allUsers: [User]) {
+        DispatchQueue.main.async {
+            self.mapView.showsUserLocation = true
+            allUsers.forEach { user in
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2D(latitude: user.location.latitude, longitude: user.location.longitude)
+                self.annotationList.append(annotation)
+                annotation.title = user.name
+                annotation.subtitle = user.title
+                self.mapView.addAnnotation(annotation)
+            }
+            self.loadingView.stopAnimating()
+        }
+        
+    }
+    
+    private func getUser() {
+        
+            self.loadingView.startAnimating()
+            self.viewModel.getUsers()
+            self.allUser = self.viewModel.users
+        
     }
 }
 
@@ -108,7 +140,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             annotationView.layer.addSublayer(circleLayer)
             
             // Right Callout Accessory View (Button)
-            let shakeImage = UIImageView()
+            shakeImage = UIImageView()
             shakeImage.isUserInteractionEnabled = true
             shakeImage.image = UIImage(named: "shakeHand")
             shakeImage.frame = CGRectMake(0,0,50,50)
@@ -118,7 +150,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         }
         return annotationView
     }
-    
+        
     @objc private func handShakeClicked() {
         
         self.makeBackgroundBlur()
@@ -177,9 +209,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         self.present(sheetPresentationController, animated: true)
     }
     
-    private func showBasicAlert() {
-        
-    }
+    
 }
 
 extension MapViewController: UITabBarControllerDelegate {
@@ -199,10 +229,10 @@ extension MapViewController: UITabBarControllerDelegate {
 }
 
 extension MapViewController: MapViewControllerDelegate {
+
     func showErrorAlertMessage(title: String, message: String) {
         showSheetMessage(title: title, message: message, color: .systemRed, iconName: "car")
     }
-    
     
     func showSuccessAlertMessage(title: String, message: String) {
         showSheetMessage(title: title, message: message, color: .systemGreen, iconName: "car")

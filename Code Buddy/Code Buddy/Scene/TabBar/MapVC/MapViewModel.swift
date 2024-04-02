@@ -1,8 +1,10 @@
 import Foundation
+import FirebaseFirestore
 
 protocol MapViewControllerDelegate: AnyObject {
     func showSuccessAlertMessage(title: String, message: String)
     func showErrorAlertMessage(title: String, message: String)
+    func showUser(allUsers: [User])
 }
 
 protocol MapViewModelProtocol {
@@ -20,6 +22,7 @@ protocol MapViewModelProtocol {
 final class MapViewModel {
     var users = [User]()
     weak var delegate: MapViewControllerDelegate?
+    private var firebase = FirebaseManager.shared
 }
 
 extension MapViewModel: MapViewModelProtocol {
@@ -27,6 +30,21 @@ extension MapViewModel: MapViewModelProtocol {
     // Go DB get user and fill user list
     func getUsers() {
         
+        let query = Firestore.firestore().collection("Users").whereField("status", isEqualTo: "Online")
+
+        Task {
+            do {
+                let result = await firebase.getAllUser(of: User.self, with: query)
+                switch result {
+                case .success(let success):
+                    print(success.map({ $0.name }))
+                    users = success
+                    delegate?.showUser(allUsers: users)
+                case .failure(let failure):
+                    print("-------")
+                }
+            }
+        }
     }
     
     func sendNotification() {

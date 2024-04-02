@@ -9,6 +9,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseStorage
 import FirebaseAuth
+import Firebase
 
 
 final class FirebaseManager {
@@ -19,6 +20,8 @@ final class FirebaseManager {
     private let id = Auth.auth().currentUser?.uid
     private let encoder = JSONEncoder()
     
+    
+    
     private init() {}
     
     func createUser() {
@@ -26,13 +29,32 @@ final class FirebaseManager {
     }
     
     
-    func getAllUser() {
-        
+    func getAllUser<T: Codable>(of type: T.Type ,with query: Query) async -> Result<[T], Error> {
+        do {
+            
+            var response: [T] = []
+            let querySnapshot = try await query.getDocuments()
+            
+            for document in querySnapshot.documents {
+                do {
+                    
+                    let data = try document.data(as: T.self)
+                    response.append(data)
+                } catch let error {
+                    print("Error: \(#function) document(s) not decoded from data, \(error)")
+                    return .failure(error)
+                }
+            }
+            
+            return .success(response)
+        } catch let error {
+            print("Error: couldn't access snapshot, \(error)")
+            return .failure(error)
+        }
     }
     
     func uploadImage(imageData: Data, user: User, completion: @escaping (Result<Bool, Error>) -> Void) {
 
-        let storage = Storage.storage()
         let storageRef = storage.reference()
         let mediaFolder = storageRef.child("Images")
         let imageReference = mediaFolder.child("image.jpg")
@@ -77,7 +99,7 @@ final class FirebaseManager {
             do {
                 let jsonData = try encoder.encode(data)
                 let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: Any]
-                let collectionRef = db.collection(collection).document(id!).collection(secondCollection!).document()
+                let collectionRef = db.collection(collection).document(document).collection(secondCollection!).document()
                 
                 collectionRef.setData(json) { error in
                     guard error == nil else {
