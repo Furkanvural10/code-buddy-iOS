@@ -34,15 +34,20 @@ extension MapViewModel: MapViewModelProtocol {
 
         Task {
             do {
-                let result = await firebase.getAllUser(of: User.self, with: query)
-                switch result {
-                case .success(let success):
-                    print(success.map({ $0.name }))
-                    users = success
-                    delegate?.showUser(allUsers: users)
-                case .failure(let failure):
-                    print("-------")
+                let result = firebase.getAllUser(of: User.self, with: query) { result in
+                    self.users.removeAll(keepingCapacity: false)
+                    switch result {
+                    case .success(let success):
+                        
+                        print(success.map({ $0.name }))
+                        self.users = success
+                        self.delegate?.showUser(allUsers: self.users)
+                        
+                    case .failure(let failure):
+                        print("Tekrar dene cıkart**!!")
+                    }
                 }
+                
             }
         }
     }

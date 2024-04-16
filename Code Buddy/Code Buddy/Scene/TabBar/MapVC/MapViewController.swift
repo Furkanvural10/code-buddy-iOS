@@ -52,7 +52,9 @@ final class MapViewController: UIViewController {
     
     private func setupLoadingView() {
         loadingView = UIActivityIndicatorView(style: .large)
-        loadingView.startAnimating()
+        view.addBlurView()
+        loadingView.color = .white
+        
         view.addSubview(loadingView)
         loadingView.snp.makeConstraints { make in
             make.center.equalToSuperview()
@@ -79,6 +81,7 @@ final class MapViewController: UIViewController {
     }
     
     func showUser(allUsers: [User]) {
+        
         DispatchQueue.main.async {
             self.mapView.showsUserLocation = true
             allUsers.forEach { user in
@@ -90,16 +93,17 @@ final class MapViewController: UIViewController {
                 self.mapView.addAnnotation(annotation)
             }
             self.loadingView.stopAnimating()
+            self.view.removeBlurViewFromView()
         }
         
     }
     
     private func getUser() {
-        
+        DispatchQueue.main.async {
             self.loadingView.startAnimating()
-            self.viewModel.getUsers()
-            self.allUser = self.viewModel.users
-        
+        }
+        self.viewModel.getUsers()
+        self.allUser = self.viewModel.users
     }
 }
 
@@ -186,16 +190,20 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
     private func showAlertController(title: String, message: String, preferredStyle: UIAlertController.Style) {
         let alertController = UIAlertController(title: title,  message: message, preferredStyle: preferredStyle)
-        let mainButton = UIAlertAction(title: "Say Hi", style: .default) { _ in
+        let sayHiButton = UIAlertAction(title: "Hi 👋", style: .default) { _ in
             AudioServicesPlaySystemSoundWithCompletion(1519) { }
             self.checkUserProfil()
             
         }
+        let sayHaveNiceDayButton = UIAlertAction(title: "Have a nice day 🎉", style: .default) { _ in
+            AudioServicesPlaySystemSoundWithCompletion(1519) { }
+        }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
         cancel.setValue(UIColor.systemRed, forKeyPath: "titleTextColor")
 
-        alertController.addAction(mainButton)
+        alertController.addAction(sayHiButton)
         alertController.addAction(cancel)
+        alertController.addAction(sayHaveNiceDayButton)
         self.present(alertController, animated: true)
     }
     

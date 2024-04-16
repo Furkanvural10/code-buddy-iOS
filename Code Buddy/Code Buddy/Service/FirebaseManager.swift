@@ -19,39 +19,42 @@ final class FirebaseManager {
     private let storage = Storage.storage()
     private let id = Auth.auth().currentUser?.uid
     private let encoder = JSONEncoder()
-    
-    
-    
+
     private init() {}
     
-    func createUser() {
-        
-    }
     
-    
-    func getAllUser<T: Codable>(of type: T.Type ,with query: Query) async -> Result<[T], Error> {
-        do {
+    func getAllUser<T: Codable>(of type: T.Type ,with query: Query, completion: @escaping (Result<[T], Error>) -> Void) -> ListenerRegistration {
+        let listener = query.addSnapshotListener { querySnapshot, error in
+            if let error = error {
+                print("Error: couldn't access snapshot, \(error)")
+                completion(.failure(error))
+                return
+            }
+            
+            guard let documents = querySnapshot?.documents else {
+                print("Error: snapshot is nil")
+                completion(.failure(NSError(domain: "Firestore", code: 0, userInfo: [NSLocalizedDescriptionKey: "Snapshot is nil"])))
+                return
+            }
             
             var response: [T] = []
-            let querySnapshot = try await query.getDocuments()
-            
-            for document in querySnapshot.documents {
+            for document in documents {
                 do {
-                    
                     let data = try document.data(as: T.self)
                     response.append(data)
-                } catch let error {
-                    print("Error: \(#function) document(s) not decoded from data, \(error)")
-                    return .failure(error)
+                } catch {
+                    print("Error decoding document \(document.documentID): \(error)")
+                    completion(.failure(error))
+                    return
                 }
             }
             
-            return .success(response)
-        } catch let error {
-            print("Error: couldn't access snapshot, \(error)")
-            return .failure(error)
+            completion(.success(response))
         }
+        
+        return listener
     }
+
     
     func uploadImage(imageData: Data, user: User, completion: @escaping (Result<Bool, Error>) -> Void) {
 
@@ -109,7 +112,6 @@ final class FirebaseManager {
                     completion(.success(true))
                     return
                 }
-                
             } catch {
                 print("Veri dönüştürülürken hata oluştu: ❌ \(error.localizedDescription)")
                 completion(.failure(error))
