@@ -195,15 +195,24 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             self.checkUserProfil()
             
         }
-        let sayHaveNiceDayButton = UIAlertAction(title: "Have a nice day 🎉", style: .default) { _ in
+        let sayHaveNiceDayButton = UIAlertAction(title: "Have a nice day 😊", style: .default) { _ in
             AudioServicesPlaySystemSoundWithCompletion(1519) { }
         }
+        
+        
+        let workTogetherButton = UIAlertAction(title: "Work Together 🤝", style: .default) { _ in
+            AudioServicesPlaySystemSoundWithCompletion(1519) { }
+        }
+        
+        
+        
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
         cancel.setValue(UIColor.systemRed, forKeyPath: "titleTextColor")
 
         alertController.addAction(sayHiButton)
         alertController.addAction(cancel)
         alertController.addAction(sayHaveNiceDayButton)
+        alertController.addAction(workTogetherButton)
         self.present(alertController, animated: true)
     }
     
