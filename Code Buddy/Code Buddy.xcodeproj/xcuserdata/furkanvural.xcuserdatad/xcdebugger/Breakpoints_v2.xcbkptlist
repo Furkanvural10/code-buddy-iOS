@@ -30,8 +30,8 @@
             filePath = "Code Buddy/Scene/TabBar/ProfileVC/ProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "showSavedUserData(user:)"
             landmarkType = "7">
             <Locations>
@@ -71,97 +71,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "33F17E18-2201-41C5-AD67-19A0B18DB1E8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Code Buddy/Utilities/UserDefaultProvider.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "getUserInformation()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "33F17E18-2201-41C5-AD67-19A0B18DB1E8 - 15667fbf5fc85555"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Code_Buddy.UserDefaultProvider.getUserInformation() -&gt; Swift.Optional&lt;Code_Buddy.User&gt;"
-                  moduleName = "Code Buddy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/furkanvural/Desktop/Code%20Buddy%20iOS/code-buddy-iOS/Code%20Buddy/Code%20Buddy/Utilities/UserDefaultProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "1400">
-               </Location>
-               <Location
-                  uuid = "33F17E18-2201-41C5-AD67-19A0B18DB1E8 - 15667fbf5fc85555"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Code_Buddy.UserDefaultProvider.getUserInformation() -&gt; Swift.Optional&lt;Code_Buddy.User&gt;"
-                  moduleName = "Code Buddy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/furkanvural/Desktop/Code%20Buddy%20iOS/code-buddy-iOS/Code%20Buddy/Code%20Buddy/Utilities/UserDefaultProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "2480">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "97015794-A525-43B4-BBF1-FC3E81180CB8"
+            uuid = "F39CDD3D-EC5F-4F00-8022-8546DBBC9C96"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Code Buddy/Utilities/UserDefaultProvider.swift"
+            filePath = "Code Buddy/Scene/TabBar/MapVC/MapViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "getUserInformation()"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "getUsers()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "97015794-A525-43B4-BBF1-FC3E81180CB8 - 15667fbf5fc85ad9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Code_Buddy.UserDefaultProvider.getUserInformation() -&gt; Swift.Optional&lt;Code_Buddy.User&gt;"
-                  moduleName = "Code Buddy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/furkanvural/Desktop/Code%20Buddy%20iOS/code-buddy-iOS/Code%20Buddy/Code%20Buddy/Utilities/UserDefaultProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "1980">
-               </Location>
-               <Location
-                  uuid = "97015794-A525-43B4-BBF1-FC3E81180CB8 - 15667fbf5fc85afa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Code_Buddy.UserDefaultProvider.getUserInformation() -&gt; Swift.Optional&lt;Code_Buddy.User&gt;"
-                  moduleName = "Code Buddy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/furkanvural/Desktop/Code%20Buddy%20iOS/code-buddy-iOS/Code%20Buddy/Code%20Buddy/Utilities/UserDefaultProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "1980">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

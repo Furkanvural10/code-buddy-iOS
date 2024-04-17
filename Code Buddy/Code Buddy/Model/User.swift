@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum UserStatus: String {
+enum UserStatus: String, Codable {
     case offline = "Offline"
     case online = "Online"
 }
 
-struct User: Hashable, Codable {
+struct User: Codable, Hashable {
     let name: String
     let title: String
     let status: UserStatus.RawValue

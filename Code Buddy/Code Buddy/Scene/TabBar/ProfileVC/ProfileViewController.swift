@@ -2,6 +2,7 @@ import UIKit
 import FirebaseAuth
 import SnapKit
 import Kingfisher
+import CoreLocation
 
 final class ProfileViewController: UIViewController {
 
@@ -222,7 +223,7 @@ extension ProfileViewController: ProfileViewControllerDelegate {
     
     // MARK: - ShowSheetMessage
     private func showSheetMessage(title: String, message: String, iconName: String, color: UIColor) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let sheetPresentationController = self.storyboard?.instantiateViewController(withIdentifier: "MessageSheetViewController") as! MessageSheetViewController
         sheetPresentationController.configure(title: title, message: message, color: color, iconName: iconName)
         self.present(sheetPresentationController, animated: true)
@@ -236,6 +237,7 @@ extension ProfileViewController: UITabBarControllerDelegate {
     // MARK: - Change Tabbar View
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.selectedIndex == 3 && isProfileUpdated {
+            
             tabBarController.selectedIndex = 0
         }
     }
